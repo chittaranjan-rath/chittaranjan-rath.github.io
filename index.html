@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Cheat Sheet</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+a {
+ -webkit-transition: .25s all;
+ transition: .25s all;
+}
+.card {
+  padding-left:auto;
+  padding-right:auto;
+  min-height:500px;
+  margin-top:15px;
+ box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+ -webkit-transition: .25s box-shadow;
+ transition: .25s box-shadow;
+}
+.card:focus, .card:hover {
+ box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.card-inverse .card-img-overlay {
+ background-color: rgba(51, 51, 51, 0.85);
+ border-color: rgba(51, 51, 51, 0.85);
+}
+.card-img-top{
+  margin-top:10px;
+}
+.col-xs-12{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.row{
+  margin-left:auto;
+  margin-right:auto;
+}
+.navbar{
+margin-bottom:0;
+border-radius:0;
+}
+body {
+  font: 20px "Helvetica";
+}
+
+a {
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  text-decoration: none;
+}
+
+.donate {
+  background: #00684d;
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,0.4) 100%),
+              -webkit-linear-gradient(left, lighten(#00684d, 15%) 0%, #00684d 50%, lighten(#00684d, 15%) 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%),
+              linear-gradient(to right, lighten(#00684d, 15%) 0%, #00684d 50%, lighten(#00684d, 15%) 100%);
+  background-position: 0 0;
+  background-size: 200% 100%;
+  border-radius: 4px;
+  color: #fff;
+  padding: 15px 65px 15px 15px;
+  text-shadow: 1px 1px 5px #666;
+  -webkit-transition: all 800ms;
+  transition: all 800ms;
+
+  &:after {
+    border-left: 1px solid darken(#00684d, 5%);
+    color: darken(#00684d, 10%);
+    content: "\f004";
+    font: 20px "FontAwesome";
+    padding: 10px 0;
+    padding-left: 15px;
+    position: absolute;
+    right: 16px;
+    top: 7px;
+    -webkit-transition: all 600ms 200ms;
+    transition: all 600ms 200ms;
+  }
+
+  &:hover {
+    background-position: -100% 0;
+
+    &:after {
+      border-left: 1px solid lighten(#00684d, 5%);
+      color: #fff;
+      text-shadow: 0 0 10px #000;
+    }
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%; }
+.gallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease; }
+.gallery .animation {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+
+@media (max-width: 450px) {
+    .gallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn.filter {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+}
+
+
+body {
+  background-color: #F5F5F5;
+}
+
+
+@heading-bg-color: #FFFFFF;
+@heading-text-color: #00000;
+.panel-theme {
+  background-color: @heading-bg-color;
+  border: none;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, .2);
+
+  & > .panel-heading {
+    background-color: @heading-bg-color;
+    border: none;
+
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+
+    .panel-title {
+      font-weight: bold;
+    }
+  }
+
+  & > .panel-footer {
+    background-color: @heading-bg-color;
+    border: none;
+    border-top: 1px solid #E0E0E0;
+    + .panel-collapse > .panel-body {
+      border-bottom: none;
+    }
+  }
+}
+
+@primary-color: #2196F3;
+.panel-primary {
+  &:extend(.panel-theme);
+
+  & > .panel-heading {
+    background-color: @primary-color;
+    color: #fff;
+
+    .badge {
+      color: @primary-color;
+      background-color: #fff;
+    }
+  }
+}
+
+@success-color: #8BC34A;
+.panel-success {
+  &:extend(.panel-theme);
+
+  & > .panel-heading {
+    background-color: @success-color;
+    color: #fff;
+
+    .badge {
+      color: @success-color;
+      background-color: #fff;
+    }
+  }
+}
+
+@info-color: #00BCD4;
+.panel-info {
+  &:extend(.panel-theme);
+
+  & > .panel-heading {
+    background-color: @info-color;
+    color: #fff;
+
+    .badge {
+      color: @info-color;
+      background-color: #fff;
+    }
+  }
+}
+
+@warning-color: #FF9800;
+.panel-warning {
+  &:extend(.panel-theme);
+
+  & > .panel-heading {
+    background-color: @warning-color;
+    color: #fff;
+
+    .badge {
+      color: @warning-color;
+      background-color: #fff;
+    }
+  }
+}
+
+@danger-color: #F44336;
+.panel-danger {
+  &:extend(.panel-theme);
+
+  & > .panel-heading {
+    background-color: @danger-color;
+    color: #fff;
+
+    .badge {
+      color: @danger-color;
+      background-color: #fff;
+    }
+  }
+}
+</style>
+</head>
+<body>
+
+
+
+  <div class="jumbotron">
+    <h1>Bootstrap Tutorial</h1>
+    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+  </div>
+
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">CharityHome</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#" style="color:blue">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Causes</a></li>
+        <li><a href="#">Event</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Pages</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <div class="wrap">
+
+      </ul>
+    </div>
+  </nav>
+  ...
+  <div class="search">
+     <input type="text" class="searchTerm" placeholder="What are you looking for?">
+     <button type="submit" class="searchButton">
+       <i class="fa fa-search"></i>
+    </button>
+  </div>
+ </div>
+
+</br>
+</br>
+  <div class="container">
+    <img src="img.jpg" alt="Snow" style="width:100%;">
+    <div class="bottom-left"><a href="#" class="donate">Learn More</a></div>
+    <div class="top-left"><a href="#" class="donate">DONATE</a></div>
+    <div class="top-right">Top Right</div>
+    <div class="bottom-right">Bottom Right</div>
+    <div class="centered">
+        <img src="img1.jpg" alt="" class="img-responsive"></div>
+  </div>
+  <style>
+  .container {
+      position: relative;
+      text-align: center;
+      color: white;
+  }
+
+  /* Bottom left text */
+  .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+  }
+
+  /* Top left text */
+  .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+  }
+
+  /* Top right text */
+  .top-right {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+  }
+
+  /* Bottom right text */
+  .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+  }
+
+  /* Centered text */
+  .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  </style>
+
+
+
+
+<div class="row">
+  <div class="col-sm-4"><img src="img2.jpg" alt="" class="img-responsive"></div>
+  <div class="col-sm-4"><img src="img3.jpg" alt="" class="img-responsive"></div>
+  <div class="col-sm-4"><img src="img4.jpg" alt="" class="img-responsive"></div>
+</div>
+
+<div class="row" id="box-search">
+  <div class="thumbnail text-center">
+      <img src="img5.jpg" alt="" class="img-responsive">
+      <div class="caption">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+      </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+
+    <!-- Add the extra clearfix for only the required viewport -->
+    <div class="clearfix hidden-sm-down hidden-lg-up"></div>
+
+
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x150" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+      </div></div>
+
+
+
+
+
+
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x150" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+      </div></div>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x150" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div></div>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x150" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div></div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="row" id="box-search">
+  <div class="thumbnail text-center">
+      <img src="img7.jpeg" alt="" class="img-responsive">
+      <div class="caption">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quisquam?</p>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-12 d-flex justify-content-center mb-5">
+
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
+        <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
+
+    </div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<!-- Grid row -->
+<div class="gallery" id="gallery">
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+        <img class="img-thumbnail" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+
+
+<br/>
+<div class="container">
+
+
+  <div class="row">
+
+
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-theme">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <h3 class="panel-title" style="color:blue">latest news </h4>
+        </div>
+        <div class="panel-body">
+          <p style="color:blue">Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+
+        <!-- Table -->
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-theme">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <h3 class="panel-title">Panel Title</h3>
+        </div>
+        <div class="panel-body">
+          <p style="color:blue">Address</p>
+        </div>
+
+        <!-- List group -->
+        <ul class="list-group">
+          <li class="list-group-item" style="color:blue">Cras justo odio</li>
+          <li class="list-group-item" style="color:blue">Dapibus ac facilisis in</li>
+          <li class="list-group-item" style="color:blue" >Morbi leo risus</li>
+          <li class="list-group-item" style="color:blue">Porta ac consectetur ac</li>
+          <li class="list-group-item" style="color:blue">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="panel panel-theme panel-primary">
+        <div class="panel-heading">Heading  <span class="badge">1</span></div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="panel panel-theme panel-success">
+        <div class="panel-heading" style="color:blue">Heading  <span class="badge">2</span></div>
+        <div class="panel-body" style="color:blue">Panel content</div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="panel panel-theme panel-info">
+        <div class="panel-heading">Heading  <span class="badge">3</span></div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="panel panel-theme panel-warning">
+        <div class="panel-heading">Heading  <span class="badge">4</span></div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-theme panel-danger">
+        <div class="panel-heading">Heading  <span class="badge">5</span></div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/…/l…/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<div style="height:400px"></div>
+</body>
+</html>
