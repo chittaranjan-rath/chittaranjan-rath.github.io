@@ -89,19 +89,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .edu-school{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--blue-light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .edu-grade{font-family:'Playfair Display',serif;font-size:2rem;color:rgba(255,255,255,.25);font-style:italic;margin-top:.5rem}
 
-/* ── ARTIFACTS ──────────────────────────────── */
-.artifact-label{
-  display:inline-flex;align-items:center;gap:.6rem;
-  font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:400;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--white);background:#C8A000;
-  padding:.35rem 1rem;border-radius:3px;margin-bottom:2.5rem;
-}
-.a1-hero{
-  background:var(--black);padding:80px 2rem 70px;
-  position:relative;overflow:hidden;
-  border-top:5px solid #F5C518;
-}
+/* ── ARTIFACT 1 ──────────────────────────────── */
+.artifact-label{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:#C8A000;padding:.35rem 1rem;border-radius:3px;margin-bottom:2.5rem}
+.a1-hero{background:var(--black);padding:80px 2rem 70px;position:relative;overflow:hidden;border-top:5px solid #F5C518}
 .a1-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .a1-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.2rem}
 .a1-hero-title em{font-style:italic;color:#F5C518}
@@ -113,86 +103,123 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .a1-stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:500;color:var(--white);line-height:1}
 .a1-stat-n em{font-style:italic;color:#F5C518}
 .a1-stat-l{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem;letter-spacing:.03em}
-/* deco circle */
 .a1-hero::after{content:'';position:absolute;right:-120px;top:-120px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(245,197,24,.1);pointer-events:none}
-
-/* sections */
 .a1-section{padding:80px 2rem;max-width:1200px;margin:0 auto}
-.a1-section + .a1-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
+.a1-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
 .a1-h{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2}
 .a1-h em{font-style:italic;color:var(--blue)}
 .a1-body{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:72ch}
 .a1-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.8rem}
-
-/* two-col layout */
 .a1-two{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-
-/* value pillars */
 .a1-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
 .a1-pillar{background:var(--white);padding:2rem 1.8rem;border-top:3px solid #F5C518}
 .a1-pillar h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
 .a1-pillar p{font-size:.84rem;color:var(--mid);line-height:1.7}
-
-/* objectives */
 .a1-obj-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:2rem}
 .a1-obj-list li{display:flex;align-items:baseline;gap:1.4rem;padding:1.1rem 0;border-top:1px solid var(--border);font-size:.92rem;color:#3a3a3f;line-height:1.65}
 .a1-obj-list li:last-child{border-bottom:1px solid var(--border)}
 .a1-obj-n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--blue);letter-spacing:.08em;flex-shrink:0;padding-top:.06em}
-
-/* target audience */
 .a1-audience{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
 .a1-aud-card{background:var(--white);padding:1.8rem 2rem;transition:background .2s}
 .a1-aud-card:hover{background:#f0f8ff}
 .a1-aud-who{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
 .a1-aud-desc{font-size:.84rem;color:var(--mid);line-height:1.65}
-
-/* process */
 .a1-process{display:flex;flex-direction:column;gap:0;margin-top:2rem}
 .a1-step{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--border);align-items:start}
 .a1-step:last-child{border-bottom:1px solid var(--border)}
 .a1-step-n{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:300;color:rgba(0,113,227,.18);line-height:1;padding-top:.1rem}
 .a1-step-body h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
 .a1-step-body p{font-size:.88rem;color:var(--mid);line-height:1.7}
-
-/* tools */
 .a1-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
 .a1-tool{background:var(--white);padding:1.6rem 1.5rem}
 .a1-tool-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);display:block;margin-bottom:.3rem}
 .a1-tool-role{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mid);letter-spacing:.06em;text-transform:uppercase}
-
-/* slideshow */
 .a1-slides-wrap{background:var(--black);padding:80px 2rem}
 .a1-slides-inner{max-width:1200px;margin:0 auto}
 .a1-slides-inner .a1-eyebrow{color:#5ac8fa}
 .a1-slides-inner .a1-h{color:var(--white)}
 .a1-slides-inner .a1-h em{color:#F5C518}
 .a1-slides-inner .a1-body{color:rgba(255,255,255,.5);margin-bottom:2.5rem}
-.a1-frame-wrap{
-  position:relative;width:100%;padding-bottom:56.25%;
-  border-radius:8px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 24px 80px rgba(0,0,0,.5);
-}
+.a1-frame-wrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 80px rgba(0,0,0,.5)}
 .a1-frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-.a1-frame-notice{
-  margin-top:1.2rem;font-family:'JetBrains Mono',monospace;
-  font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.05em;
-  display:flex;align-items:center;gap:.6rem;
-}
-.a1-frame-notice::before{content:'ℹ';font-size:.75rem}
-
-/* deliverables */
+.a1-frame-notice{margin-top:1.2rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.05em;display:flex;align-items:center;gap:.6rem}
+.a1-frame-notice::before{content:'i';font-size:.75rem}
 .a1-deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
 .a1-del{background:var(--white);padding:1.8rem 1.8rem;position:relative}
 .a1-del::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue)}
 .a1-del-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
 .a1-del-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
 
-@media(max-width:768px){
-  .a1-hero-inner,.a1-two,.a1-pillars,.a1-audience,.a1-tools,.a1-deliverables{grid-template-columns:1fr}
-  .a1-step{grid-template-columns:40px 1fr;gap:1rem}
-}
+/* ── ARTIFACT 2 ──────────────────────────────── */
+.a2-label{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:#1a7a4a;padding:.35rem 1rem;border-radius:3px;margin-bottom:2.5rem}
+.a2-hero{background:#061410;padding:80px 2rem 70px;position:relative;overflow:hidden;border-top:5px solid #2ecc71}
+.a2-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.a2-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.2rem}
+.a2-hero-title em{font-style:italic;color:#2ecc71}
+.a2-hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:2rem}
+.a2-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.a2-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#2ecc71;background:rgba(46,204,113,.12);padding:.25rem .7rem;border-radius:3px;border:1px solid rgba(46,204,113,.25)}
+.a2-stat-col{display:flex;flex-direction:column;gap:2rem}
+.a2-stat{border-left:2px solid #2ecc71;padding-left:1.5rem}
+.a2-stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:500;color:var(--white);line-height:1}
+.a2-stat-n em{font-style:italic;color:#2ecc71}
+.a2-stat-l{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem;letter-spacing:.03em}
+.a2-hero::after{content:'';position:absolute;right:-120px;top:-120px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(46,204,113,.1);pointer-events:none}
+.a2-section{padding:80px 2rem;max-width:1200px;margin:0 auto}
+.a2-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
+.a2-h{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2}
+.a2-h em{font-style:italic;color:#1a7a4a}
+.a2-body{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:72ch}
+.a2-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#1a7a4a;display:block;margin-bottom:.8rem}
+.a2-two{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.a2-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a2-pillar{background:var(--white);padding:2rem 1.8rem;border-top:3px solid #2ecc71}
+.a2-pillar h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.a2-pillar p{font-size:.84rem;color:var(--mid);line-height:1.7}
+.a2-obj-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a2-obj-list li{display:flex;align-items:baseline;gap:1.4rem;padding:1.1rem 0;border-top:1px solid var(--border);font-size:.92rem;color:#3a3a3f;line-height:1.65}
+.a2-obj-list li:last-child{border-bottom:1px solid var(--border)}
+.a2-obj-n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#1a7a4a;letter-spacing:.08em;flex-shrink:0;padding-top:.06em}
+.a2-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a2-compare-card{background:var(--white);padding:2.5rem 2rem}
+.a2-compare-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;display:block}
+.a2-compare-label.ml{color:#1a7a4a}
+.a2-compare-label.dl{color:#1a4a7a}
+.a2-compare-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:500;color:var(--text);margin-bottom:.8rem}
+.a2-compare-body{font-size:.84rem;color:var(--mid);line-height:1.75}
+.a2-compare-card.ml-card{border-left:3px solid #2ecc71}
+.a2-compare-card.dl-card{border-left:3px solid #2997ff}
+.a2-audience{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a2-aud-card{background:var(--white);padding:1.8rem 2rem;transition:background .2s}
+.a2-aud-card:hover{background:#f0faf5}
+.a2-aud-who{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a2-aud-desc{font-size:.84rem;color:var(--mid);line-height:1.65}
+.a2-process{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a2-step{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--border);align-items:start}
+.a2-step:last-child{border-bottom:1px solid var(--border)}
+.a2-step-n{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:300;color:rgba(26,122,74,.2);line-height:1;padding-top:.1rem}
+.a2-step-body h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a2-step-body p{font-size:.88rem;color:var(--mid);line-height:1.7}
+.a2-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a2-tool{background:var(--white);padding:1.6rem 1.5rem}
+.a2-tool-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);display:block;margin-bottom:.3rem}
+.a2-tool-role{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mid);letter-spacing:.06em;text-transform:uppercase}
+.a2-conclusion-wrap{background:#061410;padding:80px 2rem}
+.a2-conclusion-inner{max-width:1200px;margin:0 auto}
+.a2-conclusion-inner .a2-eyebrow{color:#5ac8fa}
+.a2-conclusion-inner .a2-h{color:var(--white)}
+.a2-conclusion-inner .a2-h em{color:#2ecc71}
+.a2-conclusion-inner .a2-body{color:rgba(255,255,255,.5);max-width:80ch}
+.a2-insight{background:#f2faf6;border:1px solid rgba(26,122,74,.15);border-left:4px solid #2ecc71;padding:2rem 2.5rem;margin-top:2rem}
+.a2-insight-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#1a7a4a;display:block;margin-bottom:.6rem}
+.a2-insight-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.65}
+.a2-deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a2-del{background:var(--white);padding:1.8rem 1.8rem;position:relative}
+.a2-del::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#1a7a4a}
+.a2-del-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
+.a2-del-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
 
+/* Contact + Footer */
 .contact-hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem;background:radial-gradient(ellipse 80% 60% at 50% 100%,#e8f4ff 0%,var(--white) 70%)}
 .contact-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:500;letter-spacing:-0.02em;line-height:1;color:var(--text);margin-bottom:2rem}
 .contact-name em{font-style:italic;color:var(--blue)}
@@ -203,9 +230,13 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 @media(max-width:768px){
   body{cursor:auto}.cursor{display:none}
   nav{padding:0 1.5rem}.nav-links{display:none}
-  .bio-grid,.pillars,.edu-grid,.artifact-grid{grid-template-columns:1fr}
+  .bio-grid,.pillars,.edu-grid{grid-template-columns:1fr}
   .exp-row{grid-template-columns:1fr;gap:1rem;padding:3rem 0}
   .section,.section-wide{padding:80px 1.5rem}
+  .a1-hero-inner,.a1-two,.a1-pillars,.a1-audience,.a1-tools,.a1-deliverables{grid-template-columns:1fr}
+  .a1-step{grid-template-columns:40px 1fr;gap:1rem}
+  .a2-hero-inner,.a2-two,.a2-pillars,.a2-compare,.a2-audience,.a2-tools,.a2-deliverables{grid-template-columns:1fr}
+  .a2-step{grid-template-columns:40px 1fr;gap:1rem}
 }
 </style>
 </head>
@@ -224,6 +255,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <span class="hero-tag">Software Development Engineer II · Amazon</span>
   <h1 class="hero-name">Chittaranjan<br><em>Rath</em></h1>
@@ -235,6 +267,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   <div class="hero-scroll"><div class="scroll-line"></div></div>
 </section>
 
+<!-- BIO -->
 <div style="background:var(--off-white)" id="bio">
   <div class="section">
     <div class="bio-grid">
@@ -256,6 +289,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
+<!-- VALUE PROPOSITION -->
 <div style="background:var(--white)">
   <div class="section">
     <span class="eyebrow reveal">Value Proposition</span>
@@ -270,6 +304,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
+<!-- EXPERIENCE -->
 <div style="background:var(--off-white)" id="experience">
   <div class="section-wide">
     <span class="eyebrow reveal">Work History</span>
@@ -325,6 +360,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
+<!-- STACK -->
 <div style="background:var(--white)" id="stack">
   <div class="section-wide">
     <span class="eyebrow reveal">Tech Stack</span>
@@ -346,20 +382,22 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
+<!-- ACHIEVEMENTS -->
 <div style="background:var(--off-white)" id="achievements">
   <div class="section">
     <span class="eyebrow reveal">Recognition</span>
     <h2 class="headline reveal delay-1">Moments that<br>marked the <em>journey.</em></h2>
     <div class="ach-list" style="margin-top:3rem">
-      <div class="ach-item reveal"><div class="ach-icon">⭐</div><div class="ach-body"><div class="ach-title">Awesome Amazonian Award</div><div class="ach-desc">Recognised for Bias for Action, Deliver Results, and Ownership — Amazon's honour for living its leadership principles.</div></div></div>
-      <div class="ach-item reveal"><div class="ach-icon">🏆</div><div class="ach-body"><div class="ach-title">GATE 2018 — All India Rank 352</div><div class="ach-desc">Ranked 352nd nationally in India's Graduate Aptitude Test in Engineering (Computer Science).</div></div></div>
-      <div class="ach-item reveal"><div class="ach-icon">🎓</div><div class="ach-body"><div class="ach-title">Dean's List — IIIT Hyderabad</div><div class="ach-desc">Monsoon 2018 (SGPA 9.0) and Spring 2019 (SGPA 9.75) — top academic performance at one of India's premier CS institutes.</div></div></div>
-      <div class="ach-item reveal"><div class="ach-icon">⚡</div><div class="ach-body"><div class="ach-title">ACM-ICPC Onsite Regionals — 2014 &amp; 2015</div><div class="ach-desc">Qualified for ACM-ICPC Onsite Regionals two years running — competitive programming at the national top tier.</div></div></div>
-      <div class="ach-item reveal"><div class="ach-icon">🚀</div><div class="ach-body"><div class="ach-title">FBA Air 2.0 — Core Contributor</div><div class="ach-desc">Implemented core pricing infrastructure for Amazon's international freight program, improving cost transparency for Amazon and global partners.</div></div></div>
+      <div class="ach-item reveal"><div class="ach-icon">&#11088;</div><div class="ach-body"><div class="ach-title">Awesome Amazonian Award</div><div class="ach-desc">Recognised for Bias for Action, Deliver Results, and Ownership — Amazon's honour for living its leadership principles.</div></div></div>
+      <div class="ach-item reveal"><div class="ach-icon">&#127942;</div><div class="ach-body"><div class="ach-title">GATE 2018 — All India Rank 352</div><div class="ach-desc">Ranked 352nd nationally in India's Graduate Aptitude Test in Engineering (Computer Science).</div></div></div>
+      <div class="ach-item reveal"><div class="ach-icon">&#127891;</div><div class="ach-body"><div class="ach-title">Dean's List — IIIT Hyderabad</div><div class="ach-desc">Monsoon 2018 (SGPA 9.0) and Spring 2019 (SGPA 9.75) — top academic performance at one of India's premier CS institutes.</div></div></div>
+      <div class="ach-item reveal"><div class="ach-icon">&#9889;</div><div class="ach-body"><div class="ach-title">ACM-ICPC Onsite Regionals — 2014 &amp; 2015</div><div class="ach-desc">Qualified for ACM-ICPC Onsite Regionals two years running — competitive programming at the national top tier.</div></div></div>
+      <div class="ach-item reveal"><div class="ach-icon">&#128640;</div><div class="ach-body"><div class="ach-title">FBA Air 2.0 — Core Contributor</div><div class="ach-desc">Implemented core pricing infrastructure for Amazon's international freight program, improving cost transparency for Amazon and global partners.</div></div></div>
     </div>
   </div>
 </div>
 
+<!-- EDUCATION -->
 <div style="background:var(--black)" id="education">
   <div class="section">
     <span class="eyebrow reveal" style="color:#5ac8fa">Education</span>
@@ -373,9 +411,10 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
-<!-- ── ARTIFACT 1 ── FULL DETAIL ───────────────────────────────────────────── -->
+<!-- ═══════════════════════════════════════════════════════════
+     ARTIFACT 1 — HISTORY OF AI VISUAL TIMELINE
+═══════════════════════════════════════════════════════════ -->
 
-<!-- Hero -->
 <div class="a1-hero" id="artifacts">
   <div class="a1-hero-inner">
     <div>
@@ -398,7 +437,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
-<!-- Introduction + Description -->
 <div style="background:var(--white)">
   <div class="a1-section">
     <div class="a1-two">
@@ -417,34 +455,20 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a1-divider"></div>
 
-<!-- Value Proposition -->
 <div style="background:var(--off-white)">
   <div class="a1-section">
     <span class="a1-eyebrow reveal">Value Proposition</span>
     <h3 class="a1-h reveal delay-1">Why this work <em>matters.</em></h3>
     <div class="a1-pillars reveal delay-2">
-      <div class="a1-pillar">
-        <h5>Cross-format Communication</h5>
-        <p>The same content architecture adapted for web, print, and presentation — demonstrating fluency across delivery media, not just technical skill.</p>
-      </div>
-      <div class="a1-pillar">
-        <h5>Technical Depth in Context</h5>
-        <p>AI history explained with cause-and-effect accuracy — what caused each winter, what ended it, and how each breakthrough built on the last.</p>
-      </div>
-      <div class="a1-pillar">
-        <h5>Visual Design Intentionality</h5>
-        <p>Distinct colour systems per era, high-contrast typography, and editorial card layouts — design decisions that serve comprehension, not decoration.</p>
-      </div>
-      <div class="a1-pillar">
-        <h5>End-to-End Ownership</h5>
-        <p>From content research and design direction to code generation, QA, and iteration — complete ownership of every layer of the deliverable.</p>
-      </div>
+      <div class="a1-pillar"><h5>Cross-format Communication</h5><p>The same content architecture adapted for web, print, and presentation — demonstrating fluency across delivery media, not just technical skill.</p></div>
+      <div class="a1-pillar"><h5>Technical Depth in Context</h5><p>AI history explained with cause-and-effect accuracy — what caused each winter, what ended it, and how each breakthrough built on the last.</p></div>
+      <div class="a1-pillar"><h5>Visual Design Intentionality</h5><p>Distinct colour systems per era, high-contrast typography, and editorial card layouts — design decisions that serve comprehension, not decoration.</p></div>
+      <div class="a1-pillar"><h5>End-to-End Ownership</h5><p>From content research and design direction to code generation, QA, and iteration — complete ownership of every layer of the deliverable.</p></div>
     </div>
   </div>
 </div>
 <div class="a1-divider"></div>
 
-<!-- Objectives + Target Audience -->
 <div style="background:var(--white)">
   <div class="a1-section">
     <div class="a1-two">
@@ -463,22 +487,10 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
         <span class="a1-eyebrow reveal">Target Audience</span>
         <h3 class="a1-h reveal delay-1">Who it was built <em>for.</em></h3>
         <div class="a1-audience reveal delay-2">
-          <div class="a1-aud-card">
-            <div class="a1-aud-who">Technical Professionals</div>
-            <div class="a1-aud-desc">Engineers and ML practitioners seeking a structured historical overview — including what caused the AI winters and what ended them.</div>
-          </div>
-          <div class="a1-aud-card">
-            <div class="a1-aud-who">Academic Audiences</div>
-            <div class="a1-aud-desc">Students and educators in CS or data science who need a concise, visually supported AI milestone reference.</div>
-          </div>
-          <div class="a1-aud-card">
-            <div class="a1-aud-who">Business Stakeholders</div>
-            <div class="a1-aud-desc">Executives and PMs who need AI's trajectory and inflection points without deep technical background.</div>
-          </div>
-          <div class="a1-aud-card">
-            <div class="a1-aud-who">Recruiters &amp; Reviewers</div>
-            <div class="a1-aud-desc">Portfolio reviewers assessing communication skills, design thinking, and the ability to deliver multi-format work independently.</div>
-          </div>
+          <div class="a1-aud-card"><div class="a1-aud-who">Technical Professionals</div><div class="a1-aud-desc">Engineers and ML practitioners seeking a structured historical overview — including what caused the AI winters and what ended them.</div></div>
+          <div class="a1-aud-card"><div class="a1-aud-who">Academic Audiences</div><div class="a1-aud-desc">Students and educators in CS or data science who need a concise, visually supported AI milestone reference.</div></div>
+          <div class="a1-aud-card"><div class="a1-aud-who">Business Stakeholders</div><div class="a1-aud-desc">Executives and PMs who need AI's trajectory and inflection points without deep technical background.</div></div>
+          <div class="a1-aud-card"><div class="a1-aud-who">Recruiters &amp; Reviewers</div><div class="a1-aud-desc">Portfolio reviewers assessing communication skills, design thinking, and the ability to deliver multi-format work independently.</div></div>
         </div>
       </div>
     </div>
@@ -486,46 +498,20 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a1-divider"></div>
 
-<!-- Process -->
 <div style="background:var(--off-white)">
   <div class="a1-section">
     <span class="a1-eyebrow reveal">Process</span>
     <h3 class="a1-h reveal delay-1">How it was <em>made.</em></h3>
     <div class="a1-process reveal delay-2">
-      <div class="a1-step">
-        <div class="a1-step-n">01</div>
-        <div class="a1-step-body">
-          <h5>Research &amp; Content Architecture</h5>
-          <p>Eleven milestones identified and categorised into three eras — Founding (1950s–60s), AI Winters (1974–80, 1987–93), and Modern (2012–present). Each documented with year, title, narrative, and colour-coded tag.</p>
-        </div>
-      </div>
-      <div class="a1-step">
-        <div class="a1-step-n">02</div>
-        <div class="a1-step-body">
-          <h5>Interactive Web Widget</h5>
-          <p>A scrollable colour-coded HTML timeline with era groupings, clickable cards, and contextual follow-up prompts. Built with CSS variables for full light/dark mode compatibility.</p>
-        </div>
-      </div>
-      <div class="a1-step">
-        <div class="a1-step-n">03</div>
-        <div class="a1-step-body">
-          <h5>JPEG Infographic Cards — Two Visual Versions</h5>
-          <p>Six JPEGs generated via Python's Pillow library. Version 1: dark backgrounds with neon accent strips. Version 2: six distinct editorial colour themes with ghost year numbers, left accent bars, tag pills, and event-number circles.</p>
-        </div>
-      </div>
-      <div class="a1-step">
-        <div class="a1-step-n">04</div>
-        <div class="a1-step-body">
-          <h5>PowerPoint Presentation — QA &amp; Iteration</h5>
-          <p>An eight-slide PPTX deck via PptxGenJS — unique visual treatment per slide. QA performed by converting to images via LibreOffice and pdftoppm, with two fix cycles resolving year text overflow and body text layering issues.</p>
-        </div>
-      </div>
+      <div class="a1-step"><div class="a1-step-n">01</div><div class="a1-step-body"><h5>Research &amp; Content Architecture</h5><p>Eleven milestones identified and categorised into three eras — Founding (1950s–60s), AI Winters (1974–80, 1987–93), and Modern (2012–present). Each documented with year, title, narrative, and colour-coded tag.</p></div></div>
+      <div class="a1-step"><div class="a1-step-n">02</div><div class="a1-step-body"><h5>Interactive Web Widget</h5><p>A scrollable colour-coded HTML timeline with era groupings, clickable cards, and contextual follow-up prompts. Built with CSS variables for full light/dark mode compatibility.</p></div></div>
+      <div class="a1-step"><div class="a1-step-n">03</div><div class="a1-step-body"><h5>JPEG Infographic Cards — Two Visual Versions</h5><p>Six JPEGs generated via Python's Pillow library. Version 1: dark backgrounds with neon accent strips. Version 2: six distinct editorial colour themes with ghost year numbers, left accent bars, tag pills, and event-number circles.</p></div></div>
+      <div class="a1-step"><div class="a1-step-n">04</div><div class="a1-step-body"><h5>PowerPoint Presentation — QA &amp; Iteration</h5><p>An eight-slide PPTX deck via PptxGenJS — unique visual treatment per slide. QA performed by converting to images via LibreOffice and pdftoppm, with two fix cycles resolving year text overflow and body text layering issues.</p></div></div>
     </div>
   </div>
 </div>
 <div class="a1-divider"></div>
 
-<!-- Tools -->
 <div style="background:var(--white)">
   <div class="a1-section">
     <span class="a1-eyebrow reveal">Tools &amp; Technologies</span>
@@ -540,7 +526,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a1-divider"></div>
 
-<!-- Slideshow embed -->
 <div class="a1-slides-wrap">
   <div class="a1-slides-inner">
     <span class="a1-eyebrow reveal">Presentation Deck</span>
@@ -549,11 +534,10 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
     <div class="a1-frame-wrap reveal delay-3">
       <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRSkmDKgqDf64JD2wsCLXkq55ZGumTq-R2OWJ9_n_YmSVw8e43TukiWumuGhFldC_AZtjfzqDua_uDc/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
-    <p class="a1-frame-notice reveal delay-4">If the slides don't load, open the presentation in Google Slides and go to File → Share → Publish to web → Embed to generate a public embed link.</p>
+    <p class="a1-frame-notice reveal delay-4">If the slides don't load, open the presentation in Google Slides and go to File &rarr; Share &rarr; Publish to web &rarr; Embed to generate a public embed link.</p>
   </div>
 </div>
 
-<!-- Deliverables -->
 <div style="background:var(--off-white)">
   <div class="a1-section">
     <span class="a1-eyebrow reveal">Deliverables</span>
@@ -569,19 +553,191 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════════
+     ARTIFACT 2 — ML VS DEEP LEARNING
+═══════════════════════════════════════════════════════════ -->
+
+<!-- Hero -->
+<div class="a2-hero" id="artifact2">
+  <div class="a2-hero-inner">
+    <div>
+      <div class="a2-label reveal">Artifact 02</div>
+      <h2 class="a2-hero-title reveal delay-1">Machine Learning<br>vs. <em>Deep Learning</em><br>— Comparative Analysis</h2>
+      <p class="a2-hero-sub reveal delay-2">A structured examination of when to use classical machine learning versus deep learning — anchored by two real-world examples: email spam detection and neural machine translation.</p>
+      <div class="a2-tags reveal delay-3">
+        <span class="a2-tag">Machine Learning</span>
+        <span class="a2-tag">Deep Learning</span>
+        <span class="a2-tag">NLP · Transformers</span>
+        <span class="a2-tag">Naive Bayes · Random Forest</span>
+        <span class="a2-tag">Technical Writing</span>
+      </div>
+    </div>
+    <div class="a2-stat-col reveal delay-2">
+      <div class="a2-stat"><div class="a2-stat-n">2</div><div class="a2-stat-l">Real-world case studies examined</div></div>
+      <div class="a2-stat"><div class="a2-stat-n">2<em>×</em></div><div class="a2-stat-l">Paradigms compared in depth</div></div>
+      <div class="a2-stat"><div class="a2-stat-n">1</div><div class="a2-stat-l">Unifying decision principle</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Introduction + Description -->
+<div style="background:var(--white)">
+  <div class="a2-section">
+    <div class="a2-two">
+      <div>
+        <span class="a2-eyebrow reveal">Introduction</span>
+        <h3 class="a2-h reveal delay-1">What this <em>artifact</em> is.</h3>
+        <p class="a2-body reveal delay-2">This artifact examines a fundamental question in applied AI: when does classical machine learning suffice, and when does deep learning become necessary? Through two concrete, real-world examples — email spam detection and neural machine translation — it builds an analytical framework for choosing the right technique based on the nature of the problem, not the prestige of the model.</p>
+      </div>
+      <div>
+        <span class="a2-eyebrow reveal">Description</span>
+        <h3 class="a2-h reveal delay-1">Two examples, <em>one principle.</em></h3>
+        <p class="a2-body reveal delay-2">Example 1 demonstrates why simple models like Naive Bayes and Random Forest are optimal for binary classification problems with structured input data. Example 2 shows why Transformer-based architectures — the foundation of BERT and GPT — are essential for generative, context-dependent tasks like machine translation. Together they illustrate that model complexity should always match problem complexity.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Value Proposition -->
+<div style="background:var(--off-white)">
+  <div class="a2-section">
+    <span class="a2-eyebrow reveal">Value Proposition</span>
+    <h3 class="a2-h reveal delay-1">Why this work <em>matters.</em></h3>
+    <div class="a2-pillars reveal delay-2">
+      <div class="a2-pillar"><h5>Engineering Pragmatism</h5><p>Demonstrates the discipline to resist over-engineering — recognising when a simpler model does the job better, faster, and at lower cost than deep learning.</p></div>
+      <div class="a2-pillar"><h5>Domain-Driven Reasoning</h5><p>Each model choice is justified through problem structure — binary vs. generative, structured vs. unstructured, fixed features vs. sequential context.</p></div>
+      <div class="a2-pillar"><h5>Conceptual Clarity</h5><p>Complex ideas like attention mechanisms and Transformer architectures explained through cause and effect — not jargon — for technical and non-technical readers alike.</p></div>
+      <div class="a2-pillar"><h5>Transferable Framework</h5><p>The comparison produces a reusable decision heuristic applicable to any ML problem — not just the two examples presented here.</p></div>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Case Studies -->
+<div style="background:var(--white)">
+  <div class="a2-section">
+    <span class="a2-eyebrow reveal">Case Studies</span>
+    <h3 class="a2-h reveal delay-1">The two examples, <em>side by side.</em></h3>
+    <div class="a2-compare reveal delay-2">
+      <div class="a2-compare-card ml-card">
+        <span class="a2-compare-label ml">Example 01 — Machine Learning</span>
+        <div class="a2-compare-title">Email Spam Detection</div>
+        <p class="a2-compare-body">Used by Gmail and Outlook to filter unwanted messages. Algorithms: Naive Bayes or Random Forest. Input features are structured — word frequencies, sender reputation, link presence, metadata. The task is binary classification: spam or not spam. Models are efficient, interpretable, and fast to retrain as spam patterns evolve. Deep learning would add computational overhead with no meaningful accuracy gain — a textbook case of over-engineering a well-defined problem.</p>
+      </div>
+      <div class="a2-compare-card dl-card">
+        <span class="a2-compare-label dl">Example 02 — Deep Learning</span>
+        <div class="a2-compare-title">Neural Machine Translation</div>
+        <p class="a2-compare-body">Powers systems like Google Translate. Architecture: Transformer models (BERT, GPT). Input is sequential and context-dependent — the meaning of any word depends on surrounding words across the entire sentence. Attention mechanisms allow the model to evaluate long-range relationships before generating translated output. Classical models like Naive Bayes cannot capture sequential dependencies or produce novel sentences — making deep learning not just preferable but necessary here.</p>
+      </div>
+    </div>
+    <div class="a2-insight reveal delay-3">
+      <span class="a2-insight-label">Core Insight</span>
+      <p class="a2-insight-text">"Choosing the right technique is not about always using the most advanced model available. Effective machine learning involves matching the complexity of the model to the complexity of the problem."</p>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Objectives + Audience -->
+<div style="background:var(--off-white)">
+  <div class="a2-section">
+    <div class="a2-two">
+      <div>
+        <span class="a2-eyebrow reveal">Objectives</span>
+        <h3 class="a2-h reveal delay-1">What it set out to <em>achieve.</em></h3>
+        <ol class="a2-obj-list reveal delay-2">
+          <li><span class="a2-obj-n">01</span>Clearly distinguish the capabilities and appropriate use cases for classical ML versus deep learning.</li>
+          <li><span class="a2-obj-n">02</span>Ground abstract concepts in two concrete, production-level real-world examples.</li>
+          <li><span class="a2-obj-n">03</span>Explain why simpler models are often the correct engineering choice — not a compromise.</li>
+          <li><span class="a2-obj-n">04</span>Articulate why Transformer architectures are essential for sequential, generative tasks like translation.</li>
+          <li><span class="a2-obj-n">05</span>Produce a reusable decision framework applicable beyond the two examples presented.</li>
+        </ol>
+      </div>
+      <div>
+        <span class="a2-eyebrow reveal">Target Audience</span>
+        <h3 class="a2-h reveal delay-1">Who it was built <em>for.</em></h3>
+        <div class="a2-audience reveal delay-2">
+          <div class="a2-aud-card"><div class="a2-aud-who">ML Practitioners</div><div class="a2-aud-desc">Engineers choosing between model architectures who want a structured rationale grounded in problem characteristics.</div></div>
+          <div class="a2-aud-card"><div class="a2-aud-who">CS Students</div><div class="a2-aud-desc">Learners building intuition for when to apply which technique — especially the distinction between classification and generation.</div></div>
+          <div class="a2-aud-card"><div class="a2-aud-who">Product &amp; Engineering Leads</div><div class="a2-aud-desc">Decision-makers evaluating AI investments who need a clear cost-benefit framing for ML complexity choices.</div></div>
+          <div class="a2-aud-card"><div class="a2-aud-who">Recruiters &amp; Reviewers</div><div class="a2-aud-desc">Portfolio reviewers assessing depth of ML knowledge and the ability to reason about trade-offs beyond surface-level familiarity.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Process -->
+<div style="background:var(--white)">
+  <div class="a2-section">
+    <span class="a2-eyebrow reveal">Process</span>
+    <h3 class="a2-h reveal delay-1">How it was <em>developed.</em></h3>
+    <div class="a2-process reveal delay-2">
+      <div class="a2-step"><div class="a2-step-n">01</div><div class="a2-step-body"><h5>Problem Selection &amp; Framing</h5><p>Two examples chosen to represent opposite ends of the ML complexity spectrum — one where structured input and binary output make simple models optimal, one where sequential, context-dependent generation requires deep learning architecture.</p></div></div>
+      <div class="a2-step"><div class="a2-step-n">02</div><div class="a2-step-body"><h5>Technical Analysis — Classical ML</h5><p>Spam detection analysed through the lens of feature structure, task type (binary classification), computational cost, and retraining cadence. Naive Bayes and Random Forest evaluated against those criteria to justify their selection over neural approaches.</p></div></div>
+      <div class="a2-step"><div class="a2-step-n">03</div><div class="a2-step-body"><h5>Technical Analysis — Deep Learning</h5><p>Machine translation examined for its sequential structure, long-range dependencies, and generative output requirements. Transformer architecture explained via attention mechanisms — why they enable contextual understanding that fixed-feature models fundamentally cannot replicate.</p></div></div>
+      <div class="a2-step"><div class="a2-step-n">04</div><div class="a2-step-body"><h5>Synthesis &amp; Decision Framework</h5><p>Findings synthesised into a unifying principle: match model complexity to problem complexity. Conclusion written to function as a transferable heuristic rather than a case-specific takeaway.</p></div></div>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Concepts & Technologies -->
+<div style="background:var(--off-white)">
+  <div class="a2-section">
+    <span class="a2-eyebrow reveal">Concepts &amp; Techniques</span>
+    <h3 class="a2-h reveal delay-1">The methods at the <em>centre of this work.</em></h3>
+    <div class="a2-tools reveal delay-2">
+      <div class="a2-tool"><span class="a2-tool-name">Naive Bayes</span><span class="a2-tool-role">Probabilistic classifier</span></div>
+      <div class="a2-tool"><span class="a2-tool-name">Random Forest</span><span class="a2-tool-role">Ensemble classifier</span></div>
+      <div class="a2-tool"><span class="a2-tool-name">Transformer</span><span class="a2-tool-role">Deep learning architecture</span></div>
+      <div class="a2-tool"><span class="a2-tool-name">BERT · GPT</span><span class="a2-tool-role">Language model families</span></div>
+    </div>
+  </div>
+</div>
+<div class="a2-divider"></div>
+
+<!-- Conclusion (dark band, mirrors A1 slides section) -->
+<div class="a2-conclusion-wrap">
+  <div class="a2-conclusion-inner">
+    <span class="a2-eyebrow reveal">Conclusion</span>
+    <h3 class="a2-h reveal delay-1">The principle that <em>unifies both.</em></h3>
+    <p class="a2-body reveal delay-2">Effective machine learning is not about reaching for the most powerful tool in every situation — it is about understanding the structure of the problem and selecting the approach that fits. When data is structured and the task is classification, simpler models are not a fallback; they are the correct answer. When data is unstructured, sequential, and the task is generative, deep learning is not complexity for its own sake — it is a necessity.</p>
+    <p class="a2-body reveal delay-3" style="margin-top:1.5rem">This artifact demonstrates the analytical discipline to reason about those trade-offs clearly, communicate them without jargon, and arrive at a decision framework that holds beyond any single example.</p>
+  </div>
+</div>
+
+<!-- Deliverables -->
+<div style="background:var(--off-white)">
+  <div class="a2-section">
+    <span class="a2-eyebrow reveal">Deliverables</span>
+    <h3 class="a2-h reveal delay-1">Everything that was <em>produced.</em></h3>
+    <div class="a2-deliverables reveal delay-2">
+      <div class="a2-del"><div class="a2-del-title">Comparative Analysis</div><div class="a2-del-desc">Structured written comparison of ML vs. deep learning across two real-world production examples.</div></div>
+      <div class="a2-del"><div class="a2-del-title">Case Study — Spam Detection</div><div class="a2-del-desc">Full rationale for classical ML selection: task structure, feature type, cost, and interpretability.</div></div>
+      <div class="a2-del"><div class="a2-del-title">Case Study — Translation</div><div class="a2-del-desc">Explanation of Transformer attention mechanisms and why sequential generation requires deep learning.</div></div>
+      <div class="a2-del"><div class="a2-del-title">Decision Framework</div><div class="a2-del-desc">Transferable heuristic for matching model complexity to problem complexity in any ML context.</div></div>
+      <div class="a2-del"><div class="a2-del-title">Technical Summary</div><div class="a2-del-desc">Concise written overview suitable for academic submission, portfolio doc, or professional reference.</div></div>
+      <div class="a2-del"><div class="a2-del-title">Concept Glossary</div><div class="a2-del-desc">Plain-language definitions of Naive Bayes, Random Forest, Transformer, attention mechanisms, BERT, and GPT.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
 <div class="contact-hero" id="contact">
   <span class="eyebrow reveal">Let's connect</span>
   <h2 class="contact-name reveal delay-1">Open to what's<br><em>next.</em></h2>
   <p class="body-copy reveal delay-2" style="max-width:46ch;margin:0 auto;text-align:center">Interested in senior IC roles, complex distributed systems challenges, or conversations about building at scale. Always happy to talk.</p>
   <div class="contact-links reveal delay-3">
     <a href="mailto:chitta.iiith@gmail.com" class="contact-chip">chitta.iiith@gmail.com</a>
-    
   </div>
 </div>
 
 <footer>
-  <span>© 2025 Chittaranjan Rath</span>
-  <span>SDE II · Amazon · Bellevue WA</span>
+  <span>&copy; 2025 Chittaranjan Rath</span>
+  <span>SDE II &middot; Amazon &middot; Bellevue WA</span>
 </footer>
 
 <script>
@@ -590,7 +746,7 @@ let cx=0,cy=0,tx=0,ty=0;
 document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
 function animateCursor(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(animateCursor)}
 animateCursor();
-document.querySelectorAll('a,button,.pillar,.stack-cell,.ach-item,.exp-row,.edu-card,.contact-chip,.artifact-card').forEach(el=>{
+document.querySelectorAll('a,button,.pillar,.stack-cell,.ach-item,.exp-row,.edu-card,.contact-chip,.a1-aud-card,.a2-aud-card,.a2-compare-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
 });
