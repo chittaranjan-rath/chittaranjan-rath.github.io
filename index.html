@@ -219,6 +219,137 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;ali
 .a2-del-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
 .a2-del-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
 
+/* ── ARTIFACT 3 ──────────────────────────────── */
+.a3-label{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:#5a3a8a;padding:.35rem 1rem;border-radius:3px;margin-bottom:2.5rem}
+.a3-hero{background:#0d0814;padding:80px 2rem 70px;position:relative;overflow:hidden;border-top:5px solid #9b59b6}
+.a3-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.a3-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.2rem}
+.a3-hero-title em{font-style:italic;color:#9b59b6}
+.a3-hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:2rem}
+.a3-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.a3-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#9b59b6;background:rgba(155,89,182,.12);padding:.25rem .7rem;border-radius:3px;border:1px solid rgba(155,89,182,.25)}
+.a3-stat-col{display:flex;flex-direction:column;gap:2rem}
+.a3-stat{border-left:2px solid #9b59b6;padding-left:1.5rem}
+.a3-stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:500;color:var(--white);line-height:1}
+.a3-stat-n em{font-style:italic;color:#9b59b6}
+.a3-stat-l{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem;letter-spacing:.03em}
+.a3-hero::after{content:'';position:absolute;right:-120px;top:-120px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(155,89,182,.1);pointer-events:none}
+.a3-section{padding:80px 2rem;max-width:1200px;margin:0 auto}
+.a3-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
+.a3-h{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2}
+.a3-h em{font-style:italic;color:#5a3a8a}
+.a3-body{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:72ch}
+.a3-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#5a3a8a;display:block;margin-bottom:.8rem}
+.a3-two{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.a3-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a3-pillar{background:var(--white);padding:2rem 1.8rem;border-top:3px solid #9b59b6}
+.a3-pillar h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.a3-pillar p{font-size:.84rem;color:var(--mid);line-height:1.7}
+.a3-obj-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a3-obj-list li{display:flex;align-items:baseline;gap:1.4rem;padding:1.1rem 0;border-top:1px solid var(--border);font-size:.92rem;color:#3a3a3f;line-height:1.65}
+.a3-obj-list li:last-child{border-bottom:1px solid var(--border)}
+.a3-obj-n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#5a3a8a;letter-spacing:.08em;flex-shrink:0;padding-top:.06em}
+.a3-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a3-layer-card{background:var(--white);padding:2rem 1.8rem;position:relative}
+.a3-layer-num{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#5a3a8a;display:block;margin-bottom:.7rem}
+.a3-layer-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.a3-layer-body{font-size:.84rem;color:var(--mid);line-height:1.7}
+.a3-audience{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a3-aud-card{background:var(--white);padding:1.8rem 2rem;transition:background .2s}
+.a3-aud-card:hover{background:#f7f0ff}
+.a3-aud-who{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a3-aud-desc{font-size:.84rem;color:var(--mid);line-height:1.65}
+.a3-process{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a3-step{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--border);align-items:start}
+.a3-step:last-child{border-bottom:1px solid var(--border)}
+.a3-step-n{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:300;color:rgba(90,58,138,.18);line-height:1;padding-top:.1rem}
+.a3-step-body h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a3-step-body p{font-size:.88rem;color:var(--mid);line-height:1.7}
+.a3-glossary{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a3-gloss-cell{background:var(--white);padding:1.6rem 1.5rem}
+.a3-gloss-term{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);display:block;margin-bottom:.3rem}
+.a3-gloss-def{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mid);letter-spacing:.04em;line-height:1.6}
+.a3-conclusion-wrap{background:#0d0814;padding:80px 2rem}
+.a3-conclusion-inner{max-width:1200px;margin:0 auto}
+.a3-conclusion-inner .a3-eyebrow{color:#c39bd3}
+.a3-conclusion-inner .a3-h{color:var(--white)}
+.a3-conclusion-inner .a3-h em{color:#9b59b6}
+.a3-conclusion-inner .a3-body{color:rgba(255,255,255,.5);max-width:80ch}
+.a3-deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a3-del{background:var(--white);padding:1.8rem 1.8rem;position:relative}
+.a3-del::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#5a3a8a}
+.a3-del-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
+.a3-del-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
+
+/* ── ARTIFACT 4 ──────────────────────────────── */
+.a4-label{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:#8a3a3a;padding:.35rem 1rem;border-radius:3px;margin-bottom:2.5rem}
+.a4-hero{background:#140808;padding:80px 2rem 70px;position:relative;overflow:hidden;border-top:5px solid #e74c3c}
+.a4-hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.a4-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:500;line-height:1.1;letter-spacing:-0.01em;color:var(--white);margin-bottom:1.2rem}
+.a4-hero-title em{font-style:italic;color:#e74c3c}
+.a4-hero-sub{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:2rem}
+.a4-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.a4-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:#e74c3c;background:rgba(231,76,60,.12);padding:.25rem .7rem;border-radius:3px;border:1px solid rgba(231,76,60,.25)}
+.a4-stat-col{display:flex;flex-direction:column;gap:2rem}
+.a4-stat{border-left:2px solid #e74c3c;padding-left:1.5rem}
+.a4-stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:500;color:var(--white);line-height:1}
+.a4-stat-n em{font-style:italic;color:#e74c3c}
+.a4-stat-l{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem;letter-spacing:.03em}
+.a4-hero::after{content:'';position:absolute;right:-120px;top:-120px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(231,76,60,.1);pointer-events:none}
+.a4-section{padding:80px 2rem;max-width:1200px;margin:0 auto}
+.a4-divider{height:1px;background:var(--border);max-width:1200px;margin:0 auto}
+.a4-h{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--text);margin-bottom:.8rem;line-height:1.2}
+.a4-h em{font-style:italic;color:#8a3a3a}
+.a4-body{font-size:.95rem;color:var(--mid);line-height:1.8;max-width:72ch}
+.a4-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#8a3a3a;display:block;margin-bottom:.8rem}
+.a4-two{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.a4-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a4-pillar{background:var(--white);padding:2rem 1.8rem;border-top:3px solid #e74c3c}
+.a4-pillar h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.a4-pillar p{font-size:.84rem;color:var(--mid);line-height:1.7}
+.a4-obj-list{list-style:none;display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a4-obj-list li{display:flex;align-items:baseline;gap:1.4rem;padding:1.1rem 0;border-top:1px solid var(--border);font-size:.92rem;color:#3a3a3f;line-height:1.65}
+.a4-obj-list li:last-child{border-bottom:1px solid var(--border)}
+.a4-obj-n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#8a3a3a;letter-spacing:.08em;flex-shrink:0;padding-top:.06em}
+.a4-challenges{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a4-challenge-card{background:var(--white);padding:2rem 1.8rem}
+.a4-challenge-phase{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.8rem}
+.a4-challenge-phase.train{color:#8a3a3a}
+.a4-challenge-phase.deploy{color:#3a5a8a}
+.a4-challenge-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.a4-challenge-body{font-size:.84rem;color:var(--mid);line-height:1.75}
+.a4-challenge-card.train-card{border-left:3px solid #e74c3c}
+.a4-challenge-card.deploy-card{border-left:3px solid #3498db}
+.a4-insight{background:#fdf2f2;border:1px solid rgba(138,58,58,.15);border-left:4px solid #e74c3c;padding:2rem 2.5rem;margin-top:2rem}
+.a4-insight-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#8a3a3a;display:block;margin-bottom:.6rem}
+.a4-insight-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.65}
+.a4-audience{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a4-aud-card{background:var(--white);padding:1.8rem 2rem;transition:background .2s}
+.a4-aud-card:hover{background:#fff5f5}
+.a4-aud-who{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a4-aud-desc{font-size:.84rem;color:var(--mid);line-height:1.65}
+.a4-process{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.a4-step{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--border);align-items:start}
+.a4-step:last-child{border-bottom:1px solid var(--border)}
+.a4-step-n{font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:300;color:rgba(138,58,58,.18);line-height:1;padding-top:.1rem}
+.a4-step-body h5{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.a4-step-body p{font-size:.88rem;color:var(--mid);line-height:1.7}
+.a4-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a4-tool{background:var(--white);padding:1.6rem 1.5rem}
+.a4-tool-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text);display:block;margin-bottom:.3rem}
+.a4-tool-role{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--mid);letter-spacing:.06em;text-transform:uppercase}
+.a4-conclusion-wrap{background:#140808;padding:80px 2rem}
+.a4-conclusion-inner{max-width:1200px;margin:0 auto}
+.a4-conclusion-inner .a4-eyebrow{color:#f1948a}
+.a4-conclusion-inner .a4-h{color:var(--white)}
+.a4-conclusion-inner .a4-h em{color:#e74c3c}
+.a4-conclusion-inner .a4-body{color:rgba(255,255,255,.5);max-width:80ch}
+.a4-deliverables{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border);border:1px solid var(--border);overflow:hidden;margin-top:2rem}
+.a4-del{background:var(--white);padding:1.8rem 1.8rem;position:relative}
+.a4-del::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#8a3a3a}
+.a4-del-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
+.a4-del-desc{font-size:.82rem;color:var(--mid);line-height:1.6}
+
 /* Contact + Footer */
 .contact-hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem;background:radial-gradient(ellipse 80% 60% at 50% 100%,#e8f4ff 0%,var(--white) 70%)}
 .contact-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:500;letter-spacing:-0.02em;line-height:1;color:var(--text);margin-bottom:2rem}
@@ -237,6 +368,10 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   .a1-step{grid-template-columns:40px 1fr;gap:1rem}
   .a2-hero-inner,.a2-two,.a2-pillars,.a2-compare,.a2-audience,.a2-tools,.a2-deliverables{grid-template-columns:1fr}
   .a2-step{grid-template-columns:40px 1fr;gap:1rem}
+  .a3-hero-inner,.a3-two,.a3-pillars,.a3-layers,.a3-audience,.a3-glossary,.a3-deliverables{grid-template-columns:1fr}
+  .a3-step{grid-template-columns:40px 1fr;gap:1rem}
+  .a4-hero-inner,.a4-two,.a4-pillars,.a4-challenges,.a4-audience,.a4-tools,.a4-deliverables{grid-template-columns:1fr}
+  .a4-step{grid-template-columns:40px 1fr;gap:1rem}
 }
 </style>
 </head>
@@ -277,7 +412,7 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
         <div class="bio-stat">
           <div class="stat reveal delay-2"><span class="stat-num">9<em>+</em></span><span class="stat-label">Years of engineering experience</span></div>
           <div class="stat reveal delay-3"><span class="stat-num">2<em>×</em></span><span class="stat-label">Promotions earned</span></div>
-          <div class="stat reveal delay-4"><span class="stat-num">∞</span><span class="stat-label">Transactions powered daily</span></div>
+          <div class="stat reveal delay-4"><span class="stat-num">&#8734;</span><span class="stat-label">Transactions powered daily</span></div>
         </div>
       </div>
       <div>
@@ -557,7 +692,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
      ARTIFACT 2 — ML VS DEEP LEARNING
 ═══════════════════════════════════════════════════════════ -->
 
-<!-- Hero -->
 <div class="a2-hero" id="artifact2">
   <div class="a2-hero-inner">
     <div>
@@ -580,7 +714,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
-<!-- Introduction + Description -->
 <div style="background:var(--white)">
   <div class="a2-section">
     <div class="a2-two">
@@ -599,7 +732,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Value Proposition -->
 <div style="background:var(--off-white)">
   <div class="a2-section">
     <span class="a2-eyebrow reveal">Value Proposition</span>
@@ -614,7 +746,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Case Studies -->
 <div style="background:var(--white)">
   <div class="a2-section">
     <span class="a2-eyebrow reveal">Case Studies</span>
@@ -639,7 +770,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Objectives + Audience -->
 <div style="background:var(--off-white)">
   <div class="a2-section">
     <div class="a2-two">
@@ -669,7 +799,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Process -->
 <div style="background:var(--white)">
   <div class="a2-section">
     <span class="a2-eyebrow reveal">Process</span>
@@ -684,7 +813,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Concepts & Technologies -->
 <div style="background:var(--off-white)">
   <div class="a2-section">
     <span class="a2-eyebrow reveal">Concepts &amp; Techniques</span>
@@ -699,7 +827,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
 </div>
 <div class="a2-divider"></div>
 
-<!-- Conclusion (dark band, mirrors A1 slides section) -->
 <div class="a2-conclusion-wrap">
   <div class="a2-conclusion-inner">
     <span class="a2-eyebrow reveal">Conclusion</span>
@@ -709,7 +836,6 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
   </div>
 </div>
 
-<!-- Deliverables -->
 <div style="background:var(--off-white)">
   <div class="a2-section">
     <span class="a2-eyebrow reveal">Deliverables</span>
@@ -721,6 +847,337 @@ footer{padding:2.5rem;border-top:1px solid var(--border);display:flex;justify-co
       <div class="a2-del"><div class="a2-del-title">Decision Framework</div><div class="a2-del-desc">Transferable heuristic for matching model complexity to problem complexity in any ML context.</div></div>
       <div class="a2-del"><div class="a2-del-title">Technical Summary</div><div class="a2-del-desc">Concise written overview suitable for academic submission, portfolio doc, or professional reference.</div></div>
       <div class="a2-del"><div class="a2-del-title">Concept Glossary</div><div class="a2-del-desc">Plain-language definitions of Naive Bayes, Random Forest, Transformer, attention mechanisms, BERT, and GPT.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARTIFACT 3 — NEURAL NETWORKS EXPLAINED SIMPLY
+═══════════════════════════════════════════════════════════ -->
+
+<div class="a3-hero" id="artifact3">
+  <div class="a3-hero-inner">
+    <div>
+      <div class="a3-label reveal">Artifact 03</div>
+      <h2 class="a3-hero-title reveal delay-1">Neural Networks<br><em>Explained Simply</em><br>— Conceptual Explainer</h2>
+      <p class="a3-hero-sub reveal delay-2">A plain-language guide to how machines learn — covering the core architecture, training mechanics, key concepts, and real-world applications of neural networks.</p>
+      <div class="a3-tags reveal delay-3">
+        <span class="a3-tag">Neural Networks</span>
+        <span class="a3-tag">Deep Learning</span>
+        <span class="a3-tag">Backpropagation</span>
+        <span class="a3-tag">Conceptual Writing</span>
+        <span class="a3-tag">AIML 500</span>
+      </div>
+    </div>
+    <div class="a3-stat-col reveal delay-2">
+      <div class="a3-stat"><div class="a3-stat-n">3</div><div class="a3-stat-l">Core layers explained</div></div>
+      <div class="a3-stat"><div class="a3-stat-n">8<em>+</em></div><div class="a3-stat-l">Key concepts defined</div></div>
+      <div class="a3-stat"><div class="a3-stat-n">6</div><div class="a3-stat-l">Real-world application domains</div></div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--white)">
+  <div class="a3-section">
+    <div class="a3-two">
+      <div>
+        <span class="a3-eyebrow reveal">Introduction</span>
+        <h3 class="a3-h reveal delay-1">What this <em>artifact</em> is.</h3>
+        <p class="a3-body reveal delay-2">This artifact provides a clear, jargon-free explanation of what neural networks are, how they work, why they learn, and where they are applied. Grounded in everyday analogies that make abstract ideas concrete, it is designed for readers who want to understand the engine behind modern AI — without needing a mathematics degree to do so.</p>
+      </div>
+      <div>
+        <span class="a3-eyebrow reveal">Description</span>
+        <h3 class="a3-h reveal delay-1">One analogy, <em>the whole picture.</em></h3>
+        <p class="a3-body reveal delay-2">The handwriting recognition analogy anchors the entire explainer — showing how a network learns from examples, adjusts its internal weights through feedback, and gradually becomes reliable. From there, the artifact traces each architectural layer, explains forward and backward passes, defines eight key concepts in plain language, and maps neural networks to six real-world domains from image recognition to drug discovery.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a3-section">
+    <span class="a3-eyebrow reveal">Value Proposition</span>
+    <h3 class="a3-h reveal delay-1">Why this work <em>matters.</em></h3>
+    <div class="a3-pillars reveal delay-2">
+      <div class="a3-pillar"><h5>Analogy-First Explanation</h5><p>Complex learning mechanics grounded in a single, sustained analogy — handwriting recognition — that builds intuition before introducing technical terms.</p></div>
+      <div class="a3-pillar"><h5>Layered Conceptual Architecture</h5><p>The three-layer structure (input, hidden, output) explained not just by definition but by function — what each layer does and why it exists.</p></div>
+      <div class="a3-pillar"><h5>Plain-Language Glossary</h5><p>Eight core concepts — from weights to overfitting — defined without jargon, each as a working mental model rather than a dictionary entry.</p></div>
+      <div class="a3-pillar"><h5>Real-World Grounding</h5><p>Six application domains demonstrate that neural networks are not theoretical — they power production systems in healthcare, finance, voice, and vision today.</p></div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div style="background:var(--white)">
+  <div class="a3-section">
+    <span class="a3-eyebrow reveal">Architecture</span>
+    <h3 class="a3-h reveal delay-1">The three layers, <em>explained.</em></h3>
+    <div class="a3-layers reveal delay-2">
+      <div class="a3-layer-card">
+        <span class="a3-layer-num">Layer 1 — Input</span>
+        <div class="a3-layer-title">Input Layer</div>
+        <p class="a3-layer-body">Receives the raw data. For an image, each neuron represents one pixel. For a loan application, each neuron represents one field — age, income, credit score. No learning happens here; this layer simply passes the data in.</p>
+      </div>
+      <div class="a3-layer-card">
+        <span class="a3-layer-num">Layer 2 — Hidden</span>
+        <div class="a3-layer-title">Hidden Layer(s)</div>
+        <p class="a3-layer-body">Where the intelligence lives. Each neuron combines signals from the previous layer, applies a weight to each one, sums them up, and decides how much signal to pass forward. Deep networks stack many hidden layers — each learning more abstract features than the last.</p>
+      </div>
+      <div class="a3-layer-card">
+        <span class="a3-layer-num">Layer 3 — Output</span>
+        <div class="a3-layer-title">Output Layer</div>
+        <p class="a3-layer-body">Produces the final answer. For image classification it might output probabilities — "92% cat, 8% dog." For a translation task it outputs a sequence of words. For fraud detection it outputs a single number: the probability of fraud.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a3-section">
+    <div class="a3-two">
+      <div>
+        <span class="a3-eyebrow reveal">Objectives</span>
+        <h3 class="a3-h reveal delay-1">What it set out to <em>achieve.</em></h3>
+        <ol class="a3-obj-list reveal delay-2">
+          <li><span class="a3-obj-n">01</span>Explain what a neural network is and how it differs from rule-based programming.</li>
+          <li><span class="a3-obj-n">02</span>Make the forward pass and backpropagation cycle intuitive for non-specialists.</li>
+          <li><span class="a3-obj-n">03</span>Define the core vocabulary of neural networks in plain language, without sacrificing accuracy.</li>
+          <li><span class="a3-obj-n">04</span>Connect abstract concepts to real-world systems the reader already encounters.</li>
+          <li><span class="a3-obj-n">05</span>Demonstrate that deep technical concepts can be communicated clearly and accessibly.</li>
+        </ol>
+      </div>
+      <div>
+        <span class="a3-eyebrow reveal">Target Audience</span>
+        <h3 class="a3-h reveal delay-1">Who it was built <em>for.</em></h3>
+        <div class="a3-audience reveal delay-2">
+          <div class="a3-aud-card"><div class="a3-aud-who">CS Students</div><div class="a3-aud-desc">Learners encountering neural networks for the first time who need a conceptual foundation before engaging with mathematical formulations.</div></div>
+          <div class="a3-aud-card"><div class="a3-aud-who">Software Engineers</div><div class="a3-aud-desc">Developers from non-ML backgrounds who want to understand how neural networks function before integrating ML models into their systems.</div></div>
+          <div class="a3-aud-card"><div class="a3-aud-who">Business Stakeholders</div><div class="a3-aud-desc">Product owners and executives who need enough understanding to evaluate AI proposals and ask informed questions of technical teams.</div></div>
+          <div class="a3-aud-card"><div class="a3-aud-who">Recruiters &amp; Reviewers</div><div class="a3-aud-desc">Portfolio reviewers assessing the ability to communicate complex technical ideas clearly — a skill as rare as the technical knowledge itself.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div style="background:var(--white)">
+  <div class="a3-section">
+    <span class="a3-eyebrow reveal">Process</span>
+    <h3 class="a3-h reveal delay-1">How it was <em>developed.</em></h3>
+    <div class="a3-process reveal delay-2">
+      <div class="a3-step"><div class="a3-step-n">01</div><div class="a3-step-body"><h5>Analogy Selection</h5><p>The handwriting recognition analogy chosen because it captures both the input variety (messy, rotated, inconsistent real-world data) and the feedback loop (right or wrong) that defines supervised learning — without requiring any prior ML knowledge to understand.</p></div></div>
+      <div class="a3-step"><div class="a3-step-n">02</div><div class="a3-step-body"><h5>Architecture Explanation</h5><p>The three-layer structure presented using function-first language — what each layer does rather than what it is called. The input layer passes data. The hidden layers find patterns. The output layer makes predictions. Definitions built from behaviour, not from terminology.</p></div></div>
+      <div class="a3-step"><div class="a3-step-n">03</div><div class="a3-step-body"><h5>Training Mechanics</h5><p>Forward pass and backpropagation explained as a two-step cycle — make a guess, measure the error, adjust. Gradient descent introduced through the rolling-a-ball-downhill metaphor to make optimisation intuitive before it is named.</p></div></div>
+      <div class="a3-step"><div class="a3-step-n">04</div><div class="a3-step-body"><h5>Glossary and Applications</h5><p>Eight key terms defined as working mental models, not dictionary entries. Six application domains selected to show range — from consumer-facing voice assistants to scientific drug discovery pipelines — grounding the concepts in systems the reader already encounters.</p></div></div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a3-section">
+    <span class="a3-eyebrow reveal">Key Concepts</span>
+    <h3 class="a3-h reveal delay-1">The vocabulary, <em>defined plainly.</em></h3>
+    <div class="a3-glossary reveal delay-2">
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Weight</span><span class="a3-gloss-def">Controls how strongly one neuron influences the next. Learning means adjusting weights until predictions improve.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Activation Function</span><span class="a3-gloss-def">A gate that decides how much signal a neuron passes forward. Introduces the non-linearity that lets networks learn complex patterns.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Loss Function</span><span class="a3-gloss-def">A score measuring how wrong the network's predictions are. Training is the process of minimising this score.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Backpropagation</span><span class="a3-gloss-def">Works backwards through the network after each prediction, calculating how much each weight should change to reduce the error.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Gradient Descent</span><span class="a3-gloss-def">Like rolling a ball down a hill to find the lowest point — nudges weights in the direction that reduces loss the fastest.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Epoch</span><span class="a3-gloss-def">One full pass through the entire training dataset. Networks typically train for many epochs before reaching acceptable accuracy.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Overfitting</span><span class="a3-gloss-def">When a network memorises training data instead of learning general patterns — like a student who memorises answers without understanding the subject.</span></div>
+      <div class="a3-gloss-cell"><span class="a3-gloss-term">Deep Learning</span><span class="a3-gloss-def">Neural networks with many hidden layers. More layers allow the model to learn increasingly abstract representations of the input data.</span></div>
+    </div>
+  </div>
+</div>
+<div class="a3-divider"></div>
+
+<div class="a3-conclusion-wrap">
+  <div class="a3-conclusion-inner">
+    <span class="a3-eyebrow reveal">Conclusion</span>
+    <h3 class="a3-h reveal delay-1">The mental model that <em>makes it click.</em></h3>
+    <p class="a3-body reveal delay-2">A neural network is, at its core, a pattern-finding machine. It takes in data, makes a guess, measures how wrong it was, adjusts its internal dials, and tries again — millions of times — until it becomes reliably accurate. The layers give it the ability to go from raw pixels or words to high-level understanding. The weights encode everything the network has learned. Backpropagation is how it corrects itself. And activation functions give it the flexibility to learn patterns that no simple formula could describe.</p>
+    <p class="a3-body reveal delay-3" style="margin-top:1.5rem">Understanding these fundamentals does not require a mathematics degree — it requires only the right analogy, applied patiently. Once the mental model clicks, the rest of modern AI becomes far less mysterious.</p>
+  </div>
+</div>
+
+<div style="background:var(--off-white)">
+  <div class="a3-section">
+    <span class="a3-eyebrow reveal">Deliverables</span>
+    <h3 class="a3-h reveal delay-1">Everything that was <em>produced.</em></h3>
+    <div class="a3-deliverables reveal delay-2">
+      <div class="a3-del"><div class="a3-del-title">Conceptual Explainer</div><div class="a3-del-desc">Full plain-language guide to neural networks — architecture, training mechanics, and real-world applications.</div></div>
+      <div class="a3-del"><div class="a3-del-title">Three-Layer Breakdown</div><div class="a3-del-desc">Function-first explanation of input, hidden, and output layers with concrete, domain-specific examples.</div></div>
+      <div class="a3-del"><div class="a3-del-title">Training Cycle Walkthrough</div><div class="a3-del-desc">Step-by-step explanation of the forward pass and backpropagation cycle grounded in intuitive metaphors.</div></div>
+      <div class="a3-del"><div class="a3-del-title">Plain-Language Glossary</div><div class="a3-del-desc">Eight core concepts defined as working mental models — weights, loss, gradient descent, overfitting, and more.</div></div>
+      <div class="a3-del"><div class="a3-del-title">Applications Survey</div><div class="a3-del-desc">Six real-world domains mapped to neural network capabilities — from medical imaging to fraud detection.</div></div>
+      <div class="a3-del"><div class="a3-del-title">Coursework Summary</div><div class="a3-del-desc">Relevance statement connecting neural network concepts to AIML 500 themes and enterprise software practice.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARTIFACT 4 — DATA CHALLENGES IN MACHINE LEARNING
+═══════════════════════════════════════════════════════════ -->
+
+<div class="a4-hero" id="artifact4">
+  <div class="a4-hero-inner">
+    <div>
+      <div class="a4-label reveal">Artifact 04</div>
+      <h2 class="a4-hero-title reveal delay-1">Data Challenges<br>in <em>Machine Learning</em><br>— Critical Analysis</h2>
+      <p class="a4-hero-sub reveal delay-2">A practitioner-level examination of the data problems that cause ML projects to fail in production — from class imbalance and label noise to data drift and privacy constraints.</p>
+      <div class="a4-tags reveal delay-3">
+        <span class="a4-tag">Data-Centric AI</span>
+        <span class="a4-tag">Class Imbalance</span>
+        <span class="a4-tag">Data Drift</span>
+        <span class="a4-tag">SMOTE</span>
+        <span class="a4-tag">Critical Analysis</span>
+      </div>
+    </div>
+    <div class="a4-stat-col reveal delay-2">
+      <div class="a4-stat"><div class="a4-stat-n">10<em>+</em></div><div class="a4-stat-l">Data challenge categories examined</div></div>
+      <div class="a4-stat"><div class="a4-stat-n">2</div><div class="a4-stat-l">Industry domains as case studies</div></div>
+      <div class="a4-stat"><div class="a4-stat-n">1</div><div class="a4-stat-l">Paradigm shift identified</div></div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--white)">
+  <div class="a4-section">
+    <div class="a4-two">
+      <div>
+        <span class="a4-eyebrow reveal">Introduction</span>
+        <h3 class="a4-h reveal delay-1">What this <em>artifact</em> is.</h3>
+        <p class="a4-body reveal delay-2">This artifact examines the landscape of data challenges encountered when training and deploying ML applications. In production environments, the largest and most consequential obstacles rarely live in the model itself — they live in the data. This analysis categorises challenges by their nature, examines their real-world impact, and explores the mitigation strategies employed in modern ML engineering.</p>
+      </div>
+      <div>
+        <span class="a4-eyebrow reveal">Description</span>
+        <h3 class="a4-h reveal delay-1">From training to <em>deployment.</em></h3>
+        <p class="a4-body reveal delay-2">The analysis covers the full ML lifecycle — from initial data acquisition through model training to live deployment. It draws direct parallels to enterprise banking and insurance systems, connecting abstract ML theory to the Spring Batch pipelines, NCCI integrations, and regulated data environments where these challenges manifest every day. It concludes with the paradigm shift from Model-Centric to Data-Centric AI and its implications for enterprise practice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a4-section">
+    <span class="a4-eyebrow reveal">Value Proposition</span>
+    <h3 class="a4-h reveal delay-1">Why this work <em>matters.</em></h3>
+    <div class="a4-pillars reveal delay-2">
+      <div class="a4-pillar"><h5>Practitioner Perspective</h5><p>Written from the standpoint of a developer with hands-on enterprise data experience — connecting ML theory to the batch pipelines, regulatory constraints, and data integrations that define real systems.</p></div>
+      <div class="a4-pillar"><h5>Full Lifecycle Coverage</h5><p>Challenges categorised by phase — training and deployment — so practitioners understand not just what the problems are but when they emerge and how their impact changes over time.</p></div>
+      <div class="a4-pillar"><h5>Impact Severity Framework</h5><p>A three-tier framework ranking challenges from critical model failure through operational cost — enabling teams to prioritise data quality investments against measurable risk.</p></div>
+      <div class="a4-pillar"><h5>Actionable Mitigations</h5><p>Structural and operational challenges paired with concrete mitigation strategies — SMOTE, differential privacy, drift monitoring, dataset versioning — ready for direct application.</p></div>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div style="background:var(--white)">
+  <div class="a4-section">
+    <span class="a4-eyebrow reveal">Core Challenges</span>
+    <h3 class="a4-h reveal delay-1">Training vs. deployment, <em>side by side.</em></h3>
+    <div class="a4-challenges reveal delay-2">
+      <div class="a4-challenge-card train-card">
+        <span class="a4-challenge-phase train">Training Phase Challenges</span>
+        <div class="a4-challenge-title">Structural Data Issues</div>
+        <p class="a4-challenge-body">Data availability, quality, imbalanced classes, labelling cost, underrepresented sub-concepts, and class overlap. These corrupt training signals before a model ever sees production. Imbalanced data is particularly critical — fraud transactions may be fewer than 0.1% of all activity, yet must be caught accurately. Models default to predicting the majority class, systematically ignoring the minority class that matters most.</p>
+      </div>
+      <div class="a4-challenge-card deploy-card">
+        <span class="a4-challenge-phase deploy">Deployment Phase Challenges</span>
+        <div class="a4-challenge-title">Operational and Temporal Issues</div>
+        <p class="a4-challenge-body">Data privacy, bias, drift, scalability, real-time processing, and integration complexity. Data drift is the silent killer of deployed models — consumer behaviour shifts, fraud techniques evolve, economic conditions change, and the distribution of incoming data gradually diverges from training data. Without monitoring and retraining, models degrade as the world moves on without them.</p>
+      </div>
+    </div>
+    <div class="a4-insight reveal delay-3">
+      <span class="a4-insight-label">Foundational Principle</span>
+      <p class="a4-insight-text">"Garbage in, garbage out — machine learning algorithms expect data to be well-behaved. In practice, those assumptions are broken far more often than they are met. The gap between data and quality data is where most ML projects quietly fail."</p>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a4-section">
+    <div class="a4-two">
+      <div>
+        <span class="a4-eyebrow reveal">Objectives</span>
+        <h3 class="a4-h reveal delay-1">What it set out to <em>achieve.</em></h3>
+        <ol class="a4-obj-list reveal delay-2">
+          <li><span class="a4-obj-n">01</span>Catalogue and explain the full spectrum of data challenges with concrete, production-relevant examples.</li>
+          <li><span class="a4-obj-n">02</span>Demonstrate how each challenge impacts model accuracy, fairness, and reliability in deployed systems.</li>
+          <li><span class="a4-obj-n">03</span>Connect data quality concepts to real scenarios in regulated industries such as banking and insurance.</li>
+          <li><span class="a4-obj-n">04</span>Articulate how the Data-Centric AI paradigm addresses these challenges differently from model optimisation.</li>
+          <li><span class="a4-obj-n">05</span>Provide actionable mitigation strategies that practitioners can apply immediately.</li>
+        </ol>
+      </div>
+      <div>
+        <span class="a4-eyebrow reveal">Target Audience</span>
+        <h3 class="a4-h reveal delay-1">Who it was built <em>for.</em></h3>
+        <div class="a4-audience reveal delay-2">
+          <div class="a4-aud-card"><div class="a4-aud-who">ML Engineers</div><div class="a4-aud-desc">Practitioners building production systems who need a structured framework for anticipating and diagnosing data problems before they undermine deployed models.</div></div>
+          <div class="a4-aud-card"><div class="a4-aud-who">Enterprise Developers</div><div class="a4-aud-desc">Software engineers integrating ML into regulated data environments — banking, insurance, healthcare — where data constraints carry legal and operational weight.</div></div>
+          <div class="a4-aud-card"><div class="a4-aud-who">Engineering Leads</div><div class="a4-aud-desc">Decision-makers evaluating where to invest in data infrastructure versus model complexity — with a framework for prioritising by impact severity.</div></div>
+          <div class="a4-aud-card"><div class="a4-aud-who">Recruiters &amp; Reviewers</div><div class="a4-aud-desc">Portfolio reviewers assessing critical thinking about ML systems beyond model selection — the practitioner's ability to reason about production failure modes.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div style="background:var(--white)">
+  <div class="a4-section">
+    <span class="a4-eyebrow reveal">Process</span>
+    <h3 class="a4-h reveal delay-1">How it was <em>developed.</em></h3>
+    <div class="a4-process reveal delay-2">
+      <div class="a4-step"><div class="a4-step-n">01</div><div class="a4-step-body"><h5>Challenge Taxonomy</h5><p>Data imperfections categorised into four types — structural, operational, ethical, and temporal — based on published research in data-centric AI and industry best practices. Each category examined for cause, effect, and mitigation pathway.</p></div></div>
+      <div class="a4-step"><div class="a4-step-n">02</div><div class="a4-step-body"><h5>Industry Domain Mapping</h5><p>Each challenge mapped to concrete banking and insurance scenarios — fraud detection imbalance, credit scoring bias, claims drift, NCCI data integration — connecting ML theory to the regulated data environments where these problems manifest in production.</p></div></div>
+      <div class="a4-step"><div class="a4-step-n">03</div><div class="a4-step-body"><h5>Impact Severity Framework</h5><p>A three-tier severity model developed to rank challenges by consequence — critical model failure, significant accuracy degradation, and operational engineering cost — enabling practitioners to prioritise data investments against measurable risk.</p></div></div>
+      <div class="a4-step"><div class="a4-step-n">04</div><div class="a4-step-body"><h5>Paradigm Shift Analysis</h5><p>The shift from Model-Centric to Data-Centric AI examined as the field's defining methodological evolution — with implications for how enterprise developers should think about data pipelines, validation frameworks, and monitoring infrastructure.</p></div></div>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div style="background:var(--off-white)">
+  <div class="a4-section">
+    <span class="a4-eyebrow reveal">Concepts &amp; Frameworks</span>
+    <h3 class="a4-h reveal delay-1">The methods at the <em>centre of this work.</em></h3>
+    <div class="a4-tools reveal delay-2">
+      <div class="a4-tool"><span class="a4-tool-name">SMOTE</span><span class="a4-tool-role">Oversampling for imbalance</span></div>
+      <div class="a4-tool"><span class="a4-tool-name">PSI / KL Divergence</span><span class="a4-tool-role">Drift monitoring statistics</span></div>
+      <div class="a4-tool"><span class="a4-tool-name">Differential Privacy</span><span class="a4-tool-role">Privacy-preserving ML</span></div>
+      <div class="a4-tool"><span class="a4-tool-name">Data-Centric AI</span><span class="a4-tool-role">Systematic data improvement</span></div>
+    </div>
+  </div>
+</div>
+<div class="a4-divider"></div>
+
+<div class="a4-conclusion-wrap">
+  <div class="a4-conclusion-inner">
+    <span class="a4-eyebrow reveal">Conclusion</span>
+    <h3 class="a4-h reveal delay-1">Why data is the <em>real ML work.</em></h3>
+    <p class="a4-body reveal delay-2">The success of a machine learning system depends far less on the sophistication of its model than on the quality of the data it was trained on. Imbalanced classes cause models to ignore the events that matter most. Data drift causes models to silently degrade. Bias in training data becomes bias in decisions that affect real people. And poor data quality renders even the most powerful architecture unreliable.</p>
+    <p class="a4-body reveal delay-3" style="margin-top:1.5rem">Recognising and addressing these challenges is not a preliminary step before the real ML work begins — it is the real ML work. The most robust path to a trustworthy deployed model is not a better algorithm — it is better data, systematically understood and continuously maintained.</p>
+  </div>
+</div>
+
+<div style="background:var(--off-white)">
+  <div class="a4-section">
+    <span class="a4-eyebrow reveal">Deliverables</span>
+    <h3 class="a4-h reveal delay-1">Everything that was <em>produced.</em></h3>
+    <div class="a4-deliverables reveal delay-2">
+      <div class="a4-del"><div class="a4-del-title">Critical Analysis</div><div class="a4-del-desc">Full structured examination of data challenges across the ML lifecycle — training and deployment phases.</div></div>
+      <div class="a4-del"><div class="a4-del-title">Challenge Taxonomy</div><div class="a4-del-desc">Data imperfections categorised by type — structural, operational, ethical, temporal — with cause-and-effect mapping.</div></div>
+      <div class="a4-del"><div class="a4-del-title">Impact Severity Framework</div><div class="a4-del-desc">Three-tier ranking model for prioritising data challenges by consequence to model reliability and downstream outcomes.</div></div>
+      <div class="a4-del"><div class="a4-del-title">Industry Domain Case Studies</div><div class="a4-del-desc">Banking and insurance scenarios — fraud detection, credit scoring, claims processing, NCCI integration — mapped to each challenge category.</div></div>
+      <div class="a4-del"><div class="a4-del-title">Mitigation Strategies</div><div class="a4-del-desc">Concrete techniques for structural and operational data issues — SMOTE, drift monitoring, federated learning, dataset versioning.</div></div>
+      <div class="a4-del"><div class="a4-del-title">Paradigm Shift Analysis</div><div class="a4-del-desc">Examination of the field's shift from Model-Centric to Data-Centric AI and its implications for enterprise ML practice.</div></div>
     </div>
   </div>
 </div>
@@ -746,7 +1203,7 @@ let cx=0,cy=0,tx=0,ty=0;
 document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
 function animateCursor(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(animateCursor)}
 animateCursor();
-document.querySelectorAll('a,button,.pillar,.stack-cell,.ach-item,.exp-row,.edu-card,.contact-chip,.a1-aud-card,.a2-aud-card,.a2-compare-card').forEach(el=>{
+document.querySelectorAll('a,button,.pillar,.stack-cell,.ach-item,.exp-row,.edu-card,.contact-chip,.a1-aud-card,.a2-aud-card,.a2-compare-card,.a3-aud-card,.a3-layer-card,.a4-aud-card,.a4-challenge-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
 });
