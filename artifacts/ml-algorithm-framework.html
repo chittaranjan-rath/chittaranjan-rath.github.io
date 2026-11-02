@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine learning algorithm framework: portfolio artifact by Chittaranjan Rath</title>
+<meta name="description" content="Portfolio artifact: a visual framework of sixteen machine learning algorithms classified by learning type and application domain, with objective, process, tools, value proposition, and references.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../index.html#bio">Bio</a>
+      <a href="../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="artifact-head">
+    <p class="crumb"><a href="../index.html#artifacts">Artifacts</a> / Machine learning algorithm framework</p>
+    <h1>Machine Learning Algorithm Framework</h1>
+    <p class="meta">Infographic, delivered as a web page, a high-resolution PNG, and a single-page PDF. Created for AIML-501 Model Development (Workshop 1), Indiana Wesleyan University, November 2026.</p>
+  </div>
+
+  <figure class="artifact-figure">
+    <a href="../infographic/index.html"><img src="../assets/img/ml-algorithm-framework.png" alt="The full machine learning algorithm framework infographic: a legend, three bands of algorithm cards each with a small diagram of the idea, five chains showing how algorithms descend from one another, a transit-style map of sixteen algorithms on four domain lines, and a timeline of when each was introduced" width="1400" height="5870"></a>
+    <figcaption>The complete framework. Sixteen algorithms in three bands, each drawn as the idea behind it and tagged with learning type, task, and domains, followed by five connection chains, a map of the four domains as transit lines, and a timeline.</figcaption>
+    <ul class="downloads">
+      <li><a href="../infographic/index.html">Open as a web page</a></li>
+      <li><a href="../assets/downloads/ml-algorithm-framework.png" download>Download PNG (2800 px wide)</a></li>
+      <li><a href="../assets/downloads/ml-algorithm-framework.pdf" download>Download PDF</a></li>
+    </ul>
+  </figure>
+
+  <div class="artifact-body">
+    <nav class="rail" aria-label="On this page">
+      <p class="rail-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#classification-decisions">How the algorithms were classified</a></li>
+        <li><a href="#tools">Tools and technologies used</a></li>
+        <li><a href="#value-proposition">Value proposition</a></li>
+        <li><a href="#unique-value">Unique value</a></li>
+        <li><a href="#relevance">Relevance</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <article class="artifact-main">
+      <h2 id="introduction">Introduction</h2>
+      <p>This artifact is a visual framework of sixteen machine learning algorithms, built for the first workshop of AIML-501 Model Development. It answers a question that comes up constantly in AI work: given a problem and a dataset, which family of algorithm fits? Each algorithm is drawn as a small diagram of the idea behind it and classified by how it learns (supervised or unsupervised), by the task it performs (regression, classification, clustering, dimensionality reduction, or generation), and by where it is used (tabular data, computer vision, natural language, generative AI), with a one-sentence explanation of how it works and three real-world uses.</p>
+
+      <h2 id="description">Description</h2>
+      <p>The framework is organized in three bands. Classical supervised learning covers eight algorithms: linear and logistic regression, Naive Bayes, decision trees, random forests, gradient boosting, support vector machines, and k-nearest neighbors. Classical unsupervised learning covers k-means, principal component analysis, hierarchical clustering, and DBSCAN. Deep learning covers convolutional neural networks, transformers, generative adversarial networks, and diffusion models.</p>
+      <p>Every card uses the same layout: a diagram of the mechanism (a fitted line, an S-curve, a tree, a margin between two point clouds, a filter sliding over an image grid, attention arcs between tokens, a noise-to-image sequence, and so on), a learning-type badge (filled for supervised, outlined for unsupervised), a task tag, colored chips with icons for the domains the algorithm serves, a one-sentence account of how it works, and three use-case tags. On the web version each card expands to the full explanation.</p>
+      <p>Below the bands, five connection chains draw how the algorithms descend from one another, using the same diagrams as the cards: decision tree to random forest to gradient boosting; linear regression to logistic regression to neural networks and on to CNNs and transformers; k-nearest neighbors and k-means as the supervised and unsupervised uses of the same distance idea; recurrent networks giving way to transformers; and GANs and diffusion models as two routes to generation. A transit-style map then shows the four domains as four colored lines with each algorithm as a station; where a station spans several lines, the same algorithm serves several domains. The map makes two patterns visible in a glance: tabular data runs almost entirely on classical methods while vision, language, and generative AI are served by deep learning, and every generative algorithm is unsupervised. A timeline places each algorithm by the year it was introduced, from least squares in 1805 to diffusion models in 2020, and shows that the classical toolkit was complete by about 2001. A footnote explains why transformers and diffusion models are labeled unsupervised even though they are usually fine-tuned with labels afterward.</p>
+
+      <h2 id="objective">Objective</h2>
+      <p>The assignment asked for an infographic of at least eight to ten algorithms, each with its learning type, application domains, example use cases, and a brief explanation, presented clearly enough that the relationships between algorithms can be seen. My own objective was to make a reference I would actually use. At work I regularly weigh a gradient-boosted model against a retrieval pipeline or a fine-tuned transformer, and I wanted the trade-offs on one page, in words that a colleague outside the team could follow.</p>
+
+      <h2 id="process">Process</h2>
+      <ol class="step-list">
+        <li>Selected sixteen algorithms so that every domain had at least two entries and both learning types were well represented. I started with the algorithms named in the assignment and added Naive Bayes, hierarchical clustering, and DBSCAN so that the classical bands were as complete as the deep learning band.</li>
+        <li>Defined one schema for every algorithm (name, learning type, domains, how it works, used for) and filled it in from the primary sources listed below, keeping each mechanism to two or three sentences and avoiding equations.</li>
+        <li>Chose the visual encoding before the layout. Color is reserved for domain (with an icon on every chip), badge shape encodes learning type, and a grey tag carries the task, so the same facts can be read from the card, from the chips, and from the map.</li>
+        <li>Built the infographic as a responsive HTML page, with the algorithm data held in a single Python file, the sixteen diagrams drawn in code as inline SVG, and a generator script that produces every card, the chains, the map, and the timeline from the same data. Adding or correcting an algorithm regenerates the whole page consistently.</li>
+        <li>Exported a 2x PNG and a single-page PDF from the same page with headless Chromium, then reviewed the render for balance and legibility. The review is where the three extra algorithms came from: the first version had thirteen and left half-empty rows.</li>
+        <li>Checked the result against the assignment rubric and the course readings, then revised the wording for consistency (American spelling, plain language, the same sentence pattern on every card).</li>
+        <li>Reviewed the first render against the rubric's criterion on relationships and found that it showed algorithm-to-domain links but nothing algorithm-to-algorithm. Added the five connection chains and a task tag on every card in response.</li>
+        <li>Reviewed it again for visual appeal and found it read as a document rather than a graphic: all text, no pictures. Redesigned it with a diagram of each idea, domain icons, half the text per card, the transit-style domain map in place of a dot matrix, the timeline, and a palette and type scale modeled on apple.com (white and light-grey sections, near-black text, grey secondary text, blue links, rounded tiles).</li>
+      </ol>
+
+      <h3 id="classification-decisions">How the algorithms were classified</h3>
+      <p>Three axes were used, and each was chosen for a reason. Learning type (supervised or unsupervised) is the first question any practitioner asks, because it is decided by the data at hand: are there labels or not? Task (regression, classification, clustering, dimensionality reduction, generation) is the second, because it is decided by what the output has to be. Application domain is the third and follows the assignment's four areas, which also happen to be the four kinds of input that dominate modern AI work: rows and columns, pixels, tokens, and new content.</p>
+      <p>The sorting rules were kept strict so that the chips mean something. An algorithm receives a domain chip only where it is a standard choice in practice today, not merely where it could be made to work; so logistic regression and support vector machines carry a natural-language chip because they remain common text classifiers over bag-of-words features, while linear regression does not. Learning type was decided by whether training needs human-provided answers. That rule produced the hardest cases: transformers, GANs, and diffusion models are pretrained on signals derived from the data itself (the next token, the real-or-fake contest, the noise that was added), so they are labeled unsupervised, with a note on the cards and in the footnote that a supervised fine-tuning stage usually follows. Convolutional networks are the one deep learning entry labeled supervised, because their defining use is classification and detection on labeled images.</p>
+      <p>Grouping into bands was a separate decision from the learning-type axis. Deep learning methods could have been split between the supervised and unsupervised bands, but keeping them together reflects how the field actually treats them: as one family defined by learned features rather than by labels. The three extra algorithms (Naive Bayes, hierarchical clustering, DBSCAN) were added after the first render, partly for balance and partly because each represents a distinct idea the original set lacked: probabilistic classification, clustering without a fixed number of groups, and density-based clustering with explicit noise handling.</p>
+      <p>What the classification revealed is in the map: classical methods own tabular data, deep learning owns everything perceptual and generative, and generation is always unsupervised. The connection chains show something the axes alone could not, which is that most of the sixteen are refinements of a handful of ideas: trees, linear units, distances, and attention. The timeline adds the when: the classical toolkit was finished by about 2001, and everything that serves vision, language, and generation at scale arrived after 2012.</p>
+
+      <h2 id="tools">Tools and technologies used</h2>
+      <ul>
+        <li>HTML5 and CSS (grid layout, custom properties) for the responsive page</li>
+        <li>Inline SVG, generated from Python, for the sixteen algorithm diagrams, the domain map, and the timeline</li>
+        <li>Python 3 for the algorithm data file and the page generator</li>
+        <li>Playwright with Chromium for the PNG and PDF exports</li>
+        <li>Inter typeface, self-hosted under the SIL Open Font License, as the fallback for the system font on non-Apple devices</li>
+        <li>Git and GitHub Pages for version control and hosting</li>
+        <li>Claude (Anthropic) as a drafting and review assistant for the explanations and the code</li>
+      </ul>
+
+      <h2 id="value-proposition">Value proposition</h2>
+      <p>For a hiring manager or a teammate, this artifact shows that I can take a crowded technical landscape and make it legible: sixteen algorithms, two classification axes, and four domains compressed into a page that reads in a few minutes without losing accuracy. It demonstrates breadth across classical machine learning and deep learning, the judgment to say where each method fits and where it does not, and the ability to explain mechanisms in plain language, which is the skill that turns a model choice into a decision a team can agree on. It supports my personal value proposition directly: dependable AI in production starts with choosing the right algorithm for the data at hand.</p>
+
+      <h2 id="unique-value">Unique value</h2>
+      <p>Most algorithm overviews are either a list of definitions or a flowchart that ends at "use a neural network." This framework draws each algorithm rather than only naming it, classifies on three axes at once, maps the domains as transit lines so interchanges show where one algorithm serves several domains, and adds five connection chains and a timeline that trace how the algorithms descend from one another, so the relationships between algorithms, not just the algorithms themselves, are the content. It treats generative AI as a first-class domain alongside the traditional three. It is honest about the edge cases: transformers and diffusion models are labeled unsupervised, with a note explaining self-supervised pretraining and the supervised fine-tuning that usually follows. And because it is generated from a single data file, it can be extended as the field moves, which is what a reference should allow.</p>
+
+      <h2 id="relevance">Relevance</h2>
+      <p>My current work is retrieval-augmented generation over internal document collections, where the practical questions are exactly the ones this framework organizes: when a transformer is the right tool, when a classical classifier on extracted features is cheaper and more explainable, and how to evaluate either. The framework maps onto the AIML-501 outcomes on identifying and categorizing algorithms and communicating their significance, and it is the reference I expect to reuse for the rest of the program and in design discussions at work.</p>
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        <li>Breiman, L. (2001). Random forests. <em>Machine Learning, 45</em>(1), 5–32. https://doi.org/10.1023/A:1010933404324</li>
+        <li>Breiman, L., Friedman, J. H., Olshen, R. A., &amp; Stone, C. J. (1984). <em>Classification and regression trees</em>. Wadsworth.</li>
+        <li>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em> (pp. 785–794). ACM. https://doi.org/10.1145/2939672.2939785</li>
+        <li>Cortes, C., &amp; Vapnik, V. (1995). Support-vector networks. <em>Machine Learning, 20</em>(3), 273–297. https://doi.org/10.1007/BF00994018</li>
+        <li>Cover, T., &amp; Hart, P. (1967). Nearest neighbor pattern classification. <em>IEEE Transactions on Information Theory, 13</em>(1), 21–27. https://doi.org/10.1109/TIT.1967.1053964</li>
+        <li>Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. In <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics</em> (pp. 4171–4186). ACL. https://doi.org/10.18653/v1/N19-1423</li>
+        <li>Ester, M., Kriegel, H.-P., Sander, J., &amp; Xu, X. (1996). A density-based algorithm for discovering clusters in large spatial databases with noise. In <em>Proceedings of the Second International Conference on Knowledge Discovery and Data Mining</em> (pp. 226–231). AAAI Press.</li>
+        <li>Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., &amp; Bengio, Y. (2014). Generative adversarial nets. <em>Advances in Neural Information Processing Systems, 27</em>, 2672–2680.</li>
+        <li>Ho, J., Jain, A., &amp; Abbeel, P. (2020). Denoising diffusion probabilistic models. <em>Advances in Neural Information Processing Systems, 33</em>, 6840–6851.</li>
+        <li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An introduction to statistical learning: With applications in R</em> (2nd ed.). Springer. https://doi.org/10.1007/978-1-0716-1418-1</li>
+        <li>Jolliffe, I. T., &amp; Cadima, J. (2016). Principal component analysis: A review and recent developments. <em>Philosophical Transactions of the Royal Society A, 374</em>(2065), 20150202. https://doi.org/10.1098/rsta.2015.0202</li>
+        <li>LeCun, Y., Bottou, L., Bengio, Y., &amp; Haffner, P. (1998). Gradient-based learning applied to document recognition. <em>Proceedings of the IEEE, 86</em>(11), 2278–2324. https://doi.org/10.1109/5.726791</li>
+        <li>MacQueen, J. (1967). Some methods for classification and analysis of multivariate observations. In L. M. Le Cam &amp; J. Neyman (Eds.), <em>Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability</em> (Vol. 1, pp. 281–297). University of California Press.</li>
+        <li>Rombach, R., Blattmann, A., Lorenz, D., Esser, P., &amp; Ommer, B. (2022). High-resolution image synthesis with latent diffusion models. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> (pp. 10684–10695). IEEE. https://doi.org/10.1109/CVPR52688.2022.01042</li>
+        <li>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems, 30</em>, 5998–6008.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision tree classification of a fruit image dataset: portfolio artifact by Chittaranjan Rath</title>
+<meta name="description" content="Portfolio artifact: an APA technical report that documents, step by step and in plain English, how a decision tree would classify the Kaggle Fruits Classification dataset, with a worked Gini impurity example, parameter settings, and an evaluation plan.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../index.html#bio">Bio</a>
+      <a href="../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="artifact-head">
+    <p class="crumb"><a href="../index.html#artifacts">Artifacts</a> / Decision tree classification of a fruit image dataset</p>
+    <h1>Decision Tree Classification of a Fruit Image Dataset: A Step-by-Step Algorithm</h1>
+    <p class="meta">Technical report in APA 7 format (20 pages, eight tables, one figure), delivered as a Word document and a PDF. Created for AIML-501 Model Development (Workshop 1.4), Indiana Wesleyan University, November 2026.</p>
+  </div>
+
+  <figure class="artifact-figure">
+    <img src="../assets/img/decision-tree-figure.png" alt="Decision tree diagram: the root asks whether aspect ratio is greater than 2.0 (yes leads to banana); then whether the surface is seeded (yes leads to strawberry); then whether relative size is below 0.40 (yes leads to grape); then whether aspect ratio is greater than 1.35 (yes leads to mango, no to apple)" width="2231" height="1483">
+    <figcaption>Figure 1 from the report: the decision tree grown from ten hypothetical fruits. Four questions on shape, surface texture, and relative size are enough to give each of the five fruits its own leaf.</figcaption>
+    <ul class="downloads">
+      <li><a href="../assets/downloads/Rath_AIML501_1.4_Decision_Tree_Fruit_Classification.pdf">Read the report (PDF)</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_1.4_Decision_Tree_Fruit_Classification.docx" download>Download the Word document</a></li>
+    </ul>
+  </figure>
+
+  <div class="artifact-body">
+    <nav class="rail" aria-label="On this page">
+      <p class="rail-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#tools">Tools and technologies used</a></li>
+        <li><a href="#value-proposition">Value proposition</a></li>
+        <li><a href="#unique-value">Unique value</a></li>
+        <li><a href="#relevance">Relevance</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <article class="artifact-main">
+      <h2 id="introduction">Introduction</h2>
+      <p>This artifact is a written algorithm. The assignment asked for a theoretical, step-by-step account of how one classification method would sort the Kaggle Fruits Classification dataset, with every decision point and criterion spelled out in plain English. I chose a decision tree and wrote the full process as a technical report, from the first look at the data to the evaluation of the finished model, including a worked example in which the Gini impurity arithmetic behind each split is shown by hand.</p>
+
+      <h2 id="description">Description</h2>
+      <p>The report has six parts. A short section describes how large language models predict text at a high level, to set the fruit problem in the wider context of prediction. The dataset section establishes what the Kaggle data really is (10,000 photographs of apples, bananas, grapes, mangoes, and strawberries, split 97/2/1 into training, validation, and test folders) and how each photograph would be reduced to six measurable attributes such as dominant hue, aspect ratio, relative size, and surface texture. The method section explains how a decision tree learns, why it fits this labeled dataset, and why K-means clustering was not chosen.</p>
+      <p>The core of the report is a fifteen-step process in four phases: preparing the data, growing the tree, stopping and pruning, and classifying a new fruit. Ten hypothetical fruits carry the worked example; three candidate root questions are scored and compared in a table, and the resulting tree is drawn as Figure 1. Tables list the parameter settings a practitioner would choose (with the scikit-learn name and the reason for each value), the decision points and their effect on the final label, the evaluation metrics and how each would be read, and the implementation challenges with their solutions. The report closes with the patterns the evaluation should reveal, such as bananas being the easiest class and red apples and strawberries the most likely confusion.</p>
+
+      <h2 id="objective">Objective</h2>
+      <p>The assignment's outcomes were to describe how LLMs work at a high level, to explain the characteristics and uses of decision trees and K-means clustering, and to construct a clear, logical algorithm for classifying data. My own objective was to practice the discipline of writing a method down so completely that someone else could carry it out without me, which is the same discipline that design documents and runbooks demand in engineering work.</p>
+
+      <h2 id="process">Process</h2>
+      <ol class="step-list">
+        <li>Read the assignment and rubric side by side and mapped each rubric criterion (method justification, implementation process, results, instruction quality, presentation) to a section of the report before writing anything.</li>
+        <li>Examined the Kaggle dataset's data card and found that it is an image collection, not the table of size, color, and weight the assignment wording implied. Rather than gloss over that, I made the gap part of the report: a section on how pixels become attributes a tree can split on.</li>
+        <li>Chose the decision tree over K-means because the data are labeled, the fruits separate along simple thresholds, and a tree's questions map directly onto the "decision points" the assignment asked for.</li>
+        <li>Designed a ten-fruit worked example with realistic attribute values, computed the Gini impurity of the root and of three candidate splits by hand, and discovered that balanced classes produce ties between equally clean splits. I kept the tie in the report and explained how the algorithm breaks it, since that is what a reader would meet on real data.</li>
+        <li>Drew the resulting tree as a figure with matplotlib, then wrote the fifteen steps, the parameter table, the decision-point table, the evaluation plan, and the challenges table.</li>
+        <li>Built the document in APA 7 student format (title page, running page numbers, double spacing, APA-style tables and figure, hanging-indent references) and rendered it to PDF to check pagination, orphaned headings, and table breaks, fixing each before delivery.</li>
+      </ol>
+
+      <h2 id="tools">Tools and technologies used</h2>
+      <ul>
+        <li>Kaggle Fruits Classification dataset (data card and folder structure) as the subject</li>
+        <li>Python 3 with matplotlib for the decision tree figure</li>
+        <li>docx-js (Node.js) to generate the Word document, with LibreOffice for the PDF rendering check</li>
+        <li>scikit-learn's DecisionTreeClassifier parameter names as the vocabulary for the parameter table</li>
+        <li>APA 7 style for the document, tables, figure, and references</li>
+        <li>Claude (Anthropic) as a drafting and review assistant for the text, the Gini arithmetic check, and the document build</li>
+      </ul>
+
+      <h2 id="value-proposition">Value proposition</h2>
+      <p>For an employer, this artifact shows that I can explain a machine learning method at the level of individual decisions, with the arithmetic exposed, in language a non-specialist can follow. That matters whenever a model has to be reviewed, audited, or handed to another team. It also shows the habit of checking an assignment's assumptions against the real data and documenting the gap honestly instead of writing around it. Both support my personal value proposition: dependable production AI depends on people who can state exactly what a model does and why.</p>
+
+      <h2 id="unique-value">Unique value</h2>
+      <p>Three things set this report apart from a standard description of decision trees. It bridges an image dataset to a tabular method by specifying the feature extraction step, which most write-ups of this assignment skip. It works the Gini impurity through by hand on a concrete example and shows a real tie between candidate splits rather than a textbook case where one split obviously wins. And it treats the theoretical exercise as if it were going to be run: parameter values with reasons, an evaluation protocol that uses the dataset's own validation and test folders, and a table of implementation problems with their fixes.</p>
+
+      <h2 id="relevance">Relevance</h2>
+      <p>Decision trees and their ensembles (random forests, gradient boosting) remain the strongest tools for tabular data, which is most of the data in a bank. The feature extraction section is the same thinking I apply when deciding whether a retrieval pipeline needs a learned model or a set of explicit rules. The report also covers the first AIML-501 outcome on how LLMs work, which connects directly to my current work on retrieval-augmented generation.</p>
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        <li>3Blue1Brown. (2024, April 1). <em>Transformers, the tech behind LLMs | Deep learning chapter 5</em> [Video]. YouTube. https://www.youtube.com/watch?v=wjZofJX0v4M</li>
+        <li>Breiman, L., Friedman, J. H., Olshen, R. A., &amp; Stone, C. J. (1984). <em>Classification and regression trees</em>. Wadsworth.</li>
+        <li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2021). <em>An introduction to statistical learning: With applications in R</em> (2nd ed.). Springer. https://doi.org/10.1007/978-1-0716-1418-1</li>
+        <li>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., &amp; Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. <em>Journal of Machine Learning Research, 12</em>, 2825–2830.</li>
+        <li>Quinlan, J. R. (1986). Induction of decision trees. <em>Machine Learning, 1</em>(1), 81–106. https://doi.org/10.1007/BF00116251</li>
+        <li>Saxena, U. (2023). <em>Fruits classification</em> [Data set]. Kaggle. https://www.kaggle.com/datasets/utkarshsaxenadn/fruits-classification</li>
+        <li>StatQuest with Josh Starmer. (2021, April 25). <em>Decision and classification trees, clearly explained!!!</em> [Video]. YouTube. https://www.youtube.com/watch?v=_L39rN6gz7Y</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+</body>
+</html>
