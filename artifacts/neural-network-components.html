@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside a Neural Network: portfolio artifact by Chittaranjan Rath</title>
+<meta name="description" content="Portfolio artifact: a fifteen-slide presentation that defines and illustrates the six components of a neural network, shows how they work together in training, and tests each one with experiments modeled on the TensorFlow Playground.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../index.html#bio">Bio</a>
+      <a href="../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="artifact-head">
+    <p class="crumb"><a href="../index.html#artifacts">Artifacts</a> / Inside a Neural Network</p>
+    <h1>Inside a Neural Network: Components and How They Work Together</h1>
+    <p class="meta">Visual presentation, fifteen slides with speaker notes, delivered as a web slideshow, a PowerPoint file, and a PDF. Created for AIML-501 Model Development (Workshop 2), Indiana Wesleyan University, November 2026.</p>
+  </div>
+
+  <figure class="artifact-figure">
+    <a href="../slides/neural-network-components/index.html#slide-3"><img src="../assets/img/neural-network-components-hero.jpg" alt="Slide 3 of the presentation: a feed-forward network diagram with three inputs, two hidden layers and one output, beside short explanations of the input, hidden and output layers" width="1600" height="899"></a>
+    <figcaption>The architecture slide. Each of the fifteen slides pairs a figure drawn in code with a short explanation; the full deck is viewable in the browser with the speaker notes shown under each slide.</figcaption>
+    <ul class="downloads">
+      <li><a href="../slides/neural-network-components/index.html">View the slides online</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_Neural_Network_Components.pptx" download>Download PowerPoint</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_Neural_Network_Components.pdf" download>Download PDF</a></li>
+    </ul>
+  </figure>
+
+  <div class="artifact-body">
+    <nav class="rail" aria-label="On this page">
+      <p class="rail-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#organization">How the components were organized</a></li>
+        <li><a href="#tools">Tools and technologies used</a></li>
+        <li><a href="#value-proposition">Value proposition</a></li>
+        <li><a href="#unique-value">Unique value</a></li>
+        <li><a href="#relevance">Relevance</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <article class="artifact-main">
+      <h2 id="introduction">Introduction</h2>
+      <p>This artifact is a visual presentation on the anatomy of a neural network, built for the second workshop of AIML-501 Model Development. It defines and illustrates the six components the assignment names (layers, neurons, weights, activation functions, loss functions, and optimization algorithms), shows how data flows through the architecture from the input layer to the output layer, and explains how the six parts combine in the training loop. The second half of the deck tests each idea with experiments modeled on the TensorFlow Neural Network Playground, so that every definition is backed by something the viewer can see happen.</p>
+
+      <h2 id="description">Description</h2>
+      <p>The deck has fifteen slides in four parts. An opening pair introduces the six components as one system, grouped into structure (layers, neurons, weights, activation functions) and learning (loss functions, optimization algorithms), each with an icon and a one-sentence definition. The core of the deck gives one slide to the architecture and one to each component. Every component slide follows the same pattern: a figure drawn in code, a definition, the component's role, and a tinted panel describing what the Playground shows about it. The figures include a labeled feed-forward network, a single neuron with its weighted sum and activation, a small network whose connections are drawn with the weights it actually learned on the XOR data, the four activation functions the Playground offers, the two most common loss functions beside a real training-versus-test loss curve, and gradient descent paths on a loss surface at three learning rates. A flowchart slide then connects the six components in the training loop: forward pass, loss, backpropagation, update, repeat.</p>
+      <p>Three experiment slides follow. The Playground's four datasets (circle, exclusive or, Gaussian, spiral) are shown with a model that has no hidden layer and with a network of two hidden layers of eight neurons, each panel labeled with its test accuracy. The spiral is then trained with linear, tanh and ReLU activations under an otherwise identical architecture, and the circle and XOR problems are solved by a model with no hidden layer once squared and product features are added as inputs. A table records what happened to training loss, test loss and test accuracy as the noise slider moved from 0 to 50 percent, and a chart shows training loss per epoch at learning rates of 0.001, 0.1 and 10. A summary slide covers why visualizing a network matters and the insights the exercise produced, and a references slide lists the sources in APA format. Each slide carries speaker notes that give the fuller explanation, and the web version shows those notes under every slide.</p>
+
+      <h2 id="objective">Objective</h2>
+      <p>The assignment asked for a visual presentation that clearly defines and describes the six components, illustrates the overall architecture and the flow of data through it, pairs every visual with a concise explanation, and closes with a summary of why visualizing neural networks is useful and what was learned. My own objective was to make a deck I could put in front of a colleague who has never trained a model and have them come away able to read a network diagram, know what training changes and what it does not, and recognize overfitting and a bad learning rate when they see them on a loss chart. I also wanted every number in the deck to come from an experiment I had actually run rather than from a textbook example.</p>
+
+      <h2 id="process">Process</h2>
+      <ol class="step-list">
+        <li>Worked through the workshop resources and then spent time in the TensorFlow Playground, running each of the four datasets while changing the number of layers and neurons, the activation function, the noise level, the learning rate, and the extra input features, and noting what changed in the boundary and the two loss curves.</li>
+        <li>Chose the structure before writing anything: an overview, one slide per component with the same four-part layout, a training-loop slide to connect them, experiment slides that return to each component, and a summary. One message per slide was the rule.</li>
+        <li>Drew every figure in Python with Matplotlib rather than taking screenshots, so that the diagrams share one palette with the rest of the portfolio and can be regenerated. The network diagrams, the single neuron, the activation curves, the loss curves and the gradient descent surface all come from one script.</li>
+        <li>Recreated the Playground's four data generators in Python and trained the same small networks with scikit-learn, so that decision boundaries could be rendered at print resolution and test accuracies, losses and loss curves could be recorded exactly. The weights slide draws a 2-4-1 network with the weights it learned on the XOR data, and the loss slide's training-versus-test chart is a real 250-epoch run on noisy circle data.</li>
+        <li>Built the deck as a script (pptxgenjs) with a theme, slide layouts and named placeholders, so that colors, fonts and the footer live in one place and the whole deck rebuilds in seconds when a figure or a number changes. Wrote speaker notes for every slide.</li>
+        <li>Rendered the slides to images and reviewed each one for overflow, cramped text and legibility, then trimmed the text until every slide fit at 14-point body size. Added APA in-text citations where a definition or a historical claim rests on a source.</li>
+        <li>Published three versions so the instructor can view it without any particular software: a web slideshow on this site with keyboard navigation and the speaker notes under each slide, the PowerPoint file, and a PDF.</li>
+      </ol>
+
+      <h3 id="organization">How the components were organized</h3>
+      <p>The assignment lists six components without an order, so the first decision was how to group and sequence them. I split them into two groups. Structure (layers, neurons, weights, activation functions) is what a network is made of and what happens during a forward pass; learning (loss functions, optimization algorithms) is what happens afterward to make the next forward pass better. The split matters in practice because the first group is fixed by the designer before training starts and the second group is what runs when you press play. Within the structure group the components are ordered the way data meets them: a layer is the container, a neuron is the unit inside it, a weight is the number on each connection into the neuron, and the activation is applied last to the neuron's sum. Within the learning group the loss comes first because the optimizer cannot move until it has a score to move against.</p>
+      <p>Two things that could have been separate components were folded in. Biases are treated on the weights slide, because they are learned by the same update rule and counted among the same parameters; separating them would have suggested a difference in kind that does not exist. Backpropagation is treated as a step inside optimization rather than a seventh component, because it is the procedure that supplies the gradient and has no role apart from the optimizer that consumes it. The training-loop slide then re-sorts all six by when they act (forward pass, loss, backpropagation, update), which is a second classification of the same six parts, and the color coding on that slide ties each step back to the components it uses.</p>
+      <p>The experiments were classified the same way an engineer would run a test: one variable per experiment, everything else held fixed. Depth, activation, features, noise and learning rate each get their own comparison, so every result can be attributed to a single component. The sorting rule for the figures was the same: a figure belongs on a component's slide only if that component is the thing that changes in it. What the organization revealed is on the summary slide: the structure components decide what shape the boundary can take, the learning components decide whether the network finds it, and the gap between training and test loss is the only honest readout of whether it did.</p>
+
+      <h2 id="tools">Tools and technologies used</h2>
+      <ul>
+        <li>TensorFlow Neural Network Playground for the hands-on exploration behind the experiment slides</li>
+        <li>Python 3 with NumPy, scikit-learn and Matplotlib for the datasets, the trained networks, and all fourteen figures</li>
+        <li>Node.js with pptxgenjs for the presentation itself (theme, layouts, placeholders, speaker notes), and react-icons for the component icons</li>
+        <li>LibreOffice and Poppler for the PDF export and the slide images used by the web viewer</li>
+        <li>HTML, CSS and plain JavaScript for the web slideshow, with the Inter typeface self-hosted under the SIL Open Font License</li>
+        <li>Git and GitHub Pages for version control and hosting</li>
+        <li>Claude (Anthropic) as a drafting and review assistant for the explanations and the code</li>
+      </ul>
+
+      <h2 id="value-proposition">Value proposition</h2>
+      <p>For a hiring manager or a teammate, this artifact shows that I can explain how a model works at the level of its parts, with accurate language and visuals that do not oversimplify. It demonstrates the habit of checking claims by running them: every accuracy, loss and learning-rate behavior in the deck comes from an experiment I set up, and the slides say so. It also shows that I treat a presentation as an engineering deliverable, generated from code and data so that it can be corrected and extended, with the same design language as the rest of my portfolio. This supports my personal value proposition directly: dependable AI in production depends on people who understand what training actually changes, what the loss curves are telling them, and why a model that fits the training data can still fail on everything else.</p>
+
+      <h2 id="unique-value">Unique value</h2>
+      <p>Most introductions to neural networks define the components and stop. This deck closes the loop between the definitions and the behavior: each component gets a figure, a definition, and then an experiment in which changing only that component changes the result. The experiments isolate one variable at a time, which is how an engineer tests a system, and the numbers are recorded rather than described. The figures are drawn from the actual computations (learned weights, real loss curves, real decision boundaries) so they illustrate the specific case on the slide. And where my first portfolio artifact showed breadth across sixteen algorithms, this one shows depth on one: the two together cover the two questions that come up most in applied work, which model to choose and how the chosen model learns.</p>
+
+      <h2 id="relevance">Relevance</h2>
+      <p>My day-to-day work is retrieval-augmented generation over internal document collections, where the models are large transformers that nobody on the team trained from scratch. The six components in this deck are the vocabulary for everything that happens underneath those models, and the experiments are the small-scale version of problems I meet in practice: a learning rate that is too high when fine-tuning an embedding model, a validation loss that stops improving while the training loss keeps falling, or a feature that makes a simple model good enough so that a complex one is unnecessary. The artifact maps onto the AIML-501 outcomes on describing the structure and function of neural networks and communicating complex concepts concisely, and the web slideshow format is one I expect to reuse for internal knowledge-sharing sessions at work.</p>
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        <li>Cybenko, G. (1989). Approximation by superpositions of a sigmoidal function. <em>Mathematics of Control, Signals and Systems, 2</em>(4), 303–314. https://doi.org/10.1007/BF02551274</li>
+        <li>Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep learning</em>. MIT Press. https://www.deeplearningbook.org/</li>
+        <li>Kingma, D. P., &amp; Ba, J. (2015). Adam: A method for stochastic optimization. In <em>3rd International Conference on Learning Representations (ICLR 2015)</em>. https://doi.org/10.48550/arXiv.1412.6980</li>
+        <li>LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). Deep learning. <em>Nature, 521</em>(7553), 436–444. https://doi.org/10.1038/nature14539</li>
+        <li>Nair, V., &amp; Hinton, G. E. (2010). Rectified linear units improve restricted Boltzmann machines. In <em>Proceedings of the 27th International Conference on Machine Learning</em> (pp. 807–814). Omnipress.</li>
+        <li>Nielsen, M. A. (2015). <em>Neural networks and deep learning</em>. Determination Press. http://neuralnetworksanddeeplearning.com/</li>
+        <li>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., &amp; Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. <em>Journal of Machine Learning Research, 12</em>, 2825–2830.</li>
+        <li>Rumelhart, D. E., Hinton, G. E., &amp; Williams, R. J. (1986). Learning representations by back-propagating errors. <em>Nature, 323</em>(6088), 533–536. https://doi.org/10.1038/323533a0</li>
+        <li>Smilkov, D., &amp; Carter, S. (2016). <em>A neural network playground</em> [Interactive web application]. TensorFlow. https://playground.tensorflow.org/</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

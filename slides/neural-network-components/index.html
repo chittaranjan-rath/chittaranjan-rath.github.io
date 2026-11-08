@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside a Neural Network: slides by Chittaranjan Rath</title>
+<meta name="description" content="A fifteen-slide presentation on the six components of a neural network (layers, neurons, weights, activation functions, loss functions, optimization algorithms), the architecture, the training loop, and experiments modeled on the TensorFlow Playground.">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<style>
+  .deck { margin-top: 1.5rem; }
+  .deck-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; margin-bottom: 1rem; }
+  .deck-head h1 { margin: 0; font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.2rem); }
+  .deck-head .meta { color: var(--text2); margin: 0; font-size: 0.95rem; }
+  .stage { position: relative; background: #fff; border: 1px solid var(--rule); border-radius: 18px; overflow: hidden; }
+  .stage img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; }
+  .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 0; background: rgba(29, 29, 31, 0.55); color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer; display: grid; place-items: center; opacity: 0; transition: opacity .15s; }
+  .stage:hover .nav-btn, .stage:focus-within .nav-btn { opacity: 1; }
+  .nav-btn:hover { background: rgba(29, 29, 31, 0.8); }
+  .nav-btn.prev { left: 0.75rem; }
+  .nav-btn.next { right: 0.75rem; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1rem; margin-top: 0.9rem; }
+  .controls .counter { color: var(--text2); font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+  .controls .slide-title { font-weight: 600; }
+  .controls .buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .pill { display: inline-block; padding: 0.5em 1em; border-radius: 980px; border: 0; background: rgba(0, 113, 227, 0.1); color: var(--link); font: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+  .pill:hover { background: rgba(0, 113, 227, 0.16); text-decoration: none; }
+  .pill[aria-pressed="true"] { background: var(--blue); color: #fff; }
+  .notes { margin-top: 1rem; padding: 1.25rem 1.5rem; background: var(--grey); border-radius: 18px; max-width: none; }
+  .notes p { max-width: 80ch; margin: 0; }
+  .notes .label { color: var(--text2); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .notes[hidden] { display: none; }
+  .filmstrip { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.6rem; margin-top: 1.5rem; }
+  .thumb-btn { padding: 0; border: 2px solid transparent; border-radius: 10px; background: #fff; cursor: pointer; overflow: hidden; }
+  .thumb-btn img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--rule); }
+  .thumb-btn[aria-current="true"] { border-color: var(--blue); }
+  .thumb-btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  .deck-foot { margin-top: 2rem; color: var(--text2); font-size: 0.9rem; }
+  @media (max-width: 40rem) { .nav-btn { opacity: 1; width: 2.25rem; height: 2.25rem; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../../index.html#bio">Bio</a>
+      <a href="../../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page deck">
+  <p class="crumb"><a href="../../index.html#artifacts">Artifacts</a> / <a href="../../artifacts/neural-network-components.html">Inside a Neural Network</a> / Slides</p>
+  <div class="deck-head">
+    <h1>Inside a Neural Network</h1>
+    <p class="meta">15 slides. Use the arrow keys, the buttons, or the filmstrip below.</p>
+  </div>
+
+  <div class="stage" id="stage" tabindex="0" aria-roledescription="carousel" aria-label="Slides">
+    <img id="slide-img" src="../../assets/slides/neural-network-components/slide-01.jpg" alt="Slide 1: Title" width="1600" height="899">
+    <button type="button" class="nav-btn prev" id="prev" aria-label="Previous slide">&#8249;</button>
+    <button type="button" class="nav-btn next" id="next" aria-label="Next slide">&#8250;</button>
+  </div>
+
+  <div class="controls">
+    <div><span class="counter" id="counter">1 / 15</span> &nbsp; <span class="slide-title" id="slide-title">Title</span></div>
+    <div class="buttons">
+      <button type="button" class="pill" id="toggle-notes" aria-pressed="true">Speaker notes</button>
+      <a class="pill" href="../../assets/downloads/Rath_AIML501_Neural_Network_Components.pptx" download>Download PowerPoint</a>
+      <a class="pill" href="../../assets/downloads/Rath_AIML501_Neural_Network_Components.pdf" download>Download PDF</a>
+    </div>
+  </div>
+
+  <section class="notes" id="notes" aria-live="polite">
+    <p class="label">Speaker notes</p>
+    <p id="notes-text"></p>
+  </section>
+
+  <div class="filmstrip" id="filmstrip" role="list" aria-label="All slides">
+        <button type="button" class="thumb-btn" data-index="0" aria-label="Slide 1: Title"><img src="../../assets/slides/neural-network-components/slide-01.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="1" aria-label="Slide 2: Six components, one system"><img src="../../assets/slides/neural-network-components/slide-02.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="2" aria-label="Slide 3: The architecture: data flows from input to output"><img src="../../assets/slides/neural-network-components/slide-03.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="3" aria-label="Slide 4: Layers"><img src="../../assets/slides/neural-network-components/slide-04.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="4" aria-label="Slide 5: Neurons"><img src="../../assets/slides/neural-network-components/slide-05.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="5" aria-label="Slide 6: Weights"><img src="../../assets/slides/neural-network-components/slide-06.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="6" aria-label="Slide 7: Activation functions"><img src="../../assets/slides/neural-network-components/slide-07.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="7" aria-label="Slide 8: Loss functions"><img src="../../assets/slides/neural-network-components/slide-08.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="8" aria-label="Slide 9: Optimization algorithms"><img src="../../assets/slides/neural-network-components/slide-09.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="9" aria-label="Slide 10: How the six components work together"><img src="../../assets/slides/neural-network-components/slide-10.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="10" aria-label="Slide 11: Experiment 1: depth and the shape of the boundary"><img src="../../assets/slides/neural-network-components/slide-11.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="11" aria-label="Slide 12: Experiments 2 and 3: activation functions and input features"><img src="../../assets/slides/neural-network-components/slide-12.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="12" aria-label="Slide 13: Experiments 4 and 5: noise and the learning rate"><img src="../../assets/slides/neural-network-components/slide-13.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="13" aria-label="Slide 14: Summary"><img src="../../assets/slides/neural-network-components/slide-14.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+        <button type="button" class="thumb-btn" data-index="14" aria-label="Slide 15: References"><img src="../../assets/slides/neural-network-components/slide-15.jpg" alt="" width="1600" height="899" loading="lazy"></button>
+  </div>
+
+  <p class="deck-foot">Created for AIML-501 Model Development, Indiana Wesleyan University, November 2026. The artifact page with objective, process, tools and references is <a href="../../artifacts/neural-network-components.html">here</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var slides = [
+      {"n": 1, "title": "Title", "notes": "This presentation is my second portfolio artifact for AIML-501. It defines the six components every neural network is built from, shows how data flows through the architecture, and connects each component to what I observed while training models in the TensorFlow Neural Network Playground. The deck is meant to be readable on its own, so each slide pairs a visual with a short explanation."},
+      {"n": 2, "title": "Six components, one system", "notes": "The six components the assignment asks for are shown here as one system. The first four (layers, neurons, weights, activation functions) describe the structure of a network and what happens during a forward pass. The last two (loss functions and optimization algorithms) describe how the network learns. Keeping the two groups in mind makes the training loop on slide 10 easy to follow."},
+      {"n": 3, "title": "The architecture: data flows from input to output", "notes": "A feed-forward network is read left to right. The input layer holds the features, each hidden layer transforms the output of the layer before it, and the output layer turns the final representation into a prediction. Nothing flows backward during prediction; the backward direction appears only in training, when gradients travel from the loss back to every weight (slide 10). The counts of neurons here are illustrative; the Playground lets you choose up to six hidden layers of up to eight neurons."},
+      {"n": 4, "title": "Layers", "notes": "Layers are the organizing unit of a network. The input layer is passive: it only holds the feature values. Each hidden layer applies the same operation (weighted sum, bias, activation) in parallel across its neurons, so a hidden layer can be read as a new description of the data. Depth and width are the two architecture choices the Playground exposes through its plus and minus buttons. Cybenko's 1989 result says one hidden layer is enough in principle if it is wide enough; in practice deeper networks reach the same boundary with far fewer neurons. In my experiments a model with no hidden layer could separate the two Gaussian blobs and nothing else, while two hidden layers of eight neurons were enough for the circle and XOR datasets."},
+      {"n": 5, "title": "Neurons", "notes": "The neuron is where all of the arithmetic happens. The weighted sum z is a linear operation; the activation f adds the nonlinearity. The bias is often forgotten but it matters: without it, every neuron's boundary would have to pass through the origin. The Playground's neuron thumbnails are the best visual explanation of this I have seen. Each first-layer thumbnail is a straight split of the plane, and the thumbnails in deeper layers are visibly built from combinations of the layer before."},
+      {"n": 6, "title": "Weights", "notes": "Weights are what a trained model actually is: the architecture is a container, and the weights are the content. The figure shows a two-input, four-neuron, one-output network trained on the XOR data, with each connection drawn according to its learned weight. The parameter count on the right is worth doing once by hand, because it shows how quickly the number grows: a network with two hidden layers of eight has 105 numbers to learn, and a modern language model has billions. The Playground draws weights the same way, and editing a weight by hand and watching the boundary change is a good way to feel what each one does."},
+      {"n": 7, "title": "Activation functions", "notes": "The activation function is the reason depth works at all. Composing linear functions gives another linear function, so without an activation a ten-layer network has exactly the power of a one-layer one. Sigmoid and tanh were the historical choices; ReLU (Nair and Hinton, 2010) became the default for hidden layers because it is cheap and avoids the vanishing gradients that squashing functions cause in deep networks. The Playground offers all four, and the spiral experiment on slide 12 makes the difference visible: the linear option never gets past a straight line."},
+      {"n": 8, "title": "Loss functions", "notes": "The loss function defines what 'better' means for the network. Mean squared error is the natural choice for regression, cross-entropy for classification; both are zero for a perfect prediction and grow with the error, but cross-entropy grows without bound as a confident prediction becomes wrong, which is what makes it such a strong training signal. The right-hand chart is a real run on noisy circle data: training loss keeps falling for 250 epochs while test loss reaches its minimum near epoch 55 and then rises. That gap is overfitting, and the Playground shows the same two curves in its top-right corner."},
+      {"n": 9, "title": "Optimization algorithms", "notes": "The optimizer closes the loop. Backpropagation (Rumelhart, Hinton and Williams, 1986) is the efficient way to get the gradient of the loss with respect to every weight at once; gradient descent is the rule that uses it. Plain gradient descent uses the whole dataset per step, stochastic gradient descent uses a small batch, and Adam (Kingma and Ba, 2015) adds per-weight step sizes and momentum. The figure is a two-weight toy problem so the paths can be drawn: the small learning rate creeps, the middle one converges quickly, and the large one bounces across the valley. Slide 13 shows the same three behaviors on a real network."},
+      {"n": 10, "title": "How the six components work together", "notes": "This is the slide that ties the six definitions together. Step 1 uses the first four components; steps 2 to 4 use the last two. One trip around the loop is a training step; one pass over the whole training set is an epoch. Everything the Playground animates is this loop: the epoch counter counts laps, the loss curves record step 2, the thickening and thinning of connection lines is step 4, and the background colors redraw after each update as the boundary moves."},
+      {"n": 11, "title": "Experiment 1: depth and the shape of the boundary", "notes": "In the Playground I ran each dataset with the hidden-layer count set to zero and then to two. To get boundaries sharp enough for a slide, I reproduced the Playground's four data generators in Python and trained the same small networks with scikit-learn; the behavior matches what the Playground shows. The top row is the limit of a linear model: one straight cut. The bottom row shows what two hidden layers of eight tanh neurons add. The spiral is the standard hard case and the only one that was not solved outright at this depth."},
+      {"n": 12, "title": "Experiments 2 and 3: activation functions and input features", "notes": "Two experiments that make the role of the activation function concrete. On the left, the spiral with three hidden layers of eight: switching the activation to linear collapses the network to a straight-line classifier, exactly as the theory on slide 7 predicts, while tanh and ReLU both learn the spiral, with ReLU's characteristic straight-edged boundary. On the right, the Playground's feature checkboxes: adding squared or product features lets a model with no hidden layer solve the circle and XOR problems, because the nonlinearity now comes from the inputs. This is the same idea feature engineering has always used, and it is a useful reminder that layers are one way to get nonlinearity and features are another."},
+      {"n": 13, "title": "Experiments 4 and 5: noise and the learning rate", "notes": "Two more Playground controls, tested the same way. Noise is the clearest demonstration of overfitting I know: the training loss stays low because the network has enough capacity to memorize the noisy points, while the test loss rises because that memorized detail does not transfer. The learning rate experiment reproduces the three behaviors from the optimizer slide on a real network. The Playground's learning-rate dropdown covers the same range, and the loss curves in its top-right corner show the same flat, falling and jumping patterns."},
+      {"n": 14, "title": "Summary", "notes": "Two things to take away. First, visualization is how I understood these components, and it is how I would explain them to anyone else: the architecture diagram is the definitions, and the Playground is the definitions in motion. Second, the experiments changed how I think about model design at work: capacity (depth and width) is cheap to add and easy to overuse, the activation and the learning rate are not details, and the only honest measure of a model is its behavior on data it has not seen."},
+      {"n": 15, "title": "References", "notes": "References in APA style for the sources behind the definitions and the historical notes in the deck. Cybenko (1989) is the universal approximation result cited on the layers slide; Rumelhart, Hinton and Williams (1986) is backpropagation; Kingma and Ba (2015) is Adam; Nair and Hinton (2010) is ReLU. Goodfellow et al. and Nielsen are the two textbooks I used for the definitions."}
+    ];
+  var base = "../../assets/slides/neural-network-components/slide-";
+  var img = document.getElementById("slide-img");
+  var counter = document.getElementById("counter");
+  var titleEl = document.getElementById("slide-title");
+  var notesText = document.getElementById("notes-text");
+  var notesBox = document.getElementById("notes");
+  var toggle = document.getElementById("toggle-notes");
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".thumb-btn"));
+  var index = 0;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function show(i, updateHash) {
+    index = (i + slides.length) % slides.length;
+    var s = slides[index];
+    img.src = base + pad(s.n) + ".jpg";
+    img.alt = "Slide " + s.n + ": " + s.title;
+    counter.textContent = s.n + " / " + slides.length;
+    titleEl.textContent = s.title;
+    notesText.textContent = s.notes;
+    thumbs.forEach(function (b, j) { b.setAttribute("aria-current", j === index ? "true" : "false"); });
+    if (updateHash !== false) { history.replaceState(null, "", "#slide-" + s.n); }
+    // preload the next image
+    var pre = new Image(); pre.src = base + pad(slides[(index + 1) % slides.length].n) + ".jpg";
+  }
+  document.getElementById("prev").addEventListener("click", function () { show(index - 1); });
+  document.getElementById("next").addEventListener("click", function () { show(index + 1); });
+  thumbs.forEach(function (b) { b.addEventListener("click", function () { show(parseInt(b.getAttribute("data-index"), 10)); window.scrollTo({ top: 0, behavior: "smooth" }); }); });
+  document.addEventListener("keydown", function (e) {
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { show(index + 1); e.preventDefault(); }
+    if (e.key === "ArrowLeft" || e.key === "PageUp") { show(index - 1); e.preventDefault(); }
+    if (e.key === "Home") { show(0); e.preventDefault(); }
+    if (e.key === "End") { show(slides.length - 1); e.preventDefault(); }
+  });
+  toggle.addEventListener("click", function () {
+    var on = toggle.getAttribute("aria-pressed") !== "true";
+    toggle.setAttribute("aria-pressed", on ? "true" : "false");
+    notesBox.hidden = !on;
+  });
+  var m = /#slide-(\d+)/.exec(location.hash);
+  show(m ? parseInt(m[1], 10) - 1 : 0, false);
+})();
+</script>
+</body>
+</html>
