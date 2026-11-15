@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What it takes to train a large language model: seven steps and four resources</title>
+<meta name="description" content="An infographic of the seven steps in training a generative AI large language model, the four resources each step consumes (data, compute, energy, time), and documented figures for GPT-3, GPT-4, Gemini Ultra, LLaMA and Claude.">
+<style>
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("../../assets/fonts/Inter-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  :root {
+    --text: #1d1d1f; --text2: #6e6e73; --text3: #86868b; --white: #fff; --grey: #f5f5f7; --grey2: #e8e8ed; --rule: #d2d2d7;
+    --blue: #0071e3; --link: #0066cc;
+    --data: #0a84c9; --data-ink: #0066a8; --data-bg: rgba(10,132,201,.11);
+    --compute: #8a3fc7; --compute-ink: #7a32b5; --compute-bg: rgba(138,63,199,.11);
+    --energy: #d97706; --energy-ink: #b45309; --energy-bg: rgba(217,119,6,.13);
+    --time: #1b7f3b; --time-ink: #1b7f3b; --time-bg: rgba(27,127,59,.12);
+    --people: #6e6e73; --people-ink: #55555a; --people-bg: rgba(110,110,115,.12);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: var(--white); color: var(--text); line-height: 1.47;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .inner { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  .light { background: var(--white); }
+  .shade { background: var(--grey); }
+  .dark { background: #000; color: #f5f5f7; }
+  .scroll, .matrix td { position: relative; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .topbar { font-size: 14px; padding: 14px 0 0; margin: 0; }
+  .topwrap a { color: #2997ff; }
+  body.poster .topwrap { display: none; }
+  body.poster .topbar { display: none; }
+
+  .hero { padding: 76px 0 40px; text-align: center; }
+  .hero.dark { background: #000; }
+  .eyebrow { font-size: 14px; font-weight: 600; color: #a1a1a6; letter-spacing: .02em; margin: 0 0 12px; }
+  h1 { font-size: 64px; line-height: 1.05; font-weight: 600; letter-spacing: -0.025em; margin: 0 0 16px; text-wrap: balance; }
+  .hero .sub { font-size: 23px; line-height: 1.33; color: #a1a1a6; max-width: 40em; margin: 0 auto 32px; text-wrap: balance; }
+  .switch { display: inline-flex; gap: 4px; padding: 4px; border-radius: 980px; background: #1d1d1f; margin: 0 0 24px; }
+  .switch button { font: inherit; font-size: 14px; font-weight: 500; color: #a1a1a6; background: none; border: 0; padding: 8px 18px; border-radius: 980px; cursor: pointer; }
+  .switch button:hover { color: #f5f5f7; }
+  .switch button[aria-pressed="true"] { background: #f5f5f7; color: #1d1d1f; }
+  .switch button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  body.poster .switch { display: none; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: left; }
+  .tile { background: #1d1d1f; border-radius: 18px; padding: 22px 22px 20px; border-top: 5px solid var(--c); }
+  .tile.data { --c: var(--data); --ink: #6cc0f5; } .tile.compute { --c: var(--compute); --ink: #c79bf2; }
+  .tile.energy { --c: var(--energy); --ink: #f5b55a; } .tile.time { --c: var(--time); --ink: #6fd08c; }
+  .tile-top { display: flex; align-items: flex-end; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .tile-ico { width: 24px; height: 24px; }
+  .spark { width: 96px; height: 44px; margin-left: auto; color: var(--c); }
+  .spark .sb { opacity: .5; transition: opacity .2s; }
+  .spark .sb.on { opacity: 1; }
+  .spark .sb.na { opacity: .5; color: #86868b; }
+  .spark .sb.na.on { opacity: 1; }
+  .big { font-size: 38px; line-height: 1.05; font-weight: 600; letter-spacing: -0.02em; margin: 18px 0 2px; white-space: nowrap; }
+  .unit { font-size: 16px; font-weight: 500; color: #d2d2d7; margin: 0 0 14px; }
+  .human { font-size: 15px; line-height: 1.35; font-weight: 600; color: var(--ink); margin: 0; padding-top: 12px; border-top: 1px solid #38383a; }
+  .tiles-cap { font-size: 14px; color: #a1a1a6; margin: 18px 0 4px; }
+  .tiles-foot { font-size: 12px; color: #86868b; margin: 0 auto; max-width: 70em; }
+  .mini-legend { display: none; }
+
+  .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; line-height: 1; padding: 6px 11px 6px 8px; border-radius: 980px; margin: 0 6px 6px 0; vertical-align: middle; white-space: nowrap; }
+  .chip .ico { width: 14px; height: 14px; }
+  .chip.data { color: var(--data-ink); background: var(--data-bg); }
+  .chip.compute { color: var(--compute-ink); background: var(--compute-bg); }
+  .chip.energy { color: var(--energy-ink); background: var(--energy-bg); }
+  .chip.time { color: var(--time-ink); background: var(--time-bg); }
+  .chip.people { color: var(--people-ink); background: var(--people-bg); }
+  .chip.cost { color: var(--text); background: var(--grey2); padding-left: 11px; }
+
+  section { padding: 56px 0; }
+  .band-head { max-width: 800px; margin: 0 0 28px; }
+  h2 { font-size: 40px; line-height: 1.1; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 10px; }
+  .band-head p { font-size: 19px; line-height: 1.42; color: var(--text2); margin: 0; }
+  .dark .band-head p { color: #a1a1a6; }
+
+  /* pipeline, drawn to scale */
+  .scale { padding-top: 40px; }
+  .phases { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; margin-bottom: 14px; }
+  .phase { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #a1a1a6; border-bottom: 2px solid #f5f5f7; padding-bottom: 6px; }
+  .st-heads { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+  .st-head { text-align: center; }
+  .st-head .num { margin: 0 auto 6px; }
+  .st-head .step-ico { display: block; margin: 0 auto 6px; width: 30px; height: 30px; color: #f5f5f7; }
+  .st-head h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin: 0; line-height: 1.2; }
+  .num { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #f5f5f7; color: #000; font-size: 13px; font-weight: 600; }
+  .stream { width: 100%; height: auto; display: block; margin: 10px 0 6px; }
+  .stream .stl { font-weight: 600; fill: #fff; paint-order: stroke; stroke: rgba(0,0,0,.35); stroke-width: 2.500px; }
+  .stream .stn { font-size: 12px; fill: #a1a1a6; }
+  .stream-cap { font-size: 13px; color: #86868b; margin: 0 0 22px; max-width: 70em; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+  .step { background: #1d1d1f; border-radius: 14px; padding: 14px 13px 8px; display: flex; flex-direction: column; }
+  .step-title { display: none; font-size: 17px; font-weight: 600; margin: 0 0 8px; align-items: center; gap: 8px; }
+  .what { font-size: 13px; line-height: 1.42; margin: 0 0 10px; color: #f5f5f7; }
+  .fact { font-size: 12px; line-height: 1.4; color: #a1a1a6; border-left: 2px solid #48484a; padding: 0 0 0 9px; margin: 0 0 12px; }
+  .needs { margin: auto 0 0; }
+  .needs .chip { font-size: 11px; padding: 5px 9px 5px 7px; margin-right: 4px; }
+  .dark .chip.data { color: #6cc0f5; background: rgba(10,132,201,.24); }
+  .dark .chip.compute { color: #c79bf2; background: rgba(138,63,199,.28); }
+  .dark .chip.energy { color: #f5b55a; background: rgba(217,119,6,.24); }
+  .dark .chip.time { color: #6fd08c; background: rgba(27,127,59,.30); }
+  .dark .chip.people { color: #c7c7cc; background: rgba(142,142,147,.24); }
+  .why { list-style: none; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid #38383a; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .why li { display: flex; gap: 10px; align-items: flex-start; }
+  .why-ico { width: 22px; height: 22px; flex: none; margin-top: 1px; }
+  .why .data { color: #6cc0f5; } .why .compute { color: #c79bf2; } .why .energy { color: #f5b55a; } .why .time { color: #6fd08c; } .why .people { color: #c7c7cc; }
+  .why p { font-size: 13px; line-height: 1.42; color: #a1a1a6; margin: 0; }
+  .why b { color: #f5f5f7; font-weight: 600; }
+
+  /* loop */
+  .loopwrap { display: grid; grid-template-columns: minmax(0, 1.700fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .loop { width: 100%; height: auto; display: block; background: var(--grey); border-radius: 18px; }
+  .loop .ln { font-size: 14px; font-weight: 600; fill: #fff; }
+  .loop .lt { font-size: 17px; font-weight: 600; fill: var(--text); }
+  .loop .ls { font-size: 13px; fill: var(--text2); }
+  .loop .lc { font-size: 13px; font-weight: 600; fill: var(--text3); letter-spacing: .04em; text-transform: uppercase; }
+  .loopside p { font-size: 16px; line-height: 1.5; margin: 0 0 14px; }
+  .loopside .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .loopside .callout { background: var(--grey); border-radius: 18px; padding: 18px 20px; }
+  .loopside .callout b { display: block; font-size: 26px; white-space: nowrap; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; }
+  .loopside .callout span { font-size: 14px; color: var(--text2); }
+
+  /* llama panels */
+  .panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .panel { margin: 0; background: var(--white); box-shadow: 0 2px 14px rgba(0,0,0,.06); border-radius: 18px; padding: 20px 20px 16px; }
+  .panel figcaption { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 4px; }
+  .panel figcaption .chip { font-size: 13px; margin: 0 0 4px; }
+  .psub { font-size: 13px; color: var(--text2); }
+  .mini { width: 100%; height: auto; display: block; }
+  .mini .bv { font-size: 15px; font-weight: 600; fill: var(--text); }
+  .mini .bl { font-size: 12px; font-weight: 600; fill: var(--text); }
+  .mini .bd { font-size: 11px; fill: var(--text2); }
+  .grow { font-size: 14px; color: var(--text2); margin: 6px 0 0; }
+  .grow b { font-size: 24px; color: var(--text); font-weight: 600; letter-spacing: -0.015em; margin-right: 4px; }
+  .chart-note { font-size: 13px; color: var(--text2); margin: 16px 0 0; max-width: 62em; }
+
+  /* cost */
+  .costgrid { display: grid; grid-template-columns: minmax(0, 1.150fr) minmax(0, 1fr); gap: 20px; }
+  .cardbox { background: var(--grey); border-radius: 18px; padding: 22px 24px 20px; }
+  .cardbox h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .cardbox .csub { font-size: 13px; color: var(--text2); margin: 0 0 12px; }
+  .cardbox + .cardbox { margin-top: 20px; }
+  .cost, .stack, .ranges { width: 100%; height: auto; display: block; }
+  .ax { font-size: 12px; fill: var(--text3); }
+  .pl { font-size: 13px; font-weight: 500; fill: var(--text); }
+  .pv { font-weight: 700; }
+  .sv { font-size: 17px; font-weight: 600; fill: var(--text); }
+  .sv2 { font-size: 14px; font-weight: 600; fill: var(--text); }
+  .sl { font-size: 13px; fill: var(--text2); }
+  .rate { display: flex; align-items: baseline; gap: 12px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .rate b { font-size: 34px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+  .rate span { font-size: 14px; color: var(--text2); line-height: 1.4; }
+
+  /* disclosure chart */
+  .disc { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .disc thead th { text-align: left; padding: 0 10px 10px; border-bottom: 2px solid var(--text); font-size: 13px; vertical-align: bottom; }
+  .disc thead th.first { width: 190px; padding-left: 0; }
+  .disc thead .chip { margin: 0; }
+  .disc th.count, .disc td.count { width: 110px; text-align: right; padding-right: 0; }
+  .shade .sq.N { background: var(--grey); }
+  .disc tbody th { text-align: left; padding: 12px 10px 12px 0; border-bottom: 1px solid var(--rule); font-weight: 400; }
+  .disc td { padding: 12px 10px; border-bottom: 1px solid var(--rule); vertical-align: middle; position: relative; }
+  .disc td .cell { display: flex; align-items: center; }
+  .disc td .sq { flex: none; }
+  .disc tbody tr:nth-child(4) th, .disc tbody tr:nth-child(4) td { border-bottom: 2px solid var(--text3); }
+  .mname { display: block; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .mwho { display: block; font-size: 12px; color: var(--text2); }
+  .sq { display: inline-block; width: 26px; height: 26px; border-radius: 7px; vertical-align: middle; margin-right: 10px; --c: var(--text); }
+  .sq.data { --c: var(--data); } .sq.compute { --c: var(--compute); } .sq.energy { --c: var(--energy); } .sq.time { --c: var(--time); } .sq.cost { --c: #48484a; }
+  .sq.P { background: var(--c); }
+  .sq.E { background: repeating-linear-gradient(135deg, var(--c) 0 3px, transparent 3px 7px); box-shadow: inset 0 0 0 2px var(--c); }
+  .sq.N { box-shadow: inset 0 0 0 1.500px var(--rule); background: var(--white); }
+  .sqv { font-size: 13px; vertical-align: middle; }
+  .disc td.count { font-size: 13px; color: var(--text2); }
+  .disc td.count b { font-size: 22px; font-weight: 600; color: var(--text); letter-spacing: -0.015em; }
+  .key { font-size: 13px; color: var(--text2); margin: 16px 0 0; max-width: 74em; line-height: 1.6; }
+  .key .sq { width: 16px; height: 16px; border-radius: 4px; margin: 0 6px 0 0; vertical-align: -3px; --c: var(--text2); }
+  .key span.k { white-space: nowrap; margin-right: 18px; }
+
+  /* takeaways */
+  .takes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .take { background: #1d1d1f; border-radius: 18px; padding: 24px; }
+  .take b { display: block; font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 12px; }
+  .take h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+  .take p { font-size: 15px; line-height: 1.45; color: #a1a1a6; margin: 0; }
+
+  .foot { padding: 28px 0 44px; font-size: 13px; color: var(--text2); }
+  .foot .inner { display: grid; grid-template-columns: minmax(0, 2.200fr) minmax(0, 1fr); gap: 32px; }
+  .foot p { margin: 0 0 6px; }
+  .foot ol { margin: 0; padding-left: 1.3em; }
+  .foot li { margin-bottom: 3px; }
+  .credit { text-align: right; }
+
+  @media (max-width: 1100px) {
+    body:not(.poster) .tiles { grid-template-columns: repeat(2, 1fr); }
+    body:not(.poster) .steps { grid-template-columns: repeat(2, 1fr); }
+    body:not(.poster) .st-heads, body:not(.poster) .phases { display: none; }
+    body:not(.poster) .step-title { display: flex; }
+    body:not(.poster) .why { grid-template-columns: repeat(2, 1fr); }
+    body:not(.poster) .panels, body:not(.poster) .takes, body:not(.poster) .costgrid, body:not(.poster) .loopwrap { grid-template-columns: 1fr; }
+    body:not(.poster) .scroll { overflow-x: auto; }
+    body:not(.poster) .disc { min-width: 900px; }
+  }
+  @media (max-width: 760px) {
+    body:not(.poster) h1 { font-size: 38px; } body:not(.poster) h2 { font-size: 30px; } body:not(.poster) .hero .sub { font-size: 19px; }
+    body:not(.poster) .inner { padding: 0 20px; } body:not(.poster) section { padding: 44px 0; }
+    body:not(.poster) .tiles, body:not(.poster) .steps, body:not(.poster) .why { grid-template-columns: 1fr; }
+    body:not(.poster) .switch button { padding: 8px 12px; font-size: 13px; }
+    body:not(.poster) .stream, body:not(.poster) .loop { min-width: 720px; }
+    body:not(.poster) .foot .inner { grid-template-columns: 1fr; } body:not(.poster) .credit { text-align: left; }
+  }
+  @media print { .topbar { display: none; } .step, .panel, .cardbox, .take { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="dark topwrap"><div class="inner"><p class="topbar"><a href="../../artifacts/llm-training-costs.html">&larr; Back to the artifact page</a></p></div></div>
+
+<header class="hero dark">
+  <div class="inner">
+    <p class="eyebrow">Generative AI infrastructure</p>
+    <h1>What it takes to train a large language model</h1>
+    <p class="sub">Seven steps turn raw text into a deployed model. Four resources pay for them: data, compute, energy and time.</p>
+    <div class="switch" role="group" aria-label="Choose a model"><button type="button" data-model="gpt3" aria-pressed="false">GPT-3</button><button type="button" data-model="llama2" aria-pressed="false">Llama 2 70B</button><button type="button" data-model="llama31" aria-pressed="true">Llama 3.1 405B</button></div>
+    <div class="tiles">
+<div class="tile data" data-key="data">
+  <div class="tile-top"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg><span class="tile-label">Data</span><svg class="spark" viewBox="0 0 96 44" role="img" aria-label="trillion tokens: GPT-3 0.3, Llama 2 70B 2, Llama 3.1 405B 15"><rect class="sb" data-i="0" x="0" y="41.0" width="26" height="3.0" rx="3" fill="currentColor"/><rect class="sb" data-i="1" x="35" y="38.4" width="26" height="5.6" rx="3" fill="currentColor"/><rect class="sb on" data-i="2" x="70" y="2.0" width="26" height="42.0" rx="3" fill="currentColor"/></svg></div>
+  <p class="big">15 trillion+</p>
+  <p class="unit">tokens of text</p>
+  <p class="human">≈ 85,000 years of nonstop reading</p>
+</div>
+<div class="tile compute" data-key="compute">
+  <div class="tile-top"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg><span class="tile-label">Compute</span><svg class="spark" viewBox="0 0 96 44" role="img" aria-label="million GPU-hours: GPT-3 3.55, Llama 2 70B 1.72, Llama 3.1 405B 30.84"><rect class="sb" data-i="0" x="0" y="39.2" width="26" height="4.8" rx="3" fill="currentColor"/><rect class="sb" data-i="1" x="35" y="41.0" width="26" height="3.0" rx="3" fill="currentColor"/><rect class="sb on" data-i="2" x="70" y="2.0" width="26" height="42.0" rx="3" fill="currentColor"/></svg></div>
+  <p class="big">30.84 million</p>
+  <p class="unit">GPU-hours on H100s</p>
+  <p class="human">≈ 3,500 years on a single GPU</p>
+</div>
+<div class="tile energy" data-key="energy">
+  <div class="tile-top"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg><span class="tile-label">Energy</span><svg class="spark" viewBox="0 0 96 44" role="img" aria-label="MWh: GPT-3 1287, Llama 2 70B 688, Llama 3.1 405B 21588"><rect class="sb" data-i="0" x="0" y="41.0" width="26" height="3.0" rx="3" fill="currentColor"/><rect class="sb" data-i="1" x="35" y="41.0" width="26" height="3.0" rx="3" fill="currentColor"/><rect class="sb on" data-i="2" x="70" y="2.0" width="26" height="42.0" rx="3" fill="currentColor"/></svg></div>
+  <p class="big">≈ 21,600</p>
+  <p class="unit">megawatt-hours</p>
+  <p class="human">≈ 2,000 US homes for a year</p>
+</div>
+<div class="tile time" data-key="time">
+  <div class="tile-top"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg><span class="tile-label">Time</span><svg class="spark" viewBox="0 0 96 44" role="img" aria-label="days: GPT-3 15, Llama 2 70B not published, Llama 3.1 405B 80"><rect class="sb" data-i="0" x="0" y="36.1" width="26" height="7.9" rx="3" fill="currentColor"/><rect class="sb na" data-i="1" x="35.5" y="30.5" width="25" height="13" rx="3" fill="none" stroke="currentColor" stroke-dasharray="3 3"/><rect class="sb on" data-i="2" x="70" y="2.0" width="26" height="42.0" rx="3" fill="currentColor"/></svg></div>
+  <p class="big">≈ 80 days</p>
+  <p class="unit">on 16,000+ GPUs, nonstop</p>
+  <p class="human">Nearly a quarter of a year</p>
+</div>
+    </div>
+    <p class="tiles-cap">Llama 3.1 405B, Meta, July 2024. Energy and days are calculated from published GPU-hours.</p>
+    <p class="tiles-foot">Small bars compare GPT-3, Llama 2 70B and Llama 3.1 405B, in that order. Reading time assumes 0.75 words per token and 250 words a minute. Homes use the rate implied by the GPT-3 comparison (about 10.7 MWh a year). GPU-hours for GPT-3 are 10,000 GPUs × 14.8 days.</p>
+  </div>
+</header>
+
+<section class="dark scale">
+  <div class="inner">
+    <div class="band-head">
+      <h2>The pipeline, drawn to scale</h2>
+      <p>Seven steps in four phases. The band is as thick as the demand each step puts on each resource, so the cost of pretraining is visible before you read a word.</p>
+    </div>
+    <div class="phases" aria-hidden="true"><div class="phase" style="grid-column:1 / span 3"><span>Prepare</span></div><div class="phase" style="grid-column:4 / span 1"><span>Train</span></div><div class="phase" style="grid-column:5 / span 2"><span>Refine</span></div><div class="phase" style="grid-column:7 / span 1"><span>Release</span></div></div>
+<div class="st-heads" aria-hidden="true"><div class="st-head"><span class="num">1</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.500c-3 3-3 14 0 17M12 3.500c3 3 3 14 0 17"/></svg><h3>Collect data</h3></div><div class="st-head"><span class="num">2</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M3.500 5h17l-6.500 7.500v6l-4 2v-8z"/></svg><h3>Clean and curate</h3></div><div class="st-head"><span class="num">3</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="5" height="6" rx="1"/><rect x="9.500" y="9" width="5" height="6" rx="1"/><rect x="16" y="9" width="5" height="6" rx="1"/><path d="M5.500 5v2M12 5v2M18.500 5v2M5.500 17v2M12 17v2M18.500 17v2"/></svg><h3>Tokenize</h3></div><div class="st-head"><span class="num">4</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="7" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="19" cy="17" r="2"/><path d="M6.700 8.200 10.300 10.800M6.700 15.800 10.300 13.200M13.700 10.800 17.300 8.200M13.700 13.200 17.300 15.800"/></svg><h3>Pretrain</h3></div><div class="st-head"><span class="num">5</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg><h3>Fine-tune and align</h3></div><div class="st-head"><span class="num">6</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.500 6v5.500c0 4.500 3 8 7.500 9.500 4.500-1.500 7.500-5 7.500-9.500V6z"/><path d="m8.500 12 2.500 2.500 4.500-5"/></svg><h3>Evaluate and test</h3></div><div class="st-head"><span class="num">7</span><svg class="step-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.500h10.500a4 4 0 0 0 .5-7.970A6 6 0 0 0 6.500 9.500 4.500 4.500 0 0 0 7 18.500z"/><path d="M12 16v-5M9.800 13l2.200-2.200 2.200 2.200"/></svg><h3>Deploy</h3></div></div>
+<div class="scroll"><svg class="stream" viewBox="0 0 1160 300" role="img" aria-labelledby="st-t st-d"><title id="st-t">The training pipeline drawn to scale</title><desc id="st-d">A band flows left to right through the seven steps. It is thin through data collection, cleaning and tokenizing, swells to several times that thickness at pretraining where compute, energy and time dominate, then narrows through fine-tuning, evaluation and deployment, where people become the largest layer.</desc><defs><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset=".93" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient><mask id="fm"><rect width="1160" height="300" fill="url(#fade)"/></mask></defs><g mask="url(#fm)"><line x1="76.9" y1="0" x2="76.9" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="244.6" y1="0" x2="244.6" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="412.3" y1="0" x2="412.3" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="580.0" y1="0" x2="580.0" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="747.7" y1="0" x2="747.7" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="915.4" y1="0" x2="915.4" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><line x1="1083.1" y1="0" x2="1083.1" y2="300" stroke="#2c2c2e" stroke-dasharray="2 5"/><path d="M0 121.4 C38.4 121.4 38.4 121.4 76.9 121.4 C160.7 121.4 160.7 121.4 244.6 121.4 C328.4 121.4 328.4 131.8 412.3 131.8 C496.1 131.8 496.1 27.8 580.0 27.8 C663.9 27.8 663.9 113.6 747.7 113.6 C831.6 113.6 831.6 124.0 915.4 124.0 C999.3 124.0 999.3 126.6 1083.1 126.6 C1121.6 126.6 1121.6 126.6 1160.0 126.6 L1160 126.6 C1121.6 126.6 1121.6 126.6 1083.1 126.6 C999.3 126.6 999.3 129.2 915.4 129.2 C831.6 129.2 831.6 129.2 747.7 129.2 C663.9 129.2 663.9 53.8 580.0 53.8 C496.1 53.8 496.1 147.4 412.3 147.4 C328.4 147.4 328.4 147.4 244.6 147.4 C160.7 147.4 160.7 147.4 76.9 147.4 C38.4 147.4 38.4 147.4 0.0 147.4 Z" fill="#0a84c9" stroke="#000" stroke-width="2"><title>Data</title></path><path d="M0 147.4 C38.4 147.4 38.4 147.4 76.9 147.4 C160.7 147.4 160.7 147.4 244.6 147.4 C328.4 147.4 328.4 147.4 412.3 147.4 C496.1 147.4 496.1 53.8 580.0 53.8 C663.9 53.8 663.9 129.2 747.7 129.2 C831.6 129.2 831.6 129.2 915.4 129.2 C999.3 129.2 999.3 126.6 1083.1 126.6 C1121.6 126.6 1121.6 126.6 1160.0 126.6 L1160 142.2 C1121.6 142.2 1121.6 142.2 1083.1 142.2 C999.3 142.2 999.3 134.4 915.4 134.4 C831.6 134.4 831.6 144.8 747.7 144.8 C663.9 144.8 663.9 126.6 580.0 126.6 C496.1 126.6 496.1 152.6 412.3 152.6 C328.4 152.6 328.4 152.6 244.6 152.6 C160.7 152.6 160.7 152.6 76.9 152.6 C38.4 152.6 38.4 152.6 0.0 152.6 Z" fill="#8a3fc7" stroke="#000" stroke-width="2"><title>Compute</title></path><path d="M0 152.6 C38.4 152.6 38.4 152.6 76.9 152.6 C160.7 152.6 160.7 152.6 244.6 152.6 C328.4 152.6 328.4 152.6 412.3 152.6 C496.1 152.6 496.1 126.6 580.0 126.6 C663.9 126.6 663.9 144.8 747.7 144.8 C831.6 144.8 831.6 134.4 915.4 134.4 C999.3 134.4 999.3 142.2 1083.1 142.2 C1121.6 142.2 1121.6 142.2 1160.0 142.2 L1160 157.8 C1121.6 157.8 1121.6 157.8 1083.1 157.8 C999.3 157.8 999.3 139.6 915.4 139.6 C831.6 139.6 831.6 150.0 747.7 150.0 C663.9 150.0 663.9 199.4 580.0 199.4 C496.1 199.4 496.1 157.8 412.3 157.8 C328.4 157.8 328.4 157.8 244.6 157.8 C160.7 157.8 160.7 157.8 76.9 157.8 C38.4 157.8 38.4 157.8 0.0 157.8 Z" fill="#d97706" stroke="#000" stroke-width="2"><title>Energy</title></path><path d="M0 157.8 C38.4 157.8 38.4 157.8 76.9 157.8 C160.7 157.8 160.7 157.8 244.6 157.8 C328.4 157.8 328.4 157.8 412.3 157.8 C496.1 157.8 496.1 199.4 580.0 199.4 C663.9 199.4 663.9 150.0 747.7 150.0 C831.6 150.0 831.6 139.6 915.4 139.6 C999.3 139.6 999.3 157.8 1083.1 157.8 C1121.6 157.8 1121.6 157.8 1160.0 157.8 L1160 163.0 C1121.6 163.0 1121.6 163.0 1083.1 163.0 C999.3 163.0 999.3 150.0 915.4 150.0 C831.6 150.0 831.6 160.4 747.7 160.4 C663.9 160.4 663.9 261.8 580.0 261.8 C496.1 261.8 496.1 163.0 412.3 163.0 C328.4 163.0 328.4 168.2 244.6 168.2 C160.7 168.2 160.7 168.2 76.9 168.2 C38.4 168.2 38.4 168.2 0.0 168.2 Z" fill="#1b7f3b" stroke="#000" stroke-width="2"><title>Time</title></path><path d="M0 168.2 C38.4 168.2 38.4 168.2 76.9 168.2 C160.7 168.2 160.7 168.2 244.6 168.2 C328.4 168.2 328.4 163.0 412.3 163.0 C496.1 163.0 496.1 261.8 580.0 261.8 C663.9 261.8 663.9 160.4 747.7 160.4 C831.6 160.4 831.6 150.0 915.4 150.0 C999.3 150.0 999.3 163.0 1083.1 163.0 C1121.6 163.0 1121.6 163.0 1160.0 163.0 L1160 173.4 C1121.6 173.4 1121.6 173.4 1083.1 173.4 C999.3 173.4 999.3 176.0 915.4 176.0 C831.6 176.0 831.6 186.4 747.7 186.4 C663.9 186.4 663.9 272.2 580.0 272.2 C496.1 272.2 496.1 168.2 412.3 168.2 C328.4 168.2 328.4 178.6 244.6 178.6 C160.7 178.6 160.7 178.6 76.9 178.6 C38.4 178.6 38.4 178.6 0.0 178.6 Z" fill="#8e8e93" stroke="#000" stroke-width="2"><title>People</title></path></g><text x="76.9" y="138.7" text-anchor="middle" class="stl" style="font-size:12px">Data</text><text x="580.0" y="95.6" text-anchor="middle" class="stl" style="font-size:15px">Compute</text><text x="580.0" y="168.4" text-anchor="middle" class="stl" style="font-size:15px">Energy</text><text x="580.0" y="236.0" text-anchor="middle" class="stl" style="font-size:15px">Time</text><text x="747.7" y="177.7" text-anchor="middle" class="stl" style="font-size:12px">People</text><text x="1156" y="122.0" text-anchor="end" class="stn">continues as</text><text x="1156" y="137.0" text-anchor="end" class="stn">daily use →</text></svg></div>
+<ol class="steps"><li class="step">
+  <h3 class="step-title"><span class="num">1</span>Collect data</h3>
+  <p class="what">Gather text at web scale: crawled pages, books, code, reference works.</p>
+  <p class="fact">GPT-3 started from 45 TB of compressed Common Crawl text.</p>
+  <p class="needs"><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span><span class="chip time"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>Time</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">2</span>Clean and curate</h3>
+  <p class="what">Filter for quality, remove duplicates and unsafe content, balance the mix.</p>
+  <p class="fact">Filtering cut that 45 TB to 570 GB, about 1.3% of the original.</p>
+  <p class="needs"><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span><span class="chip people"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c.8-4 3.8-6 7.5-6s6.700 2 7.500 6"/></svg>People</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">3</span>Tokenize</h3>
+  <p class="what">Split text into sub-word tokens and map each one to a number the model can read.</p>
+  <p class="fact">GPT-3 saw 300 billion tokens; Llama 3.1 saw over 15 trillion.</p>
+  <p class="needs"><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">4</span>Pretrain</h3>
+  <p class="what">Predict the next token, measure the error, adjust billions of weights. Repeat for weeks.</p>
+  <p class="fact">Llama 3.1 405B: 30.84 million GPU-hours on more than 16,000 H100s.</p>
+  <p class="needs"><span class="chip compute"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg>Compute</span><span class="chip energy"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg>Energy</span><span class="chip time"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>Time</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">5</span>Fine-tune and align</h3>
+  <p class="what">Teach the raw model to follow instructions and hold a conversation, using curated examples and human feedback.</p>
+  <p class="fact">Llama 2 used over 1 million new human-annotated examples.</p>
+  <p class="needs"><span class="chip people"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c.8-4 3.8-6 7.5-6s6.700 2 7.500 6"/></svg>People</span><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">6</span>Evaluate and test</h3>
+  <p class="what">Score the model on benchmarks, red-team it for harmful output, and decide whether it is ready.</p>
+  <p class="fact">Llama 3.1 405B scored 85.2 on MMLU (5-shot) in its model card.</p>
+  <p class="needs"><span class="chip people"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c.8-4 3.8-6 7.5-6s6.700 2 7.500 6"/></svg>People</span><span class="chip time"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>Time</span></p>
+</li><li class="step">
+  <h3 class="step-title"><span class="num">7</span>Deploy</h3>
+  <p class="what">Compress the model, serve it behind an API or release the weights, then monitor it in use.</p>
+  <p class="fact">Meta released the Llama weights openly, so others can build on them without repeating the training.</p>
+  <p class="needs"><span class="chip compute"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg>Compute</span><span class="chip energy"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg>Energy</span></p>
+</li></ol>
+<ul class="why"><li class="data"><svg class="why-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg><p><b>Data</b> sets what the model can know. Most raw text is thrown away before training.</p></li><li class="compute"><svg class="why-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg><p><b>Compute</b> sets how large a model can be trained. Chips are 44% of the hardware bill.</p></li><li class="energy"><svg class="why-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg><p><b>Energy</b> is 2 to 6% of the cost and all of the carbon footprint.</p></li><li class="time"><svg class="why-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg><p><b>Time</b> sets how fast a lab can learn. A failed run costs weeks of a whole cluster.</p></li><li class="people"><svg class="why-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5c.8-4 3.8-6 7.5-6s6.700 2 7.500 6"/></svg><p><b>People</b> curate data, tune and test. Staff are 29 to 49% of development cost.</p></li></ul>
+    <p class="stream-cap" style="margin-top:18px">Band thickness is my own estimate from the sources, on a relative scale. No lab publishes a step-by-step breakdown, so read the shape and ignore the exact widths.</p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="band-head">
+      <h2>Inside step 4: the pretraining loop</h2>
+      <p>Almost all of the compute, energy and time goes into one small cycle repeated an enormous number of times.</p>
+    </div>
+    <div class="loopwrap">
+      <div class="scroll"><svg class="loop" viewBox="0 0 900 378" role="img" aria-labelledby="loop-t loop-d"><title id="loop-t">The pretraining loop</title><desc id="loop-d">Five steps in a cycle: take a batch of text, predict the next token, compare the prediction with the real token, adjust the weights, and repeat.</desc><defs><marker id="ah" viewBox="0 0 10 10" refX="8.500" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#86868b"/></marker></defs><g><rect x="24" y="56" width="262" height="100" rx="16" fill="#fff" stroke="#d2d2d7"/><rect x="24" y="72" width="5" height="68" rx="2.500" fill="#0a84c9"/><circle cx="60" cy="90" r="14" fill="#1d1d1f"/><text x="60" y="95" text-anchor="middle" class="ln">1</text><text x="84" y="96" class="lt">Take a batch of text</text><text x="46" y="132" class="ls">“The cat sat on the …”</text></g><g><rect x="319" y="56" width="262" height="100" rx="16" fill="#fff" stroke="#d2d2d7"/><rect x="319" y="72" width="5" height="68" rx="2.500" fill="#8a3fc7"/><circle cx="355" cy="90" r="14" fill="#1d1d1f"/><text x="355" y="95" text-anchor="middle" class="ln">2</text><text x="379" y="96" class="lt">Predict the next token</text><text x="341" y="132" class="ls">mat 41% · floor 22% · sofa 9%</text></g><g><rect x="614" y="56" width="262" height="100" rx="16" fill="#fff" stroke="#d2d2d7"/><rect x="614" y="72" width="5" height="68" rx="2.500" fill="#8a3fc7"/><circle cx="650" cy="90" r="14" fill="#1d1d1f"/><text x="650" y="95" text-anchor="middle" class="ln">3</text><text x="674" y="96" class="lt">Compare with the truth</text><text x="636" y="132" class="ls">Real token: “mat”. The gap is the loss</text></g><g><rect x="614" y="222" width="262" height="100" rx="16" fill="#fff" stroke="#d2d2d7"/><rect x="614" y="238" width="5" height="68" rx="2.500" fill="#d97706"/><circle cx="650" cy="256" r="14" fill="#1d1d1f"/><text x="650" y="261" text-anchor="middle" class="ln">4</text><text x="674" y="262" class="lt">Adjust the weights</text><text x="636" y="298" class="ls">Backpropagation nudges each weight</text></g><g><rect x="24" y="222" width="262" height="100" rx="16" fill="#fff" stroke="#d2d2d7"/><rect x="24" y="238" width="5" height="68" rx="2.500" fill="#1b7f3b"/><circle cx="60" cy="256" r="14" fill="#1d1d1f"/><text x="60" y="261" text-anchor="middle" class="ln">5</text><text x="84" y="262" class="lt">Repeat</text><text x="46" y="298" class="ls">Billions of batches, for weeks</text></g><path d="M290 106H313" stroke="#86868b" stroke-width="2" fill="none" marker-end="url(#ah)"/><path d="M585 106H608" stroke="#86868b" stroke-width="2" fill="none" marker-end="url(#ah)"/><path d="M745 160V216" stroke="#86868b" stroke-width="2" fill="none" marker-end="url(#ah)"/><path d="M608 272H292" stroke="#86868b" stroke-width="2" fill="none" marker-end="url(#ah)"/><path d="M155 218V162" stroke="#86868b" stroke-width="2" fill="none" marker-end="url(#ah)"/><text x="450" y="260" text-anchor="middle" class="lc">one training step</text></svg></div>
+      <div class="loopside">
+        <p>The model reads a stretch of text and guesses the token that comes next. The guess is compared with the real token, and every weight is nudged slightly toward a better guess. No human labels are needed, because the text supplies its own answers.</p>
+        <div class="pair"><div class="callout"><b>175 billion</b><span>weights adjusted in GPT-3</span></div>
+        <div class="callout"><b>300 billion</b><span>tokens, each one a prediction to check</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shade">
+  <div class="inner">
+    <div class="band-head">
+      <h2>One model family, three generations</h2>
+      <p>Meta publishes more training detail than any other frontier lab, so its LLaMA line shows how fast every resource grows from one generation to the next.</p>
+    </div>
+    <div class="panels">
+<figure class="panel">
+  <figcaption><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span><span class="psub">Training tokens, trillions</span></figcaption>
+  <svg class="mini" viewBox="0 0 380 215" role="img" aria-label="Data: LLaMA 65B 1.4T, Llama 2 70B 2T, Llama 3.1 405B 15T"><line x1="20" y1="161" x2="360" y2="161" stroke="#d2d2d7"/><path d="M44 161V153.14666666666668q0-4 4-4h68q4 0 4 4V161z" fill="#0a84c9"><title>LLaMA 65B (Feb 2023): 1.4T</title></path><text x="82.0" y="141.14666666666668" text-anchor="middle" class="bv">1.4T</text><text x="82.0" y="181" text-anchor="middle" class="bl">LLaMA 65B</text><text x="82.0" y="198" text-anchor="middle" class="bd">Feb 2023</text><path d="M152 161V148.06666666666666q0-4 4-4h68q4 0 4 4V161z" fill="#0a84c9"><title>Llama 2 70B (Jul 2023): 2T</title></path><text x="190.0" y="136.06666666666666" text-anchor="middle" class="bv">2T</text><text x="190.0" y="181" text-anchor="middle" class="bl">Llama 2 70B</text><text x="190.0" y="198" text-anchor="middle" class="bd">Jul 2023</text><path d="M260 161V38.0q0-4 4-4h68q4 0 4 4V161z" fill="#0a84c9"><title>Llama 3.1 405B (Jul 2024): 15T</title></path><text x="298.0" y="26.0" text-anchor="middle" class="bv">15T</text><text x="298.0" y="181" text-anchor="middle" class="bl">Llama 3.1 405B</text><text x="298.0" y="198" text-anchor="middle" class="bd">Jul 2024</text></svg>
+  <p class="grow"><b>11×</b> from the first generation to the third</p>
+</figure>
+<figure class="panel">
+  <figcaption><span class="chip compute"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg>Compute and time</span><span class="psub">GPU-hours, millions</span></figcaption>
+  <svg class="mini" viewBox="0 0 380 215" role="img" aria-label="Compute and time: LLaMA 65B 1.03M, Llama 2 70B 1.72M, Llama 3.1 405B 30.84M"><line x1="20" y1="161" x2="360" y2="161" stroke="#d2d2d7"/><path d="M44 161V160.75843060959792q0-4 4-4h68q4 0 4 4V161z" fill="#8a3fc7"><title>LLaMA 65B (Feb 2023): 1.03M</title></path><text x="82.0" y="148.75843060959792" text-anchor="middle" class="bv">1.03M</text><text x="82.0" y="181" text-anchor="middle" class="bl">LLaMA 65B</text><text x="82.0" y="198" text-anchor="middle" class="bd">Feb 2023</text><path d="M152 161V157.91699092088197q0-4 4-4h68q4 0 4 4V161z" fill="#8a3fc7"><title>Llama 2 70B (Jul 2023): 1.72M</title></path><text x="190.0" y="145.91699092088197" text-anchor="middle" class="bv">1.72M</text><text x="190.0" y="181" text-anchor="middle" class="bl">Llama 2 70B</text><text x="190.0" y="198" text-anchor="middle" class="bd">Jul 2023</text><path d="M260 161V38.0q0-4 4-4h68q4 0 4 4V161z" fill="#8a3fc7"><title>Llama 3.1 405B (Jul 2024): 30.84M</title></path><text x="298.0" y="26.0" text-anchor="middle" class="bv">30.84M</text><text x="298.0" y="181" text-anchor="middle" class="bl">Llama 3.1 405B</text><text x="298.0" y="198" text-anchor="middle" class="bd">Jul 2024</text></svg>
+  <p class="grow"><b>30×</b> from the first generation to the third</p>
+</figure>
+<figure class="panel">
+  <figcaption><span class="chip energy"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg>Energy</span><span class="psub">Megawatt-hours (GPU-hours × rated GPU power)</span></figcaption>
+  <svg class="mini" viewBox="0 0 380 215" role="img" aria-label="Energy: LLaMA 65B 413, Llama 2 70B 688, Llama 3.1 405B 21,588"><line x1="20" y1="161" x2="360" y2="161" stroke="#d2d2d7"/><path d="M44 161V161q0-3 3-3h70q3 0 3 3V161z" fill="#d97706"><title>LLaMA 65B (Feb 2023): 413</title></path><text x="82.0" y="150" text-anchor="middle" class="bv">413</text><text x="82.0" y="181" text-anchor="middle" class="bl">LLaMA 65B</text><text x="82.0" y="198" text-anchor="middle" class="bd">Feb 2023</text><path d="M152 161V160.95256624050398q0-4 4-4h68q4 0 4 4V161z" fill="#d97706"><title>Llama 2 70B (Jul 2023): 688</title></path><text x="190.0" y="148.95256624050398" text-anchor="middle" class="bv">688</text><text x="190.0" y="181" text-anchor="middle" class="bl">Llama 2 70B</text><text x="190.0" y="198" text-anchor="middle" class="bd">Jul 2023</text><path d="M260 161V38.0q0-4 4-4h68q4 0 4 4V161z" fill="#d97706"><title>Llama 3.1 405B (Jul 2024): 21,588</title></path><text x="298.0" y="26.0" text-anchor="middle" class="bv">21,588</text><text x="298.0" y="181" text-anchor="middle" class="bl">Llama 3.1 405B</text><text x="298.0" y="198" text-anchor="middle" class="bd">Jul 2024</text></svg>
+  <p class="grow"><b>52×</b> from the first generation to the third</p>
+</figure>
+    </div>
+    <p class="chart-note">Each panel has its own scale. GPU-hours for LLaMA 65B are calculated from the paper (2,048 GPUs × 21 days). Energy is calculated as GPU-hours × the rated power Meta reports (400 W for the A100, 700 W for the H100), so it leaves out cooling and other overhead that Meta did not report separately.</p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="inner">
+    <div class="band-head">
+      <h2>What the bill looks like</h2>
+      <p>Independent estimates put the compute for one frontier training run in the tens to hundreds of millions of dollars, and the chips are where most of that goes.</p>
+    </div>
+    <div class="costgrid">
+      <div class="cardbox">
+        <h3>Compute cost of the final training run</h3>
+        <p class="csub">Estimated at cloud rental prices, US dollars, logarithmic scale. Each gridline is ten times the one below it.</p>
+        <svg class="cost" viewBox="0 0 640 350" role="img" aria-labelledby="cost-t cost-d"><title id="cost-t">Estimated compute cost of the final training run, 2017 to 2023</title><desc id="cost-d">Dot plot on a logarithmic dollar scale. Transformer (2017) $930; RoBERTa Large (2019) $160K; GPT-3 (2020) $4.3M; PaLM (2022) $12.4M; Llama 2 70B (2023) $3.9M; GPT-4 (2023) $78M; Gemini Ultra (2023) $191M.</desc><line x1="64" y1="265.7" x2="510" y2="265.7" stroke="#d2d2d7"/><text x="54" y="269.7" text-anchor="end" class="ax">$1K</text><line x1="64" y1="225.4" x2="510" y2="225.4" stroke="#d2d2d7"/><text x="54" y="229.4" text-anchor="end" class="ax">$10K</text><line x1="64" y1="185.1" x2="510" y2="185.1" stroke="#d2d2d7"/><text x="54" y="189.1" text-anchor="end" class="ax">$100K</text><line x1="64" y1="144.9" x2="510" y2="144.9" stroke="#d2d2d7"/><text x="54" y="148.9" text-anchor="end" class="ax">$1M</text><line x1="64" y1="104.6" x2="510" y2="104.6" stroke="#d2d2d7"/><text x="54" y="108.6" text-anchor="end" class="ax">$10M</text><line x1="64" y1="64.3" x2="510" y2="64.3" stroke="#d2d2d7"/><text x="54" y="68.3" text-anchor="end" class="ax">$100M</text><text x="94.4" y="328" text-anchor="middle" class="ax">2017</text><text x="155.3" y="328" text-anchor="middle" class="ax">2018</text><text x="216.1" y="328" text-anchor="middle" class="ax">2019</text><text x="277.0" y="328" text-anchor="middle" class="ax">2020</text><text x="337.9" y="328" text-anchor="middle" class="ax">2021</text><text x="398.7" y="328" text-anchor="middle" class="ax">2022</text><text x="459.6" y="328" text-anchor="middle" class="ax">2023</text><circle cx="94.4" cy="267.0" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>Transformer (2017): about $930</title></circle><text x="106.4" y="271.0" text-anchor="start" class="pl">Transformer <tspan class="pv">$930</tspan></text><circle cx="216.1" cy="176.9" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>RoBERTa Large (2019): about $160,018</title></circle><text x="228.1" y="180.9" text-anchor="start" class="pl">RoBERTa Large <tspan class="pv">$160K</tspan></text><circle cx="277.0" cy="119.2" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>GPT-3 (2020): about $4,324,883</title></circle><text x="265.0" y="111.2" text-anchor="end" class="pl">GPT-3 <tspan class="pv">$4.3M</tspan></text><circle cx="398.7" cy="100.8" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>PaLM (2022): about $12,389,056</title></circle><text x="386.7" y="92.8" text-anchor="end" class="pl">PaLM <tspan class="pv">$12.4M</tspan></text><circle cx="459.6" cy="120.9" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>Llama 2 70B (2023): about $3,931,897</title></circle><text x="473.6" y="134.9" text-anchor="start" class="pl">Llama 2 70B <tspan class="pv">$3.9M</tspan></text><circle cx="459.6" cy="68.6" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>GPT-4 (2023): about $78,352,034</title></circle><text x="473.6" y="74.6" text-anchor="start" class="pl">GPT-4 <tspan class="pv">$78M</tspan></text><circle cx="459.6" cy="52.9" r="7" fill="#8a3fc7" stroke="#f5f5f7" stroke-width="2"><title>Gemini Ultra (2023): about $191,400,000</title></circle><text x="473.6" y="52.9" text-anchor="start" class="pl">Gemini Ultra <tspan class="pv">$191M</tspan></text></svg>
+        <div class="rate"><b>2.4× a year</b><span>Growth in the cost of the largest training runs since 2016.</span></div>
+      </div>
+      <div>
+        <div class="cardbox">
+          <h3>Where the hardware money goes</h3>
+          <p class="csub">Hardware and energy cost of a training run, average across frontier models.</p>
+          <svg class="stack" viewBox="0 0 560 150" role="img" aria-label="Hardware-side cost of a training run: AI accelerator chips 44 percent, Other server parts 29 percent, Cluster networking 17 percent, Energy 9 percent"><rect x="0.0" y="46" width="246.9" height="40" rx="4" fill="#8a3fc7"><title>AI accelerator chips: 44%</title></rect><text x="2.0" y="34" class="sv">44%</text><text x="2.0" y="106" class="sl">AI accelerator</text><text x="2.0" y="123" class="sl">chips</text><rect x="248.9" y="46" width="162.0" height="40" rx="4" fill="#b08ad9"><title>Other server parts: 29%</title></rect><text x="250.9" y="34" class="sv">29%</text><text x="250.9" y="106" class="sl">Other server</text><text x="250.9" y="123" class="sl">parts</text><rect x="412.9" y="46" width="94.2" height="40" rx="4" fill="#d3bdea"><title>Cluster networking: 17%</title></rect><text x="414.9" y="34" class="sv">17%</text><text x="414.9" y="106" class="sl">Cluster</text><text x="414.9" y="123" class="sl">networking</text><rect x="509.1" y="46" width="50.9" height="40" rx="4" fill="#d97706"><title>Energy: 9%</title></rect><text x="511.1" y="34" class="sv">9%</text><text x="511.1" y="106" class="sl">Energy</text></svg>
+        </div>
+        <div class="cardbox">
+          <h3>The whole development budget</h3>
+          <p class="csub">Share of total cost for GPT-4 and Gemini Ultra class models, with staff included. Shown as ranges.</p>
+          <svg class="ranges" viewBox="0 0 560 166" role="img" aria-label="Share of total development cost: Hardware 47 to 67 percent, R&D staff 29 to 49 percent, Energy 2 to 6 percent"><line x1="96.0" y1="4" x2="96.0" y2="136" stroke="#d2d2d7"/><text x="96.0" y="156" text-anchor="middle" class="ax">0%</text><line x1="151.5" y1="4" x2="151.5" y2="136" stroke="#d2d2d7"/><text x="151.5" y="156" text-anchor="middle" class="ax">10%</text><line x1="207.0" y1="4" x2="207.0" y2="136" stroke="#d2d2d7"/><text x="207.0" y="156" text-anchor="middle" class="ax">20%</text><line x1="262.5" y1="4" x2="262.5" y2="136" stroke="#d2d2d7"/><text x="262.5" y="156" text-anchor="middle" class="ax">30%</text><line x1="318.0" y1="4" x2="318.0" y2="136" stroke="#d2d2d7"/><text x="318.0" y="156" text-anchor="middle" class="ax">40%</text><line x1="373.5" y1="4" x2="373.5" y2="136" stroke="#d2d2d7"/><text x="373.5" y="156" text-anchor="middle" class="ax">50%</text><line x1="429.0" y1="4" x2="429.0" y2="136" stroke="#d2d2d7"/><text x="429.0" y="156" text-anchor="middle" class="ax">60%</text><line x1="484.5" y1="4" x2="484.5" y2="136" stroke="#d2d2d7"/><text x="484.5" y="156" text-anchor="middle" class="ax">70%</text><line x1="540.0" y1="4" x2="540.0" y2="136" stroke="#d2d2d7"/><text x="540.0" y="156" text-anchor="middle" class="ax">80%</text><text x="0" y="27" class="sl">Hardware</text><rect x="356.9" y="12" width="111.0" height="22" rx="4" fill="#8a3fc7"><title>Hardware: 47 to 67% of development cost</title></rect><text x="475.9" y="28" class="sv2">47–67%</text><text x="0" y="71" class="sl">R&D staff</text><rect x="256.9" y="56" width="111.0" height="22" rx="4" fill="#6e6e73"><title>R&D staff: 29 to 49% of development cost</title></rect><text x="375.9" y="72" class="sv2">29–49%</text><text x="0" y="115" class="sl">Energy</text><rect x="107.1" y="100" width="22.2" height="22" rx="4" fill="#d97706"><title>Energy: 2 to 6% of development cost</title></rect><text x="137.3" y="116" class="sv2">2–6%</text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shade">
+  <div class="inner">
+    <div class="band-head">
+      <h2>Who tells you what training took</h2>
+      <p>A filled square is a figure the developer published. The empty squares are the finding: three of the four labs publish almost nothing about their recent models.</p>
+    </div>
+    <div class="scroll"><table class="disc">
+<thead><tr><th scope="col" class="first">Model</th><th scope="col"><span class="chip data"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>Data</span></th><th scope="col"><span class="chip compute"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><rect x="10" y="10" width="4" height="4"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg>Compute</span></th><th scope="col"><span class="chip energy"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></svg>Energy</span></th><th scope="col"><span class="chip time"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>Time</span></th><th scope="col"><span class="chip cost">Cost</span></th><th scope="col" class="count">Published</th></tr></thead>
+<tbody><tr><th scope="row"><span class="mname">GPT-3</span><span class="mwho">OpenAI, 2020</span></th><td><div class="cell"><span class="sq P data" title="GPT-3, data: published by the developer"></span><span class="sqv">300B tokens</span></div></td><td><div class="cell"><span class="sq P compute" title="GPT-3, compute: published by the developer"></span><span class="sqv">3.14 × 10²³ operations</span></div></td><td><div class="cell"><span class="sq E energy" title="GPT-3, energy: estimate or calculation only"></span><span class="sqv">1,287 MWh</span></div></td><td><div class="cell"><span class="sq E time" title="GPT-3, time: estimate or calculation only"></span><span class="sqv">≈ 15 days</span></div></td><td><div class="cell"><span class="sq E cost" title="GPT-3, cost: estimate or calculation only"></span><span class="sqv">$4.3M</span></div></td><td class="count"><b>2</b> of 5</td></tr><tr><th scope="row"><span class="mname">GPT-4</span><span class="mwho">OpenAI, 2023</span></th><td><div class="cell"><span class="sq N data" title="GPT-4, data: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N compute" title="GPT-4, compute: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N energy" title="GPT-4, energy: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N time" title="GPT-4, time: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq E cost" title="GPT-4, cost: estimate or calculation only"></span><span class="sqv">$78M</span></div></td><td class="count"><b>0</b> of 5</td></tr><tr><th scope="row"><span class="mname">Gemini Ultra</span><span class="mwho">Google, 2023</span></th><td><div class="cell"><span class="sq N data" title="Gemini Ultra, data: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N compute" title="Gemini Ultra, compute: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N energy" title="Gemini Ultra, energy: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N time" title="Gemini Ultra, time: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq E cost" title="Gemini Ultra, cost: estimate or calculation only"></span><span class="sqv">$191M</span></div></td><td class="count"><b>0</b> of 5</td></tr><tr><th scope="row"><span class="mname">Claude</span><span class="mwho">Anthropic</span></th><td><div class="cell"><span class="sq N data" title="Claude, data: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N compute" title="Claude, compute: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N energy" title="Claude, energy: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq N time" title="Claude, time: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td><div class="cell"><span class="sq E cost" title="Claude, cost: estimate or calculation only"></span><span class="sqv">≈ $100M class</span></div></td><td class="count"><b>0</b> of 5</td></tr><tr><th scope="row"><span class="mname">LLaMA 65B</span><span class="mwho">Meta, Feb 2023</span></th><td><div class="cell"><span class="sq P data" title="LLaMA 65B, data: published by the developer"></span><span class="sqv">1.4T tokens</span></div></td><td><div class="cell"><span class="sq P compute" title="LLaMA 65B, compute: published by the developer"></span><span class="sqv">2,048 A100 GPUs</span></div></td><td><div class="cell"><span class="sq P energy" title="LLaMA 65B, energy: published by the developer"></span><span class="sqv">2,638 MWh, project</span></div></td><td><div class="cell"><span class="sq P time" title="LLaMA 65B, time: published by the developer"></span><span class="sqv">21 days</span></div></td><td><div class="cell"><span class="sq N cost" title="LLaMA 65B, cost: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td class="count"><b>4</b> of 5</td></tr><tr><th scope="row"><span class="mname">Llama 2 70B</span><span class="mwho">Meta, Jul 2023</span></th><td><div class="cell"><span class="sq P data" title="Llama 2 70B, data: published by the developer"></span><span class="sqv">2T tokens</span></div></td><td><div class="cell"><span class="sq P compute" title="Llama 2 70B, compute: published by the developer"></span><span class="sqv">1.72M GPU-hours</span></div></td><td><div class="cell"><span class="sq P energy" title="Llama 2 70B, energy: published by the developer"></span><span class="sqv">291 t CO₂e</span></div></td><td><div class="cell"><span class="sq P time" title="Llama 2 70B, time: published by the developer"></span><span class="sqv">Jan to Jul 2023</span></div></td><td><div class="cell"><span class="sq E cost" title="Llama 2 70B, cost: estimate or calculation only"></span><span class="sqv">$3.9M</span></div></td><td class="count"><b>4</b> of 5</td></tr><tr><th scope="row"><span class="mname">Llama 3.1 405B</span><span class="mwho">Meta, Jul 2024</span></th><td><div class="cell"><span class="sq P data" title="Llama 3.1 405B, data: published by the developer"></span><span class="sqv">15T+ tokens</span></div></td><td><div class="cell"><span class="sq P compute" title="Llama 3.1 405B, compute: published by the developer"></span><span class="sqv">30.84M GPU-hours</span></div></td><td><div class="cell"><span class="sq P energy" title="Llama 3.1 405B, energy: published by the developer"></span><span class="sqv">8,930 t CO₂e</span></div></td><td><div class="cell"><span class="sq E time" title="Llama 3.1 405B, time: estimate or calculation only"></span><span class="sqv">≈ 80 days</span></div></td><td><div class="cell"><span class="sq N cost" title="Llama 3.1 405B, cost: not disclosed"></span><span class="sqv"><span class="sr">not disclosed</span></span></div></td><td class="count"><b>3</b> of 5</td></tr></tbody></table></div>
+    <p class="key"><span class="k"><span class="sq P"></span>Published by the developer</span><span class="k"><span class="sq E"></span>Independent estimate or my calculation only</span><span class="k"><span class="sq N"></span>Not disclosed</span><br>
+    Cost is compute for the final run at cloud rental prices (AI Index). Priced as owned hardware plus energy, GPT-4 is about $40M and Gemini Ultra about $30M (Cottier et al.). The Claude figure is a 2024 remark by Anthropic's CEO about models then in service. LLaMA 65B energy covers the whole five-month project. Llama emissions are location-based.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="inner">
+    <div class="band-head">
+      <h2>Three things to take away</h2>
+      <p>For anyone planning, funding or evaluating an AI project.</p>
+    </div>
+    <div class="takes">
+      <div class="take"><b>1</b><h3>Pretraining is the expensive step</h3><p>Six of the seven steps matter for quality, but one of them consumes nearly all of the compute, energy and time.</p></div>
+      <div class="take"><b>2</b><h3>The four resources scale together</h3><p>More data needs more compute, which draws more energy for more time. In Meta's line, data grew 11 times while GPU-hours grew 30 times.</p></div>
+      <div class="take"><b>3</b><h3>Few can afford the frontier</h3><p>With costs multiplying 2.4 times a year, training from scratch belongs to a handful of labs. Most teams build on a model someone else trained.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot light">
+  <div class="inner">
+    <div>
+      <p><strong>Sources</strong></p>
+      <ol><li>Brown et al. (2020), <em>Language models are few-shot learners</em>: GPT-3 size, data and filtering.</li><li>Patterson et al. (2021), <em>Carbon emissions and large neural network training</em>: GPT-3 energy, emissions, GPU count and days.</li><li>Touvron et al. (2023), LLaMA and Llama 2 papers; Meta (2024), Llama 3.1 model card and launch post: tokens, GPUs, GPU-hours, emissions.</li><li>Maslej et al. (2024), <em>AI Index Report 2024</em>, Stanford HAI: training cost estimates at cloud rental prices.</li><li>Cottier et al. (2024), <em>The rising costs of training frontier AI models</em>: cost shares, owned-hardware estimates, 2.4× yearly growth.</li><li>Saul and Bass (2023), Bloomberg: US-homes comparison. Morales (2024), Tom's Hardware: Anthropic CEO on $100M and $1B runs.</li><li>Wolfram (2023), <em>What is ChatGPT doing … and why does it work?</em>: the next-token training loop.</li></ol>
+    </div>
+    <div class="credit">
+      <p>Chittaranjan Rath</p>
+      <p>AIML-501 Model Development</p>
+      <p>Indiana Wesleyan University, November 2026</p>
+    </div>
+  </div>
+</footer>
+<script>(function(){var D={"data": {"gpt3": ["300 billion", "tokens of text", "≈ 1,700 years of nonstop reading"], "llama2": ["2 trillion", "tokens of text", "≈ 11,000 years of nonstop reading"], "llama31": ["15 trillion+", "tokens of text", "≈ 85,000 years of nonstop reading"]}, "compute": {"gpt3": ["≈ 3.55 million", "GPU-hours on V100s", "≈ 400 years on a single GPU"], "llama2": ["1.72 million", "GPU-hours on A100s", "≈ 200 years on a single GPU"], "llama31": ["30.84 million", "GPU-hours on H100s", "≈ 3,500 years on a single GPU"]}, "energy": {"gpt3": ["1,287", "megawatt-hours", "≈ 120 US homes for a year"], "llama2": ["≈ 688", "megawatt-hours", "≈ 64 US homes for a year"], "llama31": ["≈ 21,600", "megawatt-hours", "≈ 2,000 US homes for a year"]}, "time": {"gpt3": ["≈ 15 days", "on about 10,000 GPUs", "Two weeks of a whole cluster"], "llama2": ["Not published", "run length for the 70B model", "Trained between Jan and Jul 2023"], "llama31": ["≈ 80 days", "on 16,000+ GPUs, nonstop", "Nearly a quarter of a year"]}},C={"gpt3": "GPT-3, OpenAI, 2020. Hardware, days and energy are independent estimates (Patterson et al., 2021).", "llama2": "Llama 2 70B, Meta, July 2023. Energy is calculated from published GPU-hours.", "llama31": "Llama 3.1 405B, Meta, July 2024. Energy and days are calculated from published GPU-hours."},O=["gpt3", "llama2", "llama31"];
+var btns=document.querySelectorAll('.switch button');
+function show(m){var i=O.indexOf(m);
+  document.querySelectorAll('.tile').forEach(function(t){var d=D[t.dataset.key][m];
+    t.querySelector('.big').textContent=d[0];t.querySelector('.unit').textContent=d[1];t.querySelector('.human').textContent=d[2];
+    t.querySelectorAll('.sb').forEach(function(b){b.classList.toggle('on',+b.dataset.i===i);});});
+  document.querySelector('.tiles-cap').textContent=C[m];
+  btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.model===m?'true':'false');});}
+btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.model);});});})();</script>
+</body>
+</html>

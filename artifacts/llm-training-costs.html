@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What It Takes to Train a Large Language Model: portfolio artifact by Chittaranjan Rath</title>
+<meta name="description" content="Portfolio artifact: an infographic of the seven steps in training a generative AI large language model and the data, compute, energy and time they consume, with documented figures for GPT-3, GPT-4, Gemini Ultra, LLaMA and Claude.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../index.html#bio">About</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="artifact-head">
+    <p class="crumb"><a href="../index.html#artifacts">Artifacts</a> / What It Takes to Train a Large Language Model</p>
+    <h1>What It Takes to Train a Large Language Model: Process and Resource Costs</h1>
+    <p class="meta">Infographic with an explanatory document, delivered as a live web page, a PNG, and a PDF. Created for AIML-501 Model Development, Indiana Wesleyan University, November 2026.</p>
+  </div>
+
+  <figure class="artifact-figure">
+    <a href="../infographic/llm-training/index.html"><img src="../assets/img/llm-training-costs.png" alt="Infographic titled What it takes to train a large language model. On a dark opening band, four tiles give the data, compute, energy and time behind Llama 3.1 405B with everyday comparisons. Below them the seven-step pipeline is drawn as a flowing band that stays thin through data preparation, swells at pretraining, and narrows again. Further bands show the pretraining loop, bar charts of three LLaMA generations, cost charts, and a chart of filled and empty squares showing which labs publish their training figures." width="1400" height="5477"></a>
+    <figcaption>The full infographic. On the web version a switch above the tiles changes the model between GPT-3, Llama 2 70B and Llama 3.1 405B, and the charts show exact values on hover. The PNG and PDF are the same page exported at poster size.</figcaption>
+    <ul class="downloads">
+      <li><a href="../infographic/llm-training/index.html">View the infographic online</a></li>
+      <li><a href="../assets/downloads/llm-training-costs.png" download>Download PNG</a></li>
+      <li><a href="../assets/downloads/llm-training-costs.pdf" download>Download PDF</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_LLM_Training_Explanatory_Document.docx" download>Explanatory document (Word)</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_LLM_Training_Explanatory_Document.pdf" download>Explanatory document (PDF)</a></li>
+    </ul>
+  </figure>
+
+  <div class="artifact-body">
+    <nav class="rail" aria-label="On this page">
+      <p class="rail-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#classification">How the content was classified</a></li>
+        <li><a href="#tools">Tools and technologies used</a></li>
+        <li><a href="#value-proposition">Value proposition</a></li>
+        <li><a href="#unique-value">Unique value</a></li>
+        <li><a href="#relevance">Relevance</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <article class="artifact-main">
+      <h2 id="introduction">Introduction</h2>
+      <p>This artifact is an infographic on how generative AI large language models are trained and what the training consumes, built as my third directed artifact for AIML-501 Model Development. It follows a model from raw text to deployment in seven steps and accounts for the four resources the assignment names: data, compute, energy, and time. Every figure on it is tied to a named model and a published source, so a reader who has to plan, fund, or evaluate an AI project can see the scale involved and check where each number came from.</p>
+
+      <h2 id="description">Description</h2>
+      <p>The infographic reads from top to bottom in seven bands. The dark opening band states the idea in one sentence and puts four numbers behind it, one per resource, each paired with an everyday comparison. For Llama 3.1 405B those are more than 15 trillion tokens (about 85,000 years of nonstop reading), 30.84 million GPU-hours (about 3,500 years on a single GPU), roughly 21,600 megawatt-hours (about 2,000 American homes for a year), and about 80 days on more than 16,000 GPUs (Meta, 2024a, 2024b). Small bars in each tile compare three models, and on the web version a switch replaces the numbers with those for GPT-3 or Llama 2 70B.</p>
+      <p>The second band is the centerpiece: the pipeline drawn to scale. Seven numbered steps (collect data, clean and curate, tokenize, pretrain, fine-tune and align, evaluate and test, deploy) sit under four phase labels (prepare, train, refine, release). A band made of five colored layers, one per resource, flows through them. Each layer is as thick as the demand that step puts on that resource, so the band runs thin through preparation, swells to several times its width at pretraining, and narrows again, with the people layer becoming the widest during fine-tuning and evaluation. Under the band, each step has a plain description, one real figure, and chips for its main resources, and a row of five short statements says what each resource contributes. A third band opens up step 4 with a diagram of the pretraining loop: take a batch of text, predict the next token, compare with the real one, adjust the weights, repeat.</p>
+      <p>The fourth band compares three generations of Meta's flagship model in three small bar charts, one each for data, GPU-hours, and energy. The fifth covers money: a chart of estimated training cost from the original Transformer in 2017 ($930) to Gemini Ultra in 2023 ($191 million) on a logarithmic scale (Maslej et al., 2024), a bar splitting hardware cost into chips, servers, networking, and energy, and a range chart for the whole development budget including staff (Cottier et al., 2024). The sixth band is a disclosure chart: seven models by five kinds of figure, with a filled square where the developer published the number, a striped square where only an estimate exists, and an empty square where nothing has been disclosed. The last band states three takeaways.</p>
+
+      <h2 id="objective">Objective</h2>
+      <p>The assignment asked for a graphic that illustrates the key steps in training a generative AI large language model, from data collection through deployment, and the primary resources involved, with examples from specific models and visual elements that make the material accessible to varied audiences. My own objective was to produce something I could hand to a manager who is deciding between building on a hosted model and training one, and have the scale of that decision be obvious in a minute. I also wanted to be strict about evidence, because this topic attracts a lot of loosely sourced numbers.</p>
+
+      <h2 id="process">Process</h2>
+      <ol class="step-list">
+        <li>Worked through the assigned material first. The IBM Technology (2023) video gave the overall shape of pretraining and fine-tuning, and Wolfram (2023) gave the mechanics of next-token prediction along with the observation that GPT-3's 175 billion weights were fitted to a few hundred billion words of text.</li>
+        <li>Went to primary sources for the numbers: the GPT-3 paper (Brown et al., 2020), the LLaMA and Llama 2 papers (Touvron, Lavril, et al., 2023; Touvron, Martin, et al., 2023), Meta's Llama 3.1 model card and launch post (Meta, 2024a, 2024b), the Google and Berkeley study of training energy (Patterson et al., 2021), the Stanford AI Index (Maslej et al., 2024), and the Epoch AI cost study (Cottier et al., 2024).</li>
+        <li>Recorded every figure in one data file with its source and one of three labels: published by the developer, independent estimate, or my own calculation. Anything I could not trace to one of those was left out. That removed several widely repeated figures for GPT-4's size and hardware.</li>
+        <li>Decided the structure before the layout: steps grouped into phases, costs grouped into resources, and one diagram to connect the two. The classification section below explains those choices.</li>
+        <li>Chose the visual encoding. Color is reserved for the four resources and never used for anything else, each color always appears with an icon and a word, and each chart shows one resource so the color stays meaningful. I checked the four colors with a palette validator for color-vision deficiency, on both the light and the dark background, and replaced the first blue after it failed against the purple.</li>
+        <li>Built the page in code. A Python script holds the data and generates the tiles, the scale diagram, the loop diagram, the charts, and the disclosure chart as inline SVG and HTML, so a corrected number updates everywhere at once. Exported the PNG and PDF from the same page with headless Chromium.</li>
+        <li>Reviewed the render and fixed what I found: text overflowing two boxes in the loop diagram, two colliding labels on the hardware bar, and a clipped label on the range chart. Then checked every number on the page against its source one more time.</li>
+        <li>Reviewed the first complete version for impact and judged that it was accurate but read like a report, with no single image a viewer would remember. Rebuilt it around the scale diagram, which replaced seven equal-sized step cards and a dot grid, added everyday comparisons and the model switch to the opening tiles, turned a text-heavy model table into the disclosure chart, removed a band of resource cards that repeated figures shown elsewhere, and gave the opening a dark treatment so the artifact has its own look within the portfolio.</li>
+      </ol>
+
+      <h3 id="classification">How the content was classified</h3>
+      <p>The material had to be sorted twice, once by when something happens and once by what it costs. For the first sort I grouped the seven steps into four phases. Prepare covers collecting, cleaning, and tokenizing, which all act on text before any model exists. Train is pretraining alone. Refine covers fine-tuning and evaluation, which both act on a model that already works and loop back on each other. Release is deployment. I kept pretraining as a phase of its own even though it is one step, because it consumes nearly all of the compute, energy, and time, and folding it in with other steps would have hidden the single most important fact on the page.</p>
+      <p>For the second sort I used the four resources the assignment names and added a fifth, people. The sources made that necessary: research staff account for 29 to 49 percent of the full development cost of a frontier model (Cottier et al., 2024), and fine-tuning and evaluation are mostly human work. People appear in grey so the four assigned resources stay visually primary. Time was the hardest category to keep separate, since GPU-hours measure compute and time at once. I settled on treating GPU-hours as the shared unit and using wall-clock days for time wherever a source gave them.</p>
+      <p>Two rules governed how individual facts were sorted. A resource chip appears on a step card only where that resource is a main constraint on the step, which is why tokenizing carries only a data chip although it uses a little of everything. The thickness of each layer in the scale diagram is my own judgment from the sources, on a relative scale, and the page says so, because no lab publishes a breakdown of resources by step. The second rule concerned evidence. Each figure was classified as developer-published, independent estimate, or calculated, and the disclosure chart draws the last two as striped squares. This mattered most for cost, where the same model has very different numbers depending on method: GPT-4 is $78 million at cloud rental prices and $40 million as amortized hardware plus energy.</p>
+      <p>Sorting the content this way showed three things. The cost of training is concentrated in one step out of seven. The resources are coupled, so growth in data pulls compute, energy, and time up with it; across three LLaMA generations data grew about 11 times while GPU-hours grew about 30 times. And disclosure itself sorts the labs into two groups: Meta publishes tokens, GPU-hours, and emissions, while OpenAI, Google, and Anthropic have published almost nothing comparable for their recent models, which is why the disclosure chart has so many empty squares.</p>
+
+      <h2 id="tools">Tools and technologies used</h2>
+      <ul>
+        <li>Python 3 for the data file and the page generator</li>
+        <li>HTML5 and CSS (grid layout, custom properties) for the responsive page</li>
+        <li>Inline SVG, generated in code, for the icons, the scale diagram, the loop diagram, and the charts</li>
+        <li>A few lines of plain JavaScript for the model switch</li>
+        <li>A palette validator for color-vision-deficiency checks on the four resource colors</li>
+        <li>Playwright with Chromium for the PNG and PDF exports</li>
+        <li>Inter typeface, self-hosted under the SIL Open Font License</li>
+        <li>Git and GitHub Pages for version control and hosting</li>
+        <li>Claude (Anthropic) as a research, drafting, and review assistant</li>
+      </ul>
+
+      <h2 id="value-proposition">Value proposition</h2>
+      <p>For a hiring manager or a teammate, this artifact shows that I can turn an infrastructure question into something a decision-maker can act on. It demonstrates that I understand the full training lifecycle, that I can find and weigh primary sources, and that I am careful about the difference between a measured number, an estimate, and a guess. It supports my personal value proposition directly: making AI dependable in production starts with knowing what a model cost to create, what it will cost to run, and which of those costs a team actually controls.</p>
+
+      <h2 id="unique-value">Unique value</h2>
+      <p>Most graphics on this topic show either a pipeline diagram or a list of large numbers. This one connects the two in a single drawing, so the reader can see which step is responsible for which cost before reading anything. It labels the evidence behind every figure and shows an empty square where a lab has not disclosed the data, which is more useful than filling the gap with rumor. It uses one model family across three generations to show growth with like-for-like data. And where my first two artifacts covered which algorithm to choose and how a network learns, this one covers what it takes to train a model at industrial scale, which rounds out the set with infrastructure and cost reasoning.</p>
+
+      <h2 id="relevance">Relevance</h2>
+      <p>My work is retrieval-augmented generation over internal document collections, and the first design decision on any such project is whether to use a hosted model as it is, fine-tune one, or train something smaller in-house. The infographic is the background for that decision: it shows why pretraining from scratch is out of reach for almost every organization, and why fine-tuning and retrieval are where most teams should spend their effort. The energy and cost bands also feed directly into the capacity and budget conversations that come with running models in production. The artifact maps onto the assignment outcomes on illustrating the training process, explaining its resource costs, and communicating infrastructure visually.</p>
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        <li>Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D. M., Wu, J., Winter, C., … Amodei, D. (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems, 33</em>, 1877–1901. https://arxiv.org/abs/2005.14165</li>
+        <li>Cottier, B., Rahman, R., Fattorini, L., Maslej, N., Besiroglu, T., &amp; Owen, D. (2024). <em>The rising costs of training frontier AI models</em>. arXiv. https://arxiv.org/abs/2405.21015</li>
+        <li>IBM Technology. (2023, July 28). <em>How large language models work</em> [Video]. YouTube. https://www.youtube.com/watch?v=5sLYAQS9sWQ</li>
+        <li>Maslej, N., Fattorini, L., Perrault, R., Parli, V., Reuel, A., Brynjolfsson, E., Etchemendy, J., Ligett, K., Lyons, T., Manyika, J., Niebles, J. C., Shoham, Y., Wald, R., &amp; Clark, J. (2024). <em>The AI Index 2024 annual report</em>. Stanford Institute for Human-Centered AI. https://hai.stanford.edu/ai-index/2024-ai-index-report</li>
+        <li>Meta. (2024a, July 23). <em>Introducing Llama 3.1: Our most capable models to date</em>. https://ai.meta.com/blog/meta-llama-3-1/</li>
+        <li>Meta. (2024b). <em>Llama 3.1 model card</em>. GitHub. https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md</li>
+        <li>Morales, J. (2024, July 7). AI models that cost $1 billion to train are underway, $100 billion models coming — largest current models take 'only' $100 million to train: Anthropic CEO. <em>Tom's Hardware</em>. https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-models-that-cost-dollar1-billion-to-train-are-in-development-dollar100-billion-models-coming-soon-largest-current-models-take-only-dollar100-million-to-train-anthropic-ceo</li>
+        <li>Patterson, D., Gonzalez, J., Le, Q., Liang, C., Munguia, L.-M., Rothchild, D., So, D., Texier, M., &amp; Dean, J. (2021). <em>Carbon emissions and large neural network training</em>. arXiv. https://arxiv.org/abs/2104.10350</li>
+        <li>Saul, J., &amp; Bass, D. (2023, March 9). Artificial intelligence is booming—so is its carbon footprint. <em>Bloomberg</em>. https://www.bloomberg.com/news/articles/2023-03-09/how-much-energy-do-ai-and-chatgpt-use-no-one-knows-for-sure</li>
+        <li>Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F., Rodriguez, A., Joulin, A., Grave, E., &amp; Lample, G. (2023). <em>LLaMA: Open and efficient foundation language models</em>. arXiv. https://arxiv.org/abs/2302.13971</li>
+        <li>Touvron, H., Martin, L., Stone, K., Albert, P., Almahairi, A., Babaei, Y., Bashlykov, N., Batra, S., Bhargava, P., Bhosale, S., Bikel, D., Blecher, L., Canton Ferrer, C., Chen, M., Cucurull, G., Esiobu, D., Fernandes, J., Fu, J., Fu, W., … Scialom, T. (2023). <em>Llama 2: Open foundation and fine-tuned chat models</em>. arXiv. https://arxiv.org/abs/2307.09288</li>
+        <li>Wolfram, S. (2023, February 14). <em>What is ChatGPT doing … and why does it work?</em> Stephen Wolfram Writings. https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -13,7 +13,9 @@ The `.nojekyll` file tells GitHub Pages to serve the files exactly as they are.
 ## Layout
 
 ```
-index.html                                   home: value proposition, artifact list, bio, earlier coursework button
+index.html                                   home: value proposition, artifact list, about me, skills, earlier coursework button
+artifacts/llm-training-costs.html            AIML-501 directed artifact 3: the LLM training infographic (nine required fields)
+infographic/llm-training/index.html          the LLM training infographic as a live web page
 artifacts/neural-network-components.html     AIML-501 directed artifact 2: the neural network presentation (nine required fields)
 artifacts/ml-algorithm-framework.html        AIML-501 directed artifact 1 (nine required fields)
 artifacts/decision-tree-fruit-classification.html   AIML-501 additional artifact
@@ -53,3 +55,13 @@ node build/neural-network-deck/deck.js               # the .pptx (pptxgenjs, rea
 ```
 
 Then export the PDF with LibreOffice, render the slide images with `pdftoppm`, and copy them into `assets/downloads/` and `assets/slides/neural-network-components/`. The slideshow page reads the images by number, so the file names must stay `slide-01.jpg` to `slide-15.jpg`.
+
+## Regenerate the LLM training infographic
+
+Every figure, with its source, lives in `build/build_llm_training.py`. After editing it:
+
+```
+python3 build/build_llm_training.py    # rewrites infographic/llm-training/index.html
+node build/export_llm_training.js      # rewrites the PNG, PDF, preview and thumbnail (needs Playwright with Chromium)
+node build/explanatory_doc.js          # rewrites the explanatory Word document (needs the docx package)
+```

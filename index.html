@@ -16,7 +16,8 @@
     </a>
     <nav class="site-nav" aria-label="Site">
       <a href="#artifacts">Artifacts</a>
-      <a href="#bio">Bio</a>
+      <a href="#bio">About</a>
+      <a href="#skills">Skills</a>
       <a href="previous-coursework/index.html">Earlier coursework</a>
     </nav>
   </div>
@@ -40,6 +41,15 @@
     <h2 id="artifacts-heading">Artifacts</h2>
     <p>Each artifact is a finished piece of work from my graduate coursework, with the objective, process, tools, and value it demonstrates. The collection grows as the program progresses.</p>
     <ul class="artifact-list">
+      <li>
+        <a href="artifacts/llm-training-costs.html"><img class="thumb" src="assets/img/llm-training-costs-thumb.png" alt="Top of the infographic What it takes to train a large language model, showing four resource tiles on a dark band above the pipeline drawn to scale" width="1400" height="1050" loading="lazy"></a>
+        <div>
+          <h3><a href="artifacts/llm-training-costs.html">What it takes to train a large language model: process and resource costs</a></h3>
+          <p class="meta">Infographic with an explanatory document. AIML-501 Model Development, Indiana Wesleyan University. November 2026.</p>
+          <p>The seven steps that turn raw text into a deployed model, and the data, compute, energy and time they consume. The pipeline is drawn to scale as a flowing band that swells at pretraining, a switch compares GPT-3, Llama 2 and Llama 3.1, and charts trace three LLaMA generations and the rise in training cost from $930 in 2017 to $191 million in 2023. A disclosure chart shows which labs publish their training figures for GPT-3, GPT-4, Gemini Ultra, LLaMA and Claude.</p>
+          <p><a href="artifacts/llm-training-costs.html">Read the artifact</a></p>
+        </div>
+      </li>
       <li>
         <a href="artifacts/neural-network-components.html"><img class="thumb" src="assets/img/neural-network-components-thumb.jpg" alt="Title slide of the Inside a Neural Network presentation above its architecture slide" width="1400" height="1050" loading="lazy"></a>
         <div>
@@ -71,7 +81,7 @@
   </section>
 
   <section class="section" id="bio" aria-labelledby="bio-heading">
-    <h2 id="bio-heading">Professional bio</h2>
+    <h2 id="bio-heading">About me</h2>
     <p>I am a software engineer who builds the systems behind data-heavy products. From 2020 to early 2026 I was a software development engineer at a global e-commerce company, where I designed and ran services that priced and moved goods at scale: a cross-marketplace rule framework that kept listings consistent across five European marketplaces, a contract pricing pipeline that priced freight bookings against a large rate card and fed billing and reconciliation, and an automation service that turned a multi-day manual rate card process into a job that finishes within an hour. I led small teams of engineers on these projects, mentored interns, and wrote the design documents and runbooks that kept the systems running after I moved on.</p>
     <p>Toward the end of that time my work shifted toward applied AI: an internal rate intelligence platform that used retrieval-augmented generation to turn spreadsheets of carrier rates into lane-level pricing comparisons, and a hackathon project that read a design document and generated infrastructure code from it, which was approved for production. I now work on an AI/ML team at a large bank, building retrieval-augmented generation systems over internal document collections: semantic search, document chunking, summarization, and question answering, delivered as Python microservices.</p>
     <p>I hold an M.Tech from IIIT Hyderabad and a B.Tech from VSSUT Burla, and I am completing a Master of Science in Computer and Information Sciences with an AI concentration at Indiana Wesleyan University. Before that I spent several years in IT services. My goal is a staff engineer role on an AI infrastructure team, working on the hard problems of making models reliable, observable, and affordable in production.</p>
@@ -81,6 +91,19 @@
       <dt>Previously</dt><dd>Software development engineer at a global e-commerce company (2020 to 2026); IT services before that</dd>
       <dt>Education</dt><dd>M.Tech, IIIT Hyderabad; B.Tech, VSSUT Burla; MS in progress, Indiana Wesleyan University</dd>
       <dt>Core tools</dt><dd>Java, Python, AWS, DynamoDB, Spark, React, LLM and RAG pipelines</dd>
+    </dl>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <p>The skills and technologies I use most, grouped by the kind of work they support. Each artifact above shows several of them in use.</p>
+    <dl class="facts">
+      <dt>AI and machine learning</dt><dd>Retrieval-augmented generation, semantic and vector search, document chunking and ingestion, summarization and question answering, LLM integration, evaluation of RAG pipelines, classical machine learning with scikit-learn</dd>
+      <dt>Languages</dt><dd>Python, Java, JavaScript</dd>
+      <dt>Data engineering</dt><dd>Spark and AWS Glue pipelines, Parquet, Athena, reconciliation checks, pipeline monitoring and alarms</dd>
+      <dt>Cloud and services</dt><dd>AWS, DynamoDB, Python microservices on OpenShift, React front ends</dd>
+      <dt>Analysis and visualization</dt><dd>NumPy, Matplotlib, charts and diagrams generated in code as SVG, infographic and slide design</dd>
+      <dt>Engineering practice</dt><dd>System design documents, runbooks, on-call operations, mentoring, technical writing with sourced evidence</dd>
     </dl>
   </section>
 
