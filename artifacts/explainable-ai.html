@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Did the Model Say That? Explainable AI for large language models: portfolio artifact by Chittaranjan Rath</title>
+<meta name="description" content="Portfolio artifact: an infographic on explainable AI for large language models, covering what it is and why it matters, why it is hard, how validation and performance metrics build trust, and what Anthropic, OpenAI, Google and Meta are doing to open the black box.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html" aria-label="Chittaranjan Rath, home">
+      <span class="mark" aria-hidden="true"><span class="t"></span><span class="v"></span><span class="l"></span><span class="g"></span></span>
+      Chittaranjan Rath
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html#artifacts" aria-current="page">Artifacts</a>
+      <a href="../index.html#bio">About</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../previous-coursework/index.html">Earlier coursework</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="artifact-head">
+    <p class="crumb"><a href="../index.html#artifacts">Artifacts</a> / Why Did the Model Say That?</p>
+    <h1>Why Did the Model Say That? Explainable AI, Validation, and Metrics for Large Language Models</h1>
+    <p class="meta">Infographic with an explanatory document, delivered as a live web page, a PNG, and a PDF. Created for AIML-501 Model Development, Indiana Wesleyan University, November 2026.</p>
+  </div>
+
+  <figure class="artifact-figure">
+    <a href="../infographic/explainable-ai/index.html"><img src="../assets/img/explainable-ai.png" alt="Infographic titled Why did the model say that. A dark opening band relates explainability, validation and metrics to trust, then shows two large panels comparing what a model said about adding 36 and 59 with what it did inside, and two grids showing written reasoning admitted a hint 25 and 39 times in 100. Further bands define explainable AI in one drawing, show five obstacles with small diagrams and three rule dates, map three ways of looking at a model with a timeline of work by Anthropic, OpenAI, Google and Meta, lay out the validation cycle beside a seven-sided report card of evaluation metrics, and chart transparency scores for the four labs. A small box beside each heading opens further down the page." width="1400" height="6821"></a>
+    <figcaption>The full infographic. On the web version the two opening panels appear one after the other, a pulse runs along the path the answer took through the model, and a switch highlights one way of looking at a time. The PNG and PDF are the same page exported at poster size.</figcaption>
+    <ul class="downloads">
+      <li><a href="../infographic/explainable-ai/index.html">View the infographic online</a></li>
+      <li><a href="../assets/downloads/explainable-ai.png" download>Download PNG</a></li>
+      <li><a href="../assets/downloads/explainable-ai.pdf" download>Download PDF</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_Explainable_AI_Explanatory_Document.docx" download>Explanatory document (Word)</a></li>
+      <li><a href="../assets/downloads/Rath_AIML501_Explainable_AI_Explanatory_Document.pdf" download>Explanatory document (PDF)</a></li>
+    </ul>
+  </figure>
+
+  <div class="artifact-body">
+    <nav class="rail" aria-label="On this page">
+      <p class="rail-title">On this page</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#description">Description</a></li>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#classification">How the content was classified</a></li>
+        <li><a href="#tools">Tools and technologies used</a></li>
+        <li><a href="#value-proposition">Value proposition</a></li>
+        <li><a href="#unique-value">Unique value</a></li>
+        <li><a href="#relevance">Relevance</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <article class="artifact-main">
+      <h2 id="introduction">Introduction</h2>
+      <p>This artifact is an infographic on explainable AI for large language models, built as my fourth directed artifact for AIML-501 Model Development. It is written for a reader with no technical background who has to decide whether a model such as GPT, Claude, Gemini, or Llama can be relied on in a field like healthcare, finance, or law. It covers the four things the assignment asks for: what explainable AI is and why it matters, why it is hard, how validation and performance metrics build trust, and what the leading labs are doing about it. Every figure on it is tied to a named source.</p>
+
+      <h2 id="description">Description</h2>
+      <p>The infographic reads from top to bottom in seven bands. The dark opening band asks the question in the title, and a single row under it states the relationship the whole page argues for: explainability plus validation plus metrics equals trust that can be defended. The rest of the band is the centerpiece. Two large panels sit side by side with an unequal sign between them. The left panel shows a short chat in which a Claude model adds 36 and 59 and then explains that it carried the 1. The right panel shows what interpretability researchers found inside the model during the same sum: two paths running in parallel, one estimating the rough size of the answer and one working out the last digit (Anthropic, 2025a). Under the panels, two grids of one hundred squares show how often two reasoning models mentioned a hint that had changed their answer, 25% for Claude 3.7 Sonnet and 39% for DeepSeek R1 (Chen et al., 2025).</p>
+      <p>Two devices run down the whole page. Four colors keep one meaning each: asking the model, testing it from outside, looking inside it, and validating and measuring it. And a small box sits beside every heading, solid black at the top of the page, with its cover sliding a little further off in each band until the network inside is fully visible at the takeaways.</p>
+      <p>The second band defines the terms in one drawing, using the NIST AI Risk Management Framework. A question goes into a model and an answer comes out to a person. Explainability points into the model (how was the decision made), interpretability points at the answer reaching the person (why, and what does it mean for me), and transparency spans the whole path (what happened) (National Institute of Standards and Technology [NIST], 2023). Three icons below give one concrete duty to explain from finance, healthcare, and law. The third band presents five obstacles. Four have a small diagram each: scale, tangled concepts, explanations written after the fact, and flawed data. The fifth is three dated cards from the rules that ask for explanations in the United States and the European Union.</p>
+      <p>The fourth band covers current solutions. A diagram follows one question through a model and marks the three places to look, and each one is labeled on the drawing with its techniques, its strength, and its limit. Attention maps and probing sit under looking inside, with a note that attention weights often disagree with other measures of what mattered (Jain &amp; Wallace, 2019). Below it, a timeline with one lane per lab places eleven dated pieces of work from Anthropic, OpenAI, Google, and Meta between 2023 and 2026. The fifth band covers validation and metrics: the three-step validation cycle from the 2026 US bank guidance next to a report card that draws the seven HELM metrics as a seven-sided chart, with a note that standard evaluation raised coverage of core test scenarios from 17.9% to 96.0% across 30 models (Liang et al., 2023). The scores on the report card are invented and labeled as an illustration. The sixth band charts the Foundation Model Transparency Index scores of the four labs for 2024 and 2025 (Wan et al., 2025), and the last band gives three takeaways.</p>
+
+      <h2 id="objective">Objective</h2>
+      <p>The assignment asked for a professional infographic or slide presentation that defines explainable AI and its importance, highlights the challenges including model complexity, opaque decision-making and regulation, demonstrates how validation and performance metrics assess reliability, and visualizes what industry leaders are doing, all for a non-technical audience. My own objective was narrower. I wanted a reader to leave with one idea they could use the next day: an explanation from a model is a claim that needs evidence, and validation and metrics are where that evidence comes from.</p>
+
+      <h2 id="process">Process</h2>
+      <ol class="step-list">
+        <li>Started from the assignment's background notes on opacity, post-hoc explanations, data quality, attention and probing, and chain-of-thought prompting, and listed what each note would need in order to be shown with evidence.</li>
+        <li>Went to primary sources. For the labs I used their own publications: Anthropic's work on features and attribution graphs (Anthropic, 2024, 2025a, 2025b, 2026), OpenAI's neuron explanations, sparse autoencoders and monitorability evaluations (Bills et al., 2023; OpenAI, 2024, 2025), Google DeepMind's Gemma Scope and Google's thought summaries (Basu Mallick et al., 2025; Lieberum et al., 2024), and Meta's Captum library (Miglani et al., 2023).</li>
+        <li>Checked the rules against current sources, which changed two things I had assumed. The EU moved its high-risk requirements, including Article 13, from August 2026 to December 2027 (Goodwin Procter, 2026), and US bank regulators replaced the 2011 model risk guidance in April 2026 with a version that leaves generative AI out of scope (Board of Governors of the Federal Reserve System et al., 2026).</li>
+        <li>Recorded every figure in one data file with its source. Two of the 2024 transparency scores are calculated from changes the 2025 report states, and the chart says so. Two drawings are illustrations and say so: the neuron linked to four unrelated topics uses made-up labels, and the report card uses invented scores.</li>
+        <li>Decided the structure before the layout. The classification section below explains how the techniques and the trust-building activities were sorted.</li>
+        <li>Chose the centerpiece. Explainability is abstract, so I looked for a single case a reader could follow without background, and the addition example was the clearest one in the sources: the answer is right, the explanation sounds right, and the two do not match.</li>
+        <li>Built the page in code. A Python script holds the data and generates the panels, diagrams, timeline, and charts as inline SVG and HTML, so a corrected number updates everywhere at once. The four colors are the ones I validated for color-vision deficiency on light and dark backgrounds for the previous artifact. Exported the PNG and PDF from the same page with headless Chromium.</li>
+        <li>Scored the first complete version against the rubric and made three changes: added attention maps and probing to the look-inside group, moved the row that relates explainability, validation, and metrics from the end of the page to the top, and expanded the explanatory document.</li>
+        <li>Reviewed that version for visual impact and judged that it was accurate but read like a report below the second band. Rebuilt it so the comparison of what the model said and did is the opening image at about twice the size, added the box that opens down the page, replaced the three definition cards with one drawing and the technique cards with labels on the model diagram, drew the seven metrics as a report card, cut the regulation timeline to three dated cards, and added the reveal and the pulse to the web version. The page came out about 13% shorter. Reviewed the render in strips and fixed what I found: labels on the lab timeline that ran into the lane below, text overflowing the boxes of the validation cycle and the outside-test label, and year labels colliding with event markers on the regulation timeline. Then checked every number on the page against its source one more time.</li>
+      </ol>
+
+      <h3 id="classification">How the content was classified</h3>
+      <p>The material was sorted in two ways. The first sort was by where a technique looks, because the names in the literature (chain-of-thought, attribution, probing, sparse autoencoders, circuits) mean little to a non-technical reader while the position of the observer is easy to picture. Asking the model covers chain-of-thought prompting and the reasoning summaries now built into products. Testing from outside covers methods that change the input and watch the output, including the attribution scores Captum produces. Looking inside covers features, attribution graphs, and the natural language autoencoders Anthropic published in 2026. Attention visualization and probing from the assignment notes belong with looking inside, since both read the model's internal state. I listed them in that group with their main limit and gave the drawing to features and circuits, because that is where the lab work I could source has moved.</p>
+      <p>The second sort separated explaining from checking. Explainability asks how an answer was made. Validation asks whether there is evidence the model does its job, and metrics express that evidence as numbers. Keeping these apart mattered because the sources show they can disagree: a model can give a correct answer with an explanation that does not describe what it did (Anthropic, 2025a). Validation and metrics therefore get their own color and their own band, and the row under the title shows them as separate terms that add up to trust.</p>
+      <p>Two rules governed individual items. A piece of lab work went on the timeline only if it had a date and a public source from the lab or a peer-reviewed venue, which is why Meta has one solid dot and one hollow one: I found one piece of Meta's own explainability tooling, and the hollow dot records work another group did on Meta's open Llama weights (Anthropic, 2025b). Each way of looking also had to carry a limit reported in the sources, such as OpenAI's note that running GPT-4 through its 16 million features costs about as much performance as training with ten times less compute (OpenAI, 2024).</p>
+      <p>Sorting the content this way showed three things. Most of the published lab effort is going into looking inside, which is the hardest and least complete of the three. The easiest method, asking the model, is the one with measured evidence of unreliability. And the regulation is uneven: the rules that demand explanations are the ones being delayed or scoped away from generative models, which leaves validation and metrics as the part of trust an organization can act on today.</p>
+
+      <h2 id="tools">Tools and technologies used</h2>
+      <ul>
+        <li>Python 3 for the data file and the page generators</li>
+        <li>HTML5 and CSS (grid layout, custom properties) for the responsive page</li>
+        <li>Inline SVG, generated in code, for the icons, the opening box motif, the two-panel comparison, the definition drawing, the obstacle diagrams, the model diagram, the lab timeline, the validation cycle, the report card, and the transparency chart</li>
+        <li>A few lines of plain JavaScript and an SVG motion path for the reveal of the opening panels, the pulse through the model, and the switch that highlights one way of looking</li>
+        <li>Playwright with Chromium for the PNG and PDF exports and for reviewing the render</li>
+        <li>The docx library for the explanatory document, and LibreOffice for its PDF</li>
+        <li>Inter typeface, self-hosted under the SIL Open Font License</li>
+        <li>Git and GitHub Pages for version control and hosting</li>
+        <li>Claude (Anthropic) as a research, drafting, and review assistant</li>
+      </ul>
+
+      <h2 id="value-proposition">Value proposition</h2>
+      <p>For a hiring manager or a teammate, this artifact shows that I can explain a research-heavy topic to the people who have to approve, audit, or use an AI system. It demonstrates that I can read primary research and regulation, keep the two current, and state the limits of each method as plainly as its strengths. It supports my personal value proposition directly: AI that ships with the same guarantees as any other production service needs evidence that it works, and this artifact lays out where that evidence comes from.</p>
+
+      <h2 id="unique-value">Unique value</h2>
+      <p>Most material on explainable AI either lists techniques or argues that transparency matters. This artifact opens with a worked case in which a model's explanation and its behavior can be compared directly, so the reader sees the problem before reading a definition. It organizes techniques by where they look, which a non-technical reader can picture, and gives each one a limit from its own authors. It also treats validation and metrics as an equal partner to explainability and ties them to the model risk practice banks already follow. Within my portfolio it shows a different skill from the earlier artifacts, which covered choosing algorithms, how a network learns, and what training costs: this one is about governance, evaluation, and communicating risk.</p>
+
+      <h2 id="relevance">Relevance</h2>
+      <p>My work is retrieval-augmented generation over internal document collections in financial services, where a wrong answer has to be traceable and a model has to pass validation before it is used. The infographic is close to a checklist for that work. Asking the model for its reasoning is a starting point and needs checking against the retrieved sources. Testing from outside is how a retrieval pipeline is evaluated in practice. The seven metrics are the columns of an evaluation report, and the three validation checks are what a model risk team will ask for. The artifact maps onto the assignment outcomes on explaining the obstacles to interpreting generative models, describing industry techniques, showing the role of validation and metrics, and conveying all of it visually to a non-technical audience.</p>
+
+      <h2 id="references">References</h2>
+      <ul class="refs">
+        <li>Anthropic. (2024, May 21). <em>Mapping the mind of a large language model</em>. https://www.anthropic.com/research/mapping-mind-language-model</li>
+        <li>Anthropic. (2025a, March 27). <em>Tracing the thoughts of a large language model</em>. https://www.anthropic.com/research/tracing-thoughts-language-model</li>
+        <li>Anthropic. (2025b, May 29). <em>Open-sourcing circuit tracing tools</em>. https://www.anthropic.com/research/open-source-circuit-tracing</li>
+        <li>Anthropic. (2026, May 7). <em>Natural language autoencoders: Turning Claude's thoughts into text</em>. https://www.anthropic.com/research/natural-language-autoencoders</li>
+        <li>Basu Mallick, S., Kilpatrick, L., Fortin, A., &amp; Solovyev, I. (2025, May 23). <em>Gemini API I/O updates</em>. Google Developers Blog. https://developers.googleblog.com/en/gemini-api-io-updates/</li>
+        <li>Bills, S., Cammarata, N., Mossing, D., Tillman, H., Gao, L., Goh, G., Sutskever, I., Leike, J., Wu, J., &amp; Saunders, W. (2023, May 9). <em>Language models can explain neurons in language models</em>. OpenAI. https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html</li>
+        <li>Board of Governors of the Federal Reserve System, Federal Deposit Insurance Corporation, &amp; Office of the Comptroller of the Currency. (2026, April 17). <em>Revised guidance on model risk management</em> (SR Letter 26-2). https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf</li>
+        <li>Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D. M., Wu, J., Winter, C., … Amodei, D. (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems, 33</em>, 1877–1901. https://arxiv.org/abs/2005.14165</li>
+        <li>Chen, Y., Benton, J., Radhakrishnan, A., Uesato, J., Denison, C., Schulman, J., Somani, A., Hase, P., Wagner, M., Roger, F., Mikulik, V., Bowman, S., Leike, J., Kaplan, J., &amp; Perez, E. (2025). <em>Reasoning models don't always say what they think</em>. arXiv. https://arxiv.org/abs/2505.05410</li>
+        <li>Consumer Financial Protection Bureau. (2023, September 19). <em>Consumer financial protection circular 2023-03: Adverse action notification requirements and the proper use of the CFPB's sample forms provided in Regulation B</em>. https://files.consumerfinance.gov/f/documents/cfpb_adverse_action_notice_circular_2023-09.pdf</li>
+        <li>Goodwin Procter. (2026, August). <em>Not delayed, not deferred: EU AI Act transparency obligations are now in force</em>. https://www.goodwinlaw.com/en/insights/publications/2026/08/alerts-technology-dpc-eu-ai-act-transparency-obligations-now-in-force</li>
+        <li>Jain, S., &amp; Wallace, B. C. (2019). Attention is not explanation. In <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</em> (pp. 3543–3556). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1357</li>
+        <li>Liang, P., Bommasani, R., Lee, T., Tsipras, D., Soylu, D., Yasunaga, M., Zhang, Y., Narayanan, D., Wu, Y., Kumar, A., Newman, B., Yuan, B., Yan, B., Zhang, C., Cosgrove, C., Manning, C. D., Ré, C., Acosta-Navas, D., Hudson, D. A., … Koreeda, Y. (2023). Holistic evaluation of language models. <em>Transactions on Machine Learning Research</em>. https://arxiv.org/abs/2211.09110</li>
+        <li>Lieberum, T., Rajamanoharan, S., Conmy, A., Smith, L., Sonnerat, N., Varma, V., Kramár, J., Dragan, A., Shah, R., &amp; Nanda, N. (2024). <em>Gemma Scope: Open sparse autoencoders everywhere all at once on Gemma 2</em>. arXiv. https://arxiv.org/abs/2408.05147</li>
+        <li>Meta. (2024). <em>Llama 3.1 model card</em>. GitHub. https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md</li>
+        <li>Miglani, V., Yang, A., Markosyan, A. H., Garcia-Olano, D., &amp; Kokhlikyan, N. (2023). Using Captum to explain generative language models. In <em>Proceedings of the 3rd Workshop for Natural Language Processing Open Source Software (NLP-OSS 2023)</em> (pp. 165–173). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.nlposs-1.19</li>
+        <li>National Institute of Standards and Technology. (2023). <em>Artificial intelligence risk management framework (AI RMF 1.0)</em> (NIST AI 100-1). https://doi.org/10.6028/NIST.AI.100-1</li>
+        <li>OpenAI. (2024, June 6). <em>Extracting concepts from GPT-4</em>. https://openai.com/index/extracting-concepts-from-gpt-4/</li>
+        <li>OpenAI. (2025, December 18). <em>Evaluating chain-of-thought monitorability</em>. https://openai.com/index/evaluating-chain-of-thought-monitorability/</li>
+        <li>Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act). (2024). <em>Official Journal of the European Union, L 2024/1689</em>. https://eur-lex.europa.eu/eli/reg/2024/1689/oj</li>
+        <li>Turpin, M., Michael, J., Perez, E., &amp; Bowman, S. R. (2023). <em>Language models don't always say what they think: Unfaithful explanations in chain-of-thought prompting</em>. arXiv. https://arxiv.org/abs/2305.04388</li>
+        <li>Wan, A., Klyman, K., Kapoor, S., Maslej, N., Longpre, S., Xiong, B., Liang, P., &amp; Bommasani, R. (2025). <em>The 2025 Foundation Model Transparency Index</em>. arXiv. https://arxiv.org/abs/2512.10169</li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>Professional portfolio for the Master of Science in Computer and Information Sciences, AI concentration, at Indiana Wesleyan University.</p>
+    <p>Last updated November 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

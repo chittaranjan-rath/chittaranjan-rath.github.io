@@ -14,6 +14,8 @@ The `.nojekyll` file tells GitHub Pages to serve the files exactly as they are.
 
 ```
 index.html                                   home: value proposition, artifact list, about me, skills, earlier coursework button
+artifacts/explainable-ai.html                AIML-501 directed artifact 4: the explainable AI infographic (nine required fields)
+infographic/explainable-ai/index.html        the explainable AI infographic as a live web page
 artifacts/llm-training-costs.html            AIML-501 directed artifact 3: the LLM training infographic (nine required fields)
 infographic/llm-training/index.html          the LLM training infographic as a live web page
 artifacts/neural-network-components.html     AIML-501 directed artifact 2: the neural network presentation (nine required fields)
@@ -64,4 +66,15 @@ Every figure, with its source, lives in `build/build_llm_training.py`. After edi
 python3 build/build_llm_training.py    # rewrites infographic/llm-training/index.html
 node build/export_llm_training.js      # rewrites the PNG, PDF, preview and thumbnail (needs Playwright with Chromium)
 node build/explanatory_doc.js          # rewrites the explanatory Word document (needs the docx package)
+```
+
+## Regenerate the explainable AI infographic
+
+Every figure, with its source, lives in `build/build_explainable_ai.py`, and the reference list lives in `build/explainable_ai_refs.json`. After editing either:
+
+```
+python3 build/build_explainable_ai.py        # rewrites infographic/explainable-ai/index.html
+node build/export_explainable_ai.js          # rewrites the PNG, PDF, preview and thumbnail (needs Playwright with Chromium)
+python3 build/build_explainable_ai_page.py   # rewrites artifacts/explainable-ai.html (text, image height, references)
+node build/explainable_ai_doc.js             # rewrites the explanatory Word document (needs the docx package)
 ```
